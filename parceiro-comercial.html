@@ -1312,52 +1312,38 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parceria Comercial Elite — The Elite Agency</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Parceria Comercial Elite — Resultados & Comparação</title>
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://res.cloudinary.com/dooigd0d3/image/upload/v1766771870/GENERATION-removebg-preview_yfwn01.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        /* ==================== GLOBAL RESET & BASE ==================== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --color-bg: #0a0a0a;
-            --color-surface: #141414;
-            --color-text: #f5f5f5;
-            --color-text-muted: #999;
-            --color-accent: #ffd700;
-            --spacing-xs: 8px;
-            --spacing-sm: 16px;
-            --spacing-md: 24px;
-            --spacing-lg: 40px;
-            --spacing-xl: 60px;
-            --radius-sm: 8px;
-            --radius-md: 12px;
-            --radius-lg: 16px;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #000000;
-            color: var(--color-text);
-            line-height: 1.6;
+        /* ========== GLOBAL RESET & BASE ========== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html, body {
             overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+        }
+        
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', system-ui, sans-serif; 
+            background: #000; 
+            color: #fff; 
+            line-height: 1.6; 
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .container { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            padding: 0 40px;
+            width: 100%;
         }
 
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
+        /* ========== SHARED COMPONENTS ========== */
         .section-intro {
             text-align: center;
             max-width: 900px;
@@ -1396,53 +1382,6 @@
             color: rgba(255, 255, 255, 0.7);
             line-height: 1.7;
             margin-bottom: 40px;
-        }
-
-        /* ==================== BUTTONS ==================== */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 18px 36px;
-            border-radius: 12px;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-            font-size: 16px;
-        }
-
-        .btn-solid {
-            background: #ffffff;
-            color: #000000;
-            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
-        }
-
-        .btn-solid:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 32px rgba(255, 255, 255, 0.25);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: rgba(255, 255, 255, 0.85);
-        }
-
-        .btn-outline:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .btn svg {
-            width: 20px;
-            height: 20px;
-            transition: transform 0.3s ease;
-        }
-
-        .btn:hover svg {
-            transform: translateX(4px);
         }
 
         /* ========== CASOS DE SUCESSO ========== */
@@ -1648,10 +1587,18 @@
             margin-top: 40px;
         }
 
-        /* ========== COMPARAÇÃO DETALHADA ========== */
+        /* ========== COMPARAÇÃO DETALHADA - DESKTOP ========== */
         .detailed-comparison {
             padding: 100px 0;
             background: rgba(255, 255, 255, 0.01);
+        }
+
+        .comparison-wrapper-desktop {
+            display: block;
+        }
+
+        .comparison-wrapper-mobile {
+            display: none;
         }
 
         .comparison-table {
@@ -1785,7 +1732,910 @@
             justify-content: center;
         }
 
-        /* ========== GARANTIAS ========== */
+        /* ========== COMPARAÇÃO - MOBILE CARDS ========== */
+        .mobile-comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .mobile-plan-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 28px 24px;
+            position: relative;
+        }
+
+        .mobile-plan-card.featured {
+            border-color: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .mobile-plan-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.1);
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .mobile-plan-header {
+            text-align: center;
+            margin-bottom: 28px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .mobile-plan-header h3 {
+            font-size: 24px;
+            font-weight: 400;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        .mobile-plan-header .price {
+            font-size: 32px;
+            font-weight: 500;
+            color: #ffffff;
+            margin: 0;
+        }
+
+        .mobile-plan-header .price span {
+            font-size: 18px;
+            font-weight: 200;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .mobile-feature-group {
+            margin-bottom: 28px;
+        }
+
+        .mobile-feature-group:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .mobile-feature-group h4 {
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 16px;
+        }
+
+        .mobile-feature-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .mobile-feature-item:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-feature-label {
+            font-size: 14px;
+            font-weight: 200;
+            color: rgba(255, 255, 255, 0.8);
+            flex: 1;
+        }
+
+        .mobile-feature-value {
+            font-size: 14px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.95);
+            text-align: right;
+            flex-shrink: 0;
+            margin-left: 16px;
+        }
+
+        .mobile-feature-value.muted {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .mobile-plan-cta {
+            margin-top: 28px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* ========== BUTTONS ========== */
+        .btn-outline,
+        .btn-solid {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 28px;
+            font-size: 15px;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            width: 100%;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-solid {
+            background: #ffffff;
+            color: #000000;
+            border: none;
+            gap: 12px;
+            padding: 18px 36px;
+            font-size: 16px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-solid:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(255, 255, 255, 0.25);
+        }
+
+        .btn-solid svg {
+            transition: transform 0.3s ease;
+        }
+
+        .btn-solid:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* ========== CTA FINAL ========== */
+        .final-cta {
+            padding: 120px 0;
+            background: #000000;
+            position: relative;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 1400px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1) 50%, transparent);
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .cta-label {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 24px;
+        }
+
+        .cta-content h2 {
+            font-size: clamp(40px, 6vw, 56px);
+            font-weight: 200;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+            color: #ffffff;
+        }
+
+        .cta-content h2 strong {
+            font-weight: 500;
+        }
+
+        .cta-content > p {
+            font-size: 18px;
+            font-weight: 200;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+            margin-bottom: 48px;
+        }
+
+        .cta-process {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+
+        .process-step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 500;
+            color: #ffffff;
+            margin: 0 auto 12px;
+        }
+
+        .process-step p {
+            font-size: 14px;
+            font-weight: 200;
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0;
+        }
+
+        .process-step p strong {
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .process-arrow {
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .cta-note {
+            font-size: 14px;
+            font-weight: 200;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 24px;
+            font-style: italic;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .cases-grid {
+                grid-template-columns: 1fr;
+                max-width: 600px;
+                margin: 0 auto 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 0 25px; }
+
+            .case-studies,
+            .detailed-comparison {
+                padding: 60px 0;
+            }
+
+            .final-cta {
+                padding: 80px 0;
+            }
+
+            .case-card {
+                padding: 28px 20px;
+            }
+
+            .case-results {
+                grid-template-columns: 1fr;
+            }
+
+            .logo-container {
+                width: 72px;
+                height: 72px;
+            }
+
+            .investment-tag {
+                font-size: 9px;
+                padding: 3px 8px;
+            }
+
+            /* MOSTRAR VERSÃO MOBILE DA COMPARAÇÃO */
+            .comparison-wrapper-desktop {
+                display: none;
+            }
+
+            .comparison-wrapper-mobile {
+                display: block;
+            }
+
+            .cta-content h2 {
+                font-size: 36px;
+            }
+
+            .cta-process {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .process-arrow {
+                transform: rotate(90deg);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-intro > p {
+                font-size: 16px;
+            }
+
+            .stat-number {
+                font-size: 48px;
+            }
+
+            .result-number {
+                font-size: 22px;
+            }
+
+            .mobile-plan-header h3 {
+                font-size: 22px;
+            }
+
+            .mobile-plan-header .price {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ==================== CASOS DE SUCESSO ==================== -->
+<section class="case-studies">
+    <div class="container">
+        <div class="section-intro">
+            <span class="section-label">Resultados Verificáveis, Não Promessas</span>
+            <h2>Estes Números São Reais.<br>Estes <strong>Investimentos</strong> Também.</h2>
+            <p>Não escondemos quanto os nossos parceiros investiram nem quanto ganharam. <strong>Transparência total</strong> porque trabalhamos apenas com empresários sérios que entendem que crescimento estratégico exige investimento, não milagres.</p>
+            
+            <div class="central-stat">
+                <span class="stat-number">€30.500</span>
+                <p class="stat-label">Investimento total dos nossos 2 parceiros estratégicos de e-commerce que transformaram os seus negócios nos últimos 18 meses</p>
+            </div>
+        </div>
+
+        <div class="cases-grid">
+            
+            <!-- Case 1: RelieflyLab -->
+            <div class="case-card">
+                <div class="investment-tag">Projeto: €18k</div>
+                <div class="case-header">
+                    <div class="logo-container">
+                        <img src="https://res.cloudinary.com/dooigd0d3/image/upload/v1766771945/Reliefly_Lab_Logo_White_sam8fz.png" alt="RelieflyLab Logo">
+                    </div>
+                    <h3 class="brand-name">RelieflyLab</h3>
+                    <span class="case-industry">E-commerce · Wellness</span>
+                </div>
+                <div class="case-challenge">
+                    <h4>Desafio</h4>
+                    <p>Nova marca de wellness sem presença digital, zero infraestrutura de e-commerce, necessidade de sistema completo do zero.</p>
+                </div>
+                <div class="case-solution">
+                    <h4>Solução</h4>
+                    <ul>
+                        <li>Website e-commerce completo otimizado</li>
+                        <li>Sistema de funis integrado (<strong>conversão 7%+</strong>)</li>
+                        <li>Estratégia de conteúdo wellness educacional</li>
+                        <li>Email automation com sequências personalizadas</li>
+                    </ul>
+                </div>
+                <div class="case-results">
+                    <div class="result-item">
+                        <span class="result-number">€18.000</span>
+                        <span class="result-label">Investimento Total</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-number">12x</span>
+                        <span class="result-label">ROI em 18 meses</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-number">Diárias</span>
+                        <span class="result-label">Vendas Consistentes</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case 2: ORGHEAL -->
+            <div class="case-card">
+                <div class="investment-tag">Projeto: €12.5k</div>
+                <div class="case-header">
+                    <div class="logo-container">
+                        <img src="https://res.cloudinary.com/dooigd0d3/image/upload/v1766771926/logo_no_backgr_rlzocd.png" alt="ORGHEAL Logo">
+                    </div>
+                    <h3 class="brand-name">ORGHEAL</h3>
+                    <span class="case-industry">E-commerce · Produtos Naturais</span>
+                </div>
+                <div class="case-challenge">
+                    <h4>Desafio</h4>
+                    <p>Marca de produtos naturais com presença digital limitada, conversões baixas, falta de estratégia de marketing digital estruturada.</p>
+                </div>
+                <div class="case-solution">
+                    <h4>Solução</h4>
+                    <ul>
+                        <li>Website otimizado para conversão</li>
+                        <li>Funis de venda estratégicos (<strong>7% conversão</strong>)</li>
+                        <li>Campanhas de awareness e retargeting</li>
+                        <li>Sistema de tracking e analytics avançado</li>
+                    </ul>
+                </div>
+                <div class="case-results">
+                    <div class="result-item">
+                        <span class="result-number">€12.500</span>
+                        <span class="result-label">Investimento Total</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-number">7%</span>
+                        <span class="result-label">Taxa de Conversão</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-number">3.5x</span>
+                        <span class="result-label">vs Média Setor (1-2%)</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="cases-cta">
+            <a href="https://wa.me/351924132341?text=Ol%C3%A1!%20Vi%20os%20casos%20de%20sucesso%20da%20**RelieflyLab**%20e%20**ORGHEAL**%20na%20Parceria%20Comercial%20Elite.%20Gostaria%20de%20perceber%20como%20posso%20replicar%20estes%20resultados%20(ROI%2012x%2C%20convers%C3%A3o%207%25)%20no%20meu%20neg%C3%B3cio.%20Podemos%20agendar%20uma%20auditoria%20gratuita%3F" 
+               class="btn-solid" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                <span>Ver Como Replicar Estes Resultados</span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M5 10h10m-5-5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== COMPARAÇÃO DETALHADA ==================== -->
+<section class="detailed-comparison">
+    <div class="container">
+        <div class="section-intro">
+            <span class="section-label">Comparação Transparente</span>
+            <h2>Core vs <strong>Parceria Comercial</strong></h2>
+            <p>Qual o nível de serviço certo para o teu momento atual?</p>
+        </div>
+
+        <!-- VERSÃO DESKTOP (TABELA) -->
+        <div class="comparison-wrapper-desktop">
+            <div class="comparison-table">
+                <div class="comparison-header">
+                    <div class="header-item empty"></div>
+                    <div class="header-item">
+                        <h3>Elite Agency Core</h3>
+                        <p class="price">€2.500-€4.000<span>/mês</span></p>
+                    </div>
+                    <div class="header-item featured">
+                        <div class="featured-badge">Recomendado</div>
+                        <h3>Parceria Comercial Elite</h3>
+                        <p class="price">€4.500-€8.500<span>/mês</span></p>
+                    </div>
+                </div>
+
+                <div class="comparison-category">
+                    <h4>Gestão de Redes Sociais</h4>
+                </div>
+                <div class="comparison-row">
+                    <div class="feature-name">Posts semanais</div>
+                    <div class="feature-value">6-8 posts</div>
+                    <div class="feature-value featured">10-12 posts</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="feature-name">Stories diários</div>
+                    <div class="feature-value">✓</div>
+                    <div class="feature-value featured">✓</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="feature-name">Reels/Shorts</div>
+                    <div class="feature-value">2-3/semana</div>
+                    <div class="feature-value featured">4-6/semana</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="feature-name">Community Management</div>
+                    <div class="feature-value">✓</div>
+                    <div class="feature-value featured">✓ Prioritário</div>
+                </div>
+
+                <div class="comparison-category">
+                    <h4>Produção de Conteúdo</h4>
+                </div>
+                <div class="comparison-row">
+                    <div class="feature-name">Videografia mensal</div>
+                    <div class="feature-value">1 sessão</div>
+                    <div class="feature-value featured">2 sessões</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="feature-name">Edição de vídeo</div>
+                    <div class="feature-value">Standard</div>
+                    <div class="feature-value featured">High-Performance</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="feature-name">Vídeos virais otimizados</div>
+                    <div class="feature-value">—</div>
+                    <div class="feature-value featured">8-12/mês</div>
+                </div>
+
+                <div class="comparison-category">
+                    <h4>Conversão & Funis</h4>
+                </div>
+                <div class="comparison-row">
+                    <div class="feature-name">Landing pages</div>
+                    <div class="feature-value">—</div>
+                    <div class="feature-value featured">✓ Otimizadas</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="feature-name">Funis completos</div>
+                    <div class="feature-value">—</div>
+                    <div class="feature-value featured">1-2 funis</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="feature-name">Email automation</div>
+                    <div class="feature-value">—</div>
+                    <div class="feature-value featured">✓ Completo</div>
+                </div>
+
+                <div class="comparison-category">
+                    <h4>Gestão & Suporte</h4>
+                </div>
+                <div class="comparison-row">
+                    <div class="feature-name">Gestor dedicado</div>
+                    <div class="feature-value">Partilhado</div>
+                    <div class="feature-value featured">✓ Exclusivo</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="feature-name">Tempo de resposta</div>
+                    <div class="feature-value">24h</div>
+                    <div class="feature-value featured">4h</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="feature-name">Reuniões estratégicas</div>
+                    <div class="feature-value">Trimestrais</div>
+                    <div class="feature-value featured">Mensais</div>
+                </div>
+
+                <div class="comparison-footer">
+                    <div class="footer-empty"></div>
+                    <div class="footer-cta">
+                        <a href="https://wa.me/351924132341?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20**Elite%20Agency%20Core**" 
+                           class="btn-outline" 
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                            Falar Sobre Core
+                        </a>
+                    </div>
+                    <div class="footer-cta">
+                        <a href="https://wa.me/351924132341?text=Ol%C3%A1!%20Quero%20avan%C3%A7ar%20com%20a%20**Parceria%20Comercial%20Elite**" 
+                           class="btn-solid" 
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                            Quero Parceria Elite
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VERSÃO MOBILE (CARDS SEPARADOS) -->
+        <div class="comparison-wrapper-mobile">
+            <div class="mobile-comparison-grid">
+                
+                <!-- CARD 1: ELITE AGENCY CORE -->
+                <div class="mobile-plan-card">
+                    <div class="mobile-plan-header">
+                        <h3>Elite Agency Core</h3>
+                        <p class="price">€2.500-€4.000<span>/mês</span></p>
+                    </div>
+
+                    <div class="mobile-feature-group">
+                        <h4>Redes Sociais</h4>
+                        <div class="mobile-feature-item">
+                            <span class="mobile-feature-label">Posts semanais</span>
+                            <span class="mobile-feature-value">6-8 posts</span>
+                        </div>
+                        <div class="mobile-feature-item">
+                            <span class="mobile-feature-label">Stories diários</span>
+                            <span class="mobile-feature-value">✓</span>
+                        </div>
+                        <div class="mobile-feature-item">
+                            <span class="mobile-feature-label">Reels/Shorts</span>
+                            <span class="mobile-feature-value">2-3/semana</span>
+                        </div>
+                    </div>
+
+                    <div class="mobile-feature-group">
+                        <h4>Produção</h4>
+                        <div class="mobile-feature-item">
+                            <span class="mobile-feature-label">Videografia mensal</span>
+                            <span class="mobile-feature-value">1 sessão</span>
+                        </div>
+                        <div class="mobile-feature-item">
+                            <span class="mobile-feature-label">Edição de vídeo</span>
+                            <span class="mobile-feature-value">Standard</span>
+                        </div>
+                        <div class="mobile-feature-item">
+                            <span class="mobile-feature-label">Vídeos virais</span>
+                            <span class="mobile-feature-value muted">—</span>
+                        </div>
+                    </div>
+
+                    <div class="mobile-feature-group">
+                        <h4>Conversão</h4>
+                        <div class="mobile-feature-item">
+                            <span class="mobile-feature-label">Landing pages</span>
+                            <span class="mobile-feature-value muted">—</span>
+                        </div>
+                        <div class="mobile-feature-item">
+                            <span class="mobile-feature-label">Funis completos</span>
+                            <span class="mobile-feature-value muted">—</span>
+                        </div>
+                        <div class="mobile-feature-item">
+                            <span class="mobile-feature-label">Email automation</span>
+                            <span class="mobile-feature-value muted">—</span>
+                        </div>
+                    </div>
+
+                    <div class="mobile-feature-group">
+                        <h4>Gestão</h4>
+                        <div class="mobile-feature-item">
+                            <span class="mobile-feature-label">Gestor dedicado</span>
+                            <span class="mobile-feature-value">Partilhado</span>
+                        </div>
+                        <div class="mobile-feature-item">
+                            <span class="mobile-feature-label">Tempo resposta</span>
+                            <span class="mobile-feature-value">24h</span>
+                        </div>
+                        <div class="mobile-feature-item">
+                            <span class="mobile-feature-label">Reuniões</span>
+                            <span class="mobile-feature-value">Trimestrais</span>
+                        </div>
+                    </div>
+
+                    <div class="mobile-plan-cta">
+                        <a href="https://wa.me/351924132341?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20**Elite%20Agency%20Core**" 
+                           class="btn-outline" 
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                            Falar Sobre Core
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD 2: PARCERIA COMERCIAL ELITE -->
+                <div class="mobile-plan-card featured">
+                    <div class="mobile-plan-badge">Recomendado</div>
+                    <div class="mobile-plan-header">
+                        <h3>Parceria Comercial Elite</h3>
+                        <p class="price">€4.500-€8.500<span>/mês</span></p>
+                    </div>
+
+                    <div class="mobile-feature-group">
+                        <h4>Redes Sociais</h4>
+                        <div class="mobile-feature-item">
+                            <span class="mobile-feature-label">Posts semanais</span>
+                            <span class="mobile-feature-value">10-12 posts</span>
+                        </div>
+                        <div class="mobile-feature-item">
+                            <span class="mobile-feature-label">Stories diários</span>
+                            <span class="mobile-feature-value">✓</span>
+                        </div>
+                        <div class="mobile-feature-item">
+                            <span class="mobile-feature-label">Reels/Shorts</span>
+                            <span class="mobile-feature-value">4-6/semana</span>
+                        </div>
+                    </div>
+
+                    <div class="mobile-feature-group">
+                        <h4>Produção</h4>
+                        <div class="mobile-feature-item">
+                            <span class="mobile-feature-label">Videografia mensal</span>
+                            <span class="mobile-feature-value">2 sessões</span>
+                        </div>
+                        <div class="mobile-feature-item">
+                            <span class="mobile-feature-label">Edição de vídeo</span>
+                            <span class="mobile-feature-value">High-Performance</span>
+                        </div>
+                        <div class="mobile-feature-item">
+                            <span class="mobile-feature-label">Vídeos virais</span>
+                            <span class="mobile-feature-value">8-12/mês</span>
+                        </div>
+                    </div>
+
+                    <div class="mobile-feature-group">
+                        <h4>Conversão</h4>
+                        <div class="mobile-feature-item">
+                            <span class="mobile-feature-label">Landing pages</span>
+                            <span class="mobile-feature-value">✓ Otimizadas</span>
+                        </div>
+                        <div class="mobile-feature-item">
+                            <span class="mobile-feature-label">Funis completos</span>
+                            <span class="mobile-feature-value">1-2 funis</span>
+                        </div>
+                        <div class="mobile-feature-item">
+                            <span class="mobile-feature-label">Email automation</span>
+                            <span class="mobile-feature-value">✓ Completo</span>
+                        </div>
+                    </div>
+
+                    <div class="mobile-feature-group">
+                        <h4>Gestão</h4>
+                        <div class="mobile-feature-item">
+                            <span class="mobile-feature-label">Gestor dedicado</span>
+                            <span class="mobile-feature-value">✓ Exclusivo</span>
+                        </div>
+                        <div class="mobile-feature-item">
+                            <span class="mobile-feature-label">Tempo resposta</span>
+                            <span class="mobile-feature-value">4h</span>
+                        </div>
+                        <div class="mobile-feature-item">
+                            <span class="mobile-feature-label">Reuniões</span>
+                            <span class="mobile-feature-value">Mensais</span>
+                        </div>
+                    </div>
+
+                    <div class="mobile-plan-cta">
+                        <a href="https://wa.me/351924132341?text=Ol%C3%A1!%20Quero%20avan%C3%A7ar%20com%20a%20**Parceria%20Comercial%20Elite**" 
+                           class="btn-solid" 
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                            Quero Parceria Elite
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ==================== CTA FINAL ==================== -->
+<section class="final-cta">
+    <div class="container">
+        <div class="cta-content">
+            <span class="cta-label">Próximo Passo</span>
+            <h2>Pronto Para <strong>Dominar</strong> o Teu Mercado?</h2>
+            <p>Agenda uma chamada de diagnóstico gratuita (30 min). Vamos analisar o teu negócio e ver se faz sentido trabalharmos juntos.</p>
+            
+            <div class="cta-process">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <p><strong>Agenda</strong> chamada gratuita</p>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <p><strong>Analisamos</strong> teu negócio</p>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <p><strong>Proposta</strong> personalizada</p>
+                </div>
+            </div>
+
+            <a href="https://wa.me/351924132341?text=Ol%C3%A1!%20Quero%20agendar%20a%20**chamada%20de%20diagn%C3%B3stico%20gratuita**" 
+               class="btn-solid" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                <span>Agendar Diagnóstico Gratuito</span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M5 10h10m-5-5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </a>
+
+            <p class="cta-note">Sem compromisso. Sem vendas agressivas. Apenas uma conversa honesta sobre crescimento.</p>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Parceria Comercial Elite — Continuação</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dooigd0d3/image/upload/v1766771870/GENERATION-removebg-preview_yfwn01.png">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ========== GLOBAL RESET & BASE ========== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+        }
+        
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', system-ui, sans-serif; 
+            background: #000; 
+            color: #fff; 
+            line-height: 1.6; 
+            -webkit-font-smoothing: antialiased;
+            position: relative;
+        }
+        
+        .container { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            padding: 0 40px;
+            width: 100%;
+        }
+
+        /* ========== SHARED COMPONENTS ========== */
+        .section-intro {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 60px;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .section-intro h2 {
+            font-size: clamp(36px, 5vw, 52px);
+            font-weight: 200;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            color: #ffffff;
+        }
+
+        .section-intro h2 strong {
+            font-weight: 500;
+        }
+
+        .section-intro > p {
+            font-size: 18px;
+            font-weight: 200;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+        }
+
+        /* ========== GARANTIAS & COMPROMISSOS ========== */
         .guarantees {
             padding: 100px 0;
             background: #000000;
@@ -2018,768 +2868,41 @@
             color: rgba(255, 255, 255, 0.95);
         }
 
-        /* ========== CTA FINAL ========== */
-        .final-cta {
-            padding: 120px 0;
-            background: #000000;
-            position: relative;
-        }
-
-        .final-cta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            max-width: 1400px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1) 50%, transparent);
-        }
-
-        .cta-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .cta-label {
-            display: inline-block;
-            font-size: 11px;
-            font-weight: 500;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.6);
-            background: rgba(255, 255, 255, 0.05);
-            padding: 6px 14px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 24px;
-        }
-
-        .cta-content h2 {
-            font-size: clamp(40px, 6vw, 56px);
-            font-weight: 200;
-            margin-bottom: 24px;
-            letter-spacing: -1px;
-            color: #ffffff;
-        }
-
-        .cta-content h2 strong {
-            font-weight: 500;
-        }
-
-        .cta-content > p {
-            font-size: 18px;
-            font-weight: 200;
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.7;
-            margin-bottom: 48px;
-        }
-
-        .cta-process {
-            display: flex;
+        .cta-button {
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 48px;
-            flex-wrap: wrap;
-        }
-
-        .process-step {
-            text-align: center;
-        }
-
-        .process-step-number {
-            width: 48px;
-            height: 48px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
+            gap: 12px;
+            background: #ffffff;
+            color: #000000;
+            padding: 18px 36px;
+            border-radius: 12px;
+            font-size: 16px;
             font-weight: 500;
-            color: #ffffff;
-            margin: 0 auto 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
         }
 
-        .process-step p {
-            font-size: 14px;
-            font-weight: 200;
-            color: rgba(255, 255, 255, 0.7);
-            margin: 0;
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(255, 255, 255, 0.25);
         }
 
-        .process-step p strong {
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.95);
+        .cta-button svg {
+            transition: transform 0.3s ease;
         }
 
-        .process-arrow {
-            font-size: 24px;
-            color: rgba(255, 255, 255, 0.3);
+        .cta-button:hover svg {
+            transform: translateX(4px);
         }
 
-        .cta-note {
-            font-size: 14px;
-            font-weight: 200;
-            color: rgba(255, 255, 255, 0.5);
-            margin-top: 24px;
-            font-style: italic;
+        /* ========== FOOTER ========== */
+        footer { 
+            background: #000; 
+            border-top: 1px solid rgba(255, 255, 255, 0.05); 
+            padding: 60px 20px 40px; 
         }
-
-        /* ==================== RESPONSIVE ==================== */
-        @media (max-width: 1024px) {
-            .cases-grid {
-                grid-template-columns: 1fr;
-                max-width: 600px;
-                margin: 0 auto 40px;
-            }
-
-            .comparison-header,
-            .comparison-row,
-            .comparison-footer {
-                grid-template-columns: 1.5fr 1fr 1fr;
-            }
-
-            .guarantees-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .case-studies,
-            .detailed-comparison,
-            .guarantees,
-            .next-steps {
-                padding: 60px 0;
-            }
-
-            .final-cta {
-                padding: 80px 0;
-            }
-
-            .case-card {
-                padding: 28px 20px;
-            }
-
-            .case-results {
-                grid-template-columns: 1fr;
-            }
-
-            .comparison-header {
-                grid-template-columns: 1fr;
-                gap: 20px;
-                padding: 24px 20px;
-            }
-
-            .header-item.empty {
-                display: none;
-            }
-
-            .header-item.featured {
-                margin: 0;
-            }
-
-            .comparison-row {
-                grid-template-columns: 1fr;
-                gap: 12px;
-                padding: 20px;
-                text-align: center;
-            }
-
-            .feature-name {
-                font-weight: 400;
-                margin-bottom: 8px;
-            }
-
-            .comparison-footer {
-                grid-template-columns: 1fr;
-                gap: 12px;
-            }
-
-            .footer-empty {
-                display: none;
-            }
-
-            .guarantees-grid {
-                grid-template-columns: 1fr;
-                max-width: 500px;
-                margin: 0 auto 40px;
-            }
-
-            .step-item {
-                gap: 20px;
-                margin-bottom: 40px;
-            }
-
-            .step-item::before {
-                left: 29px;
-            }
-
-            .step-number {
-                width: 60px;
-                height: 60px;
-                font-size: 20px;
-            }
-
-            .step-content h3 {
-                font-size: 20px;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 8px;
-            }
-
-            .cta-process {
-                flex-direction: column;
-                gap: 24px;
-            }
-
-            .process-arrow {
-                transform: rotate(90deg);
-            }
-
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- ==================== CASOS DE SUCESSO ==================== -->
-    <section class="case-studies">
-        <div class="container">
-            <div class="section-intro">
-                <span class="section-label">Resultados Verificáveis, Não Promessas</span>
-                <h2>Estes Números São Reais.<br>Estes <strong>Investimentos</strong> Também.</h2>
-                <p>Não escondemos quanto os nossos parceiros investiram nem quanto ganharam. <strong>Transparência total</strong> porque trabalhamos apenas com empresários sérios que entendem que crescimento estratégico exige investimento, não milagres.</p>
-                
-                <div class="central-stat">
-                    <span class="stat-number">€30.500</span>
-                    <p class="stat-label">Investimento total dos nossos 2 parceiros estratégicos de e-commerce que transformaram os seus negócios nos últimos 18 meses</p>
-                </div>
-            </div>
-
-            <div class="cases-grid">
-                
-                <!-- Case 1: RelieflyLab -->
-                <div class="case-card">
-                    <div class="investment-tag">Projeto: €18k</div>
-                    <div class="case-header">
-                        <div class="logo-container">
-                            <img src="https://res.cloudinary.com/dooigd0d3/image/upload/v1766771945/Reliefly_Lab_Logo_White_sam8fz.png" alt="RelieflyLab Logo">
-                        </div>
-                        <h3 class="brand-name">RelieflyLab</h3>
-                        <span class="case-industry">E-commerce · Wellness</span>
-                    </div>
-                    <div class="case-challenge">
-                        <h4>Desafio</h4>
-                        <p>Nova marca de wellness sem presença digital, zero infraestrutura de e-commerce, necessidade de sistema completo do zero.</p>
-                    </div>
-                    <div class="case-solution">
-                        <h4>Solução</h4>
-                        <ul>
-                            <li>Website e-commerce completo otimizado</li>
-                            <li>Sistema de funis integrado (<strong>conversão 7%+</strong>)</li>
-                            <li>Estratégia de conteúdo wellness educacional</li>
-                            <li>Email automation com sequências personalizadas</li>
-                        </ul>
-                    </div>
-                    <div class="case-results">
-                        <div class="result-item">
-                            <span class="result-number">€18.000</span>
-                            <span class="result-label">Investimento Total</span>
-                        </div>
-                        <div class="result-item">
-                            <span class="result-number">12x</span>
-                            <span class="result-label">ROI em 18 meses</span>
-                        </div>
-                        <div class="result-item">
-                            <span class="result-number">Diárias</span>
-                            <span class="result-label">Vendas Consistentes</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Case 2: ORGHEAL -->
-                <div class="case-card">
-                    <div class="investment-tag">Projeto: €12.5k</div>
-                    <div class="case-header">
-                        <div class="logo-container">
-                            <img src="https://res.cloudinary.com/dooigd0d3/image/upload/v1766771926/logo_no_backgr_rlzocd.png" alt="ORGHEAL Logo">
-                        </div>
-                        <h3 class="brand-name">ORGHEAL</h3>
-                        <span class="case-industry">E-commerce · Produtos Naturais</span>
-                    </div>
-                    <div class="case-challenge">
-                        <h4>Desafio</h4>
-                        <p>Marca de produtos naturais com presença digital limitada, conversões baixas, falta de estratégia de marketing digital estruturada.</p>
-                    </div>
-                    <div class="case-solution">
-                        <h4>Solução</h4>
-                        <ul>
-                            <li>Website otimizado para conversão</li>
-                            <li>Funis de venda estratégicos (<strong>7% conversão</strong>)</li>
-                            <li>Campanhas de awareness e retargeting</li>
-                            <li>Sistema de tracking e analytics avançado</li>
-                        </ul>
-                    </div>
-                    <div class="case-results">
-                        <div class="result-item">
-                            <span class="result-number">€12.500</span>
-                            <span class="result-label">Investimento Total</span>
-                        </div>
-                        <div class="result-item">
-                            <span class="result-number">7%</span>
-                            <span class="result-label">Taxa de Conversão</span>
-                        </div>
-                        <div class="result-item">
-                            <span class="result-number">3.5x</span>
-                            <span class="result-label">vs Média Setor (1-2%)</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="cases-cta">
-                <a href="https://wa.me/351924132341?text=Ol%C3%A1!%20Vi%20os%20casos%20de%20sucesso%20da%20**RelieflyLab**%20e%20**ORGHEAL**%20na%20Parceria%20Comercial%20Elite.%20Gostaria%20de%20perceber%20como%20posso%20replicar%20estes%20resultados%20(ROI%2012x%2C%20convers%C3%A3o%207%25)%20no%20meu%20negócio.%20Podemos%20agendar%20uma%20auditoria%20gratuita%3F" 
-                   class="btn btn-solid" 
-                   target="_blank">
-                    <span>Ver Como Replicar Estes Resultados</span>
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== COMPARAÇÃO DETALHADA ==================== -->
-    <section class="detailed-comparison">
-        <div class="container">
-            <div class="section-intro">
-                <span class="section-label">Comparação Transparente</span>
-                <h2>Core vs <strong>Parceria Comercial</strong></h2>
-                <p>Qual o nível de serviço certo para o teu momento atual?</p>
-            </div>
-
-            <div class="comparison-table">
-                <div class="comparison-header">
-                    <div class="header-item empty"></div>
-                    <div class="header-item">
-                        <h3>Elite Agency Core</h3>
-                        <p class="price">€2.500-€4.000<span>/mês</span></p>
-                    </div>
-                    <div class="header-item featured">
-                        <div class="featured-badge">Recomendado</div>
-                        <h3>Parceria Comercial Elite</h3>
-                        <p class="price">€4.500-€8.500<span>/mês</span></p>
-                    </div>
-                </div>
-
-                <div class="comparison-category">
-                    <h4>Gestão de Redes Sociais</h4>
-                </div>
-                <div class="comparison-row">
-                    <div class="feature-name">Posts semanais</div>
-                    <div class="feature-value">6-8 posts</div>
-                    <div class="feature-value featured">10-12 posts</div>
-                </div>
-                <div class="comparison-row">
-                    <div class="feature-name">Stories diários</div>
-                    <div class="feature-value">✓</div>
-                    <div class="feature-value featured">✓</div>
-                </div>
-                <div class="comparison-row">
-                    <div class="feature-name">Reels/Shorts</div>
-                    <div class="feature-value">2-3/semana</div>
-                    <div class="feature-value featured">4-6/semana</div>
-                </div>
-                <div class="comparison-row">
-                    <div class="feature-name">Community Management</div>
-                    <div class="feature-value">✓</div>
-                    <div class="feature-value featured">✓ Prioritário</div>
-                </div>
-
-                <div class="comparison-category">
-                    <h4>Produção de Conteúdo</h4>
-                </div>
-                <div class="comparison-row">
-                    <div class="feature-name">Videografia mensal</div>
-                    <div class="feature-value">1 sessão</div>
-                    <div class="feature-value featured">2 sessões</div>
-                </div>
-                <div class="comparison-row">
-                    <div class="feature-name">Edição de vídeo</div>
-                    <div class="feature-value">Standard</div>
-                    <div class="feature-value featured">High-Performance (Ahlec)</div>
-                </div>
-                <div class="comparison-row">
-                    <div class="feature-name">Vídeos virais otimizados</div>
-                    <div class="feature-value">—</div>
-                    <div class="feature-value featured">8-12/mês</div>
-                </div>
-                <div class="comparison-row">
-                    <div class="feature-name">Thumbnails premium</div>
-                    <div class="feature-value">—</div>
-                    <div class="feature-value featured">✓</div>
-                </div>
-
-                <div class="comparison-category">
-                    <h4>Conversão & Funis</h4>
-                </div>
-                <div class="comparison-row">
-                    <div class="feature-name">Landing pages</div>
-                    <div class="feature-value">—</div>
-                    <div class="feature-value featured">✓ Otimizadas (7%+)</div>
-                </div>
-                <div class="comparison-row">
-                    <div class="feature-name">Funis completos</div>
-                    <div class="feature-value">—</div>
-                    <div class="feature-value featured">1-2 funis (João Alfar)</div>
-                </div>
-                <div class="comparison-row">
-                    <div class="feature-name">Email automation</div>
-                    <div class="feature-value">—</div>
-                    <div class="feature-value featured">✓ Sequências completas</div>
-                </div>
-                <div class="comparison-row">
-                    <div class="feature-name">CRO & A/B testing</div>
-                    <div class="feature-value">—</div>
-                    <div class="feature-value featured">✓ Mensal</div>
-                </div>
-
-                <div class="comparison-category">
-                    <h4>Gestão & Suporte</h4>
-                </div>
-                <div class="comparison-row">
-                    <div class="feature-name">Gestor dedicado</div>
-                    <div class="feature-value">Partilhado</div>
-                    <div class="feature-value featured">✓ Exclusivo</div>
-                </div>
-                <div class="comparison-row">
-                    <div class="feature-name">Tempo de resposta</div>
-                    <div class="feature-value">24h</div>
-                    <div class="feature-value featured">4h</div>
-                </div>
-                <div class="comparison-row">
-                    <div class="feature-name">Reuniões estratégicas</div>
-                    <div class="feature-value">Trimestrais</div>
-                    <div class="feature-value featured">Mensais (60 min)</div>
-                </div>
-                <div class="comparison-row">
-                    <div class="feature-name">Dashboard em tempo real</div>
-                    <div class="feature-value">—</div>
-                    <div class="feature-value featured">✓</div>
-                </div>
-
-                <div class="comparison-category">
-                    <h4>Estratégia & Planeamento</h4>
-                </div>
-                <div class="comparison-row">
-                    <div class="feature-name">Calendário de conteúdo</div>
-                    <div class="feature-value">30 dias</div>
-                    <div class="feature-value featured">90 dias</div>
-                </div>
-                <div class="comparison-row">
-                    <div class="feature-name">Análise de concorrência</div>
-                    <div class="feature-value">Trimestral</div>
-                    <div class="feature-value featured">Mensal</div>
-                </div>
-                <div class="comparison-row">
-                    <div class="feature-name">Relatórios detalhados</div>
-                    <div class="feature-value">Mensais</div>
-                    <div class="feature-value featured">Mensais + insights acionáveis</div>
-                </div>
-
-                <div class="comparison-footer">
-                    <div class="footer-empty"></div>
-                    <div class="footer-cta">
-                        <a href="https://wa.me/351924132341?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20**Elite%20Agency%20Core**%20(€2.500-€4.000%2Fmês).%20Quais%20s%C3%A3o%20as%20entregas%20exatas%20e%20como%20funciona%20o%20processo%3F%20Podemos%20agendar%20uma%20chamada%3F" 
-                           class="btn btn-outline" 
-                           target="_blank">
-                            Falar Sobre Core
-                        </a>
-                    </div>
-                    <div class="footer-cta">
-                        <a href="https://wa.me/351924132341?text=Ol%C3%A1!%20Quero%20avan%C3%A7ar%20com%20a%20**Parceria%20Comercial%20Elite**%20(€4.500-€8.500%2Fmês)%20que%20inclui%20Jo%C3%A3o%20Alfar%20(funis)%2C%20Ahlec%20Laia%20(v%C3%ADdeo)%20e%20Elite%20Agency%20(social%20media).%20Quando%20podemos%20marcar%20a%20auditoria%20gratuita%3F" 
-                           class="btn btn-solid" 
-                           target="_blank">
-                            Quero Parceria Elite
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== GARANTIAS & COMPROMISSOS ==================== -->
-    <section class="guarantees">
-        <div class="container">
-            <div class="section-intro">
-                <span class="section-label">O Nosso Compromisso</span>
-                <h2>Garantias & <strong>Transparência</strong></h2>
-                <p>Como trabalhamos e o que podes esperar de nós.</p>
-            </div>
-
-            <div class="guarantees-grid">
-                
-                <div class="guarantee-card">
-                    <div class="guarantee-icon">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                            <path d="M20 5L5 12.5L20 20L35 12.5L20 5Z" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linejoin="round"/>
-                            <path d="M5 27.5L20 35L35 27.5M5 20L20 27.5L35 20" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3>Transparência Total</h3>
-                    <p>Dashboard em tempo real com todas as métricas. Relatórios mensais detalhados. Acesso a todas as ferramentas. <strong>Zero caixas negras.</strong></p>
-                </div>
-
-                <div class="guarantee-card">
-                    <div class="guarantee-icon">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                            <circle cx="20" cy="20" r="15" stroke="rgba(255,255,255,0.7)" stroke-width="2"/>
-                            <path d="M20 10v10l7 7" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <h3>Resposta Rápida</h3>
-                    <p>Clientes da Parceria têm <strong>resposta em 4h</strong> (dias úteis). Slack/WhatsApp direto com o gestor. Reuniões mensais garantidas.</p>
-                </div>
-
-                <div class="guarantee-card">
-                    <div class="guarantee-icon">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                            <rect x="8" y="8" width="24" height="24" rx="4" stroke="rgba(255,255,255,0.7)" stroke-width="2"/>
-                            <path d="M16 20l3 3 7-7" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <h3>Qualidade Garantida</h3>
-                    <p>Todo o conteúdo passa por <strong>dupla revisão</strong>. Standards profissionais rigorosos. Se não estiveres satisfeito, refazemos até acertar.</p>
-                </div>
-
-                <div class="guarantee-card">
-                    <div class="guarantee-icon">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                            <path d="M20 8v24M8 20h24" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round"/>
-                            <circle cx="20" cy="20" r="12" stroke="rgba(255,255,255,0.7)" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <h3>Sem Surpresas</h3>
-                    <p><strong>Preço fixo mensal.</strong> Sem custos escondidos. Todas as ferramentas incluídas. Sabes exatamente o que pagas e o que recebes.</p>
-                </div>
-
-                <div class="guarantee-card">
-                    <div class="guarantee-icon">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                            <path d="M12 20l6 6L30 14" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <circle cx="20" cy="20" r="15" stroke="rgba(255,255,255,0.7)" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <h3>Ownership Total</h3>
-                    <p>Todo o conteúdo criado é <strong>100% teu</strong>. Acessos às contas mantêm-se contigo. Se terminares, levas tudo sem drama.</p>
-                </div>
-
-                <div class="guarantee-card">
-                    <div class="guarantee-icon">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                            <path d="M20 5L7 12v10c0 8.3 5.5 16 13 18 7.5-2 13-9.7 13-18V12L20 5z" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linejoin="round"/>
-                            <path d="M15 20l3 3 7-7" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <h3>Proteção de Dados</h3>
-                    <p><strong>NDA obrigatório.</strong> Confidencialidade total. Sistemas seguros. Nunca partilhamos info de clientes ou estratégias.</p>
-                </div>
-
-            </div>
-
-            <div class="guarantees-footer">
-                <h4>A Nossa Filosofia</h4>
-                <p>Não somos a opção mais barata. Somos a opção que <strong>entrega resultados</strong> e te trata como parceiro, não como ticket number. Marketing sério exige investimento sério – mas também mereces profissionalismo, transparência e resultados mensuráveis.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== PRÓXIMOS PASSOS ==================== -->
-    <section class="next-steps">
-        <div class="container">
-            <div class="section-intro">
-                <span class="section-label">Como Começar</span>
-                <h2>Próximos <strong>Passos</strong></h2>
-                <p>Do primeiro contacto ao lançamento: processo simples e transparente.</p>
-            </div>
-
-            <div class="steps-timeline">
-                
-                <div class="step-item">
-                    <div class="step-number">01</div>
-                    <div class="step-content">
-                        <h3>Chamada de Diagnóstico <span class="step-duration">30 min · Gratuito</span></h3>
-                        <p>Agendas através do calendário abaixo. Conversamos sobre o teu negócio, objetivos, desafios atuais. Verificamos se há fit entre nós.</p>
-                        <ul>
-                            <li>Análise rápida da tua presença digital</li>
-                            <li>Identificação de oportunidades imediatas</li>
-                            <li>Clarificação de objetivos e KPIs</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="step-item">
-                    <div class="step-number">02</div>
-                    <div class="step-content">
-                        <h3>Proposta Personalizada <span class="step-duration">48-72h</span></h3>
-                        <p>Se houver match, preparamos proposta detalhada específica para o teu caso. Inclui scope exato, timeline, investimento e KPIs a rastrear.</p>
-                        <ul>
-                            <li>Estratégia de 90 dias personalizada</li>
-                            <li>Breakdown completo de entregas</li>
-                            <li>Preço transparente e fixo</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="step-item">
-                    <div class="step-number">03</div>
-                    <div class="step-content">
-                        <h3>Reunião de Alinhamento <span class="step-duration">60 min</span></h3>
-                        <p>Apresentamos a proposta em detalhe. Respondemos a todas as questões. Ajustamos se necessário. Sem pressão de vendas – apenas clareza total.</p>
-                        <ul>
-                            <li>Walkthrough completo da estratégia</li>
-                            <li>Q&A extensivo</li>
-                            <li>Ajustes finais se necessário</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="step-item">
-                    <div class="step-number">04</div>
-                    <div class="step-content">
-                        <h3>Assinatura & Onboarding <span class="step-duration">Semana 1</span></h3>
-                        <p>Assinatura de contrato + NDA. Setup de acessos e ferramentas. Reunião de onboarding (90 min) com toda a equipa. Começamos oficialmente.</p>
-                        <ul>
-                            <li>Documentação legal clara</li>
-                            <li>Setup técnico completo</li>
-                            <li>Conhecimento da equipa</li>
-                            <li>Kick-off estratégico</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="step-item">
-                    <div class="step-number">05</div>
-                    <div class="step-content">
-                        <h3>Execução & Crescimento <span class="step-duration">Mês 1+</span></h3>
-                        <p>Auditoria completa (semanas 1-2). Implementação da estratégia (semanas 3-4). Execução contínua e otimização baseada em dados.</p>
-                        <ul>
-                            <li>Produção e publicação de conteúdo</li>
-                            <li>Tracking e análise constante</li>
-                            <li>Reuniões mensais de estratégia</li>
-                            <li>Ajustes e melhorias contínuas</li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="steps-cta">
-                <p>Tempo total do primeiro contacto ao lançamento: <strong>2-3 semanas</strong></p>
-                <a href="https://wa.me/351924132341?text=Ol%C3%A1!%20Gostaria%20de%20come%C3%A7ar%20com%20a%20**chamada%20de%20diagn%C3%B3stico%20gratuita**%20(30%20min)%20para%20avaliar%20se%20a%20Parceria%20Comercial%20Elite%20faz%20sentido%20para%20o%20meu%20neg%C3%B3cio.%20Quando%20t%C3%AAm%20disponibilidade%3F" 
-                   class="btn btn-solid" 
-                   target="_blank">
-                    Começar com Diagnóstico Gratuito
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== CTA FINAL ==================== -->
-    <section class="final-cta">
-        <div class="container">
-            <div class="cta-content">
-                <span class="cta-label">Próximo Passo</span>
-                <h2>Pronto Para <strong>Dominar</strong> o Teu Mercado?</h2>
-                <p>Agenda uma chamada de diagnóstico gratuita (30 min). Vamos analisar o teu negócio e ver se faz sentido trabalharmos juntos.</p>
-                
-                <div class="cta-process">
-                    <div class="process-step">
-                        <div class="process-step-number">1</div>
-                        <p><strong>Agenda</strong> chamada gratuita</p>
-                    </div>
-                    <div class="process-arrow">→</div>
-                    <div class="process-step">
-                        <div class="process-step-number">2</div>
-                        <p><strong>Analisamos</strong> teu negócio</p>
-                    </div>
-                    <div class="process-arrow">→</div>
-                    <div class="process-step">
-                        <div class="process-step-number">3</div>
-                        <p><strong>Proposta</strong> personalizada</p>
-                    </div>
-                </div>
-
-                <a href="https://wa.me/351924132341?text=Ol%C3%A1!%20Quero%20agendar%20a%20**chamada%20de%20diagn%C3%B3stico%20gratuita**%20(30%20min)%20para%20avaliarem%20o%20meu%20neg%C3%B3cio%20e%20apresentarem%20uma%20proposta%20personalizada%20da%20Parceria%20Comercial%20Elite.%20Qual%20%C3%A9%20a%20vossa%20pr%C3%B3xima%20disponibilidade%3F" 
-                   class="btn btn-solid" 
-                   target="_blank">
-                    <span>Agendar Diagnóstico Gratuito</span>
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                </a>
-
-                <p class="cta-note">Sem compromisso. Sem vendas agressivas. Apenas uma conversa honesta sobre crescimento.</p>
-            </div>
-        </div>
-    </section>
-
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parceria Comercial Elite — The Elite Agency</title>
-    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dooigd0d3/image/upload/v1766771870/GENERATION-removebg-preview_yfwn01.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* ==================== GLOBAL RESET ==================== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', system-ui, sans-serif;
-            background: #000;
-            color: #fff;
-            line-height: 1.6;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            position: relative;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-
-        /* ==================== FOOTER HORIZONTAL MINIMALISTA ==================== */
-        footer {
-            background: #000;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 60px 20px 40px;
-        }
-
+        
         .footer-content {
             display: flex;
             justify-content: space-between;
@@ -2787,29 +2910,28 @@
             gap: 60px;
             margin-bottom: 40px;
         }
-
-        /* COLUNA ESQUERDA - Marca e Email */
+        
         .footer-left {
             flex: 1;
             max-width: 400px;
         }
-
+        
         .footer-brand {
             margin-bottom: 20px;
         }
-
+        
         .footer-brand p {
-            font-size: 14px;
+            font-size: 14px; 
             color: #666;
             font-weight: 300;
             letter-spacing: 0.5px;
         }
-
+        
         .footer-brand strong {
             color: #999;
             font-weight: 600;
         }
-
+        
         .footer-email button {
             display: inline-flex;
             align-items: center;
@@ -2825,29 +2947,28 @@
             padding: 0;
             font-family: inherit;
         }
-
+        
         .footer-email button:hover {
             color: #fff;
         }
-
+        
         .footer-email svg {
             width: 16px;
             height: 16px;
         }
-
-        /* COLUNA DIREITA - Equipa Horizontal */
+        
         .footer-right {
             display: flex;
             gap: 45px;
             flex-wrap: wrap;
         }
-
+        
         .social-group {
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
-
+        
         .social-label {
             font-size: 10px;
             text-transform: uppercase;
@@ -2856,7 +2977,7 @@
             font-weight: 600;
             white-space: nowrap;
         }
-
+        
         .person-name {
             font-size: 13px;
             color: rgba(255, 255, 255, 0.8);
@@ -2864,12 +2985,12 @@
             margin-bottom: 8px;
             white-space: nowrap;
         }
-
+        
         .social-links {
             display: flex;
             gap: 8px;
         }
-
+        
         .social-link {
             width: 34px;
             height: 34px;
@@ -2882,31 +3003,30 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none;
         }
-
+        
         .social-link:hover {
             background: rgba(255, 255, 255, 0.08);
             border-color: rgba(255, 255, 255, 0.15);
             transform: translateY(-2px);
         }
-
+        
         .social-link svg {
             width: 15px;
             height: 15px;
             color: rgba(255, 255, 255, 0.6);
             transition: color 0.3s ease;
         }
-
+        
         .social-link:hover svg {
             color: rgba(255, 255, 255, 0.95);
         }
-
-        /* DIVISÓRIA E BOTTOM */
+        
         .footer-divider {
             height: 1px;
             background: rgba(255, 255, 255, 0.05);
             margin-bottom: 25px;
         }
-
+        
         .footer-bottom {
             display: flex;
             justify-content: space-between;
@@ -2916,18 +3036,18 @@
             flex-wrap: wrap;
             gap: 15px;
         }
-
-        .footer-bottom a {
-            color: #666;
+        
+        .footer-bottom a { 
+            color: #666; 
             text-decoration: none;
             transition: color 0.3s;
         }
-
-        .footer-bottom a:hover {
+        
+        .footer-bottom a:hover { 
             color: #fff;
         }
 
-        /* ==================== WHATSAPP STICKY BUTTON ==================== */
+        /* ========== WHATSAPP STICKY BUTTON ========== */
         .whatsapp-float {
             position: fixed !important;
             width: 60px;
@@ -2999,39 +3119,85 @@
             }
         }
 
-        /* ==================== RESPONSIVE ==================== */
+        /* ========== RESPONSIVE ========== */
         @media (max-width: 1024px) {
-            .footer-content {
-                gap: 40px;
-            }
-
-            .footer-right {
-                gap: 35px;
+            .guarantees-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (max-width: 768px) {
             .container { padding: 0 25px; }
 
+            .guarantees,
+            .next-steps {
+                padding: 60px 0;
+            }
+            
+            .guarantees-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin: 0 auto 40px;
+            }
+            
+            .guarantee-card {
+                padding: 28px 24px;
+            }
+            
+            .guarantees-footer {
+                padding: 32px 24px;
+            }
+            
+            .step-item {
+                gap: 20px;
+                margin-bottom: 40px;
+            }
+            
+            .step-item::before {
+                left: 29px;
+            }
+            
+            .step-number {
+                width: 60px;
+                height: 60px;
+                font-size: 20px;
+            }
+            
+            .step-content h3 {
+                font-size: 20px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            
+            .steps-cta {
+                padding: 32px 24px;
+            }
+            
+            .cta-button {
+                width: 100%;
+                justify-content: center;
+            }
+
             footer {
                 padding: 50px 20px 35px;
             }
-
+            
             .footer-content {
                 flex-direction: column;
                 gap: 35px;
             }
-
+            
             .footer-left {
                 max-width: 100%;
             }
-
+            
             .footer-right {
                 flex-wrap: wrap;
                 gap: 25px;
                 width: 100%;
             }
-
+            
             .footer-bottom {
                 flex-direction: column;
                 align-items: flex-start;
@@ -3052,31 +3218,35 @@
         }
 
         @media (max-width: 480px) {
+            .section-intro > p {
+                font-size: 16px;
+            }
+
             footer {
                 padding: 40px 15px 30px;
             }
-
+            
             .footer-right {
                 justify-content: space-between;
             }
-
+            
             .social-group {
                 gap: 10px;
             }
-
+            
             .social-label {
                 font-size: 9px;
             }
-
+            
             .person-name {
                 font-size: 12px;
             }
-
+            
             .social-link {
                 width: 32px;
                 height: 32px;
             }
-
+            
             .social-link svg {
                 width: 14px;
                 height: 14px;
@@ -3086,168 +3256,305 @@
 </head>
 <body>
 
-    <!-- CONTEÚDO DA PÁGINA (substitui isto pelas tuas secções reais) -->
-    <div style="height: 2500px; padding: 100px 40px; text-align: center;">
-        <h1 style="font-size: 48px; margin-bottom: 20px;">Parceria Comercial Elite</h1>
-        <p style="font-size: 18px; color: #999;">Role a página para ver o footer e o botão WhatsApp aparecer após 2000px ⬇️</p>
-    </div>
+<!-- ==================== GARANTIAS & COMPROMISSOS ==================== -->
+<section class="guarantees">
+    <div class="container">
+        <div class="section-intro">
+            <span class="section-label">O Nosso Compromisso</span>
+            <h2>Garantias & <strong>Transparência</strong></h2>
+            <p>Como trabalhamos e o que podes esperar de nós.</p>
+        </div>
 
-    <!-- ==================== FOOTER ==================== -->
-    <footer>
-        <div class="container">
-
-            <div class="footer-content">
-
-                <!-- ESQUERDA: Marca + Email -->
-                <div class="footer-left">
-                    <div class="footer-brand">
-                        <p><strong>ELITE AGENCY</strong> — Parceiro de aquisição dos negócios nacionais</p>
-                    </div>
-                    <div class="footer-email">
-                        <button id="emailCopyBtn" aria-label="Copiar email">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                <polyline points="22,6 12,13 2,6"/>
-                            </svg>
-                            <span id="emailText">geral.eliteagency@gmail.com</span>
-                        </button>
-                    </div>
+        <div class="guarantees-grid">
+            
+            <div class="guarantee-card">
+                <div class="guarantee-icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <path d="M20 5L5 12.5L20 20L35 12.5L20 5Z" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linejoin="round"/>
+                        <path d="M5 27.5L20 35L35 27.5M5 20L20 27.5L35 20" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linejoin="round"/>
+                    </svg>
                 </div>
-
-                <!-- DIREITA: Equipa Horizontal -->
-                <div class="footer-right">
-
-                    <!-- FOUNDER: GONÇALO RAMOS -->
-                    <div class="social-group">
-                        <span class="social-label">CEO & Founder</span>
-                        <span class="person-name">Gonçalo Ramos</span>
-                        <div class="social-links">
-                            <a href="https://www.instagram.com/goncaloramosvs/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram Gonçalo Ramos">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"/>
-                                </svg>
-                            </a>
-                            <a href="https://www.linkedin.com/in/gon%C3%A7alo-ramos-5923a0382/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn Gonçalo Ramos">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- FOUNDER: GUI GOLDRAJCH -->
-                    <div class="social-group">
-                        <span class="social-label">COO & Founder</span>
-                        <span class="person-name">Gui Goldrajch</span>
-                        <div class="social-links">
-                            <a href="https://www.instagram.com/goldrajch_/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram Gui Goldrajch">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"/>
-                                </svg>
-                            </a>
-                            <a href="https://www.linkedin.com/in/gui-goldrajch-667aa8277/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn Gui Goldrajch">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- PARCEIRO: JOÃO ALFAR -->
-                    <div class="social-group">
-                        <span class="social-label">Funnel Builder & CRO</span>
-                        <span class="person-name">João Alfar</span>
-                        <div class="social-links">
-                            <a href="https://www.instagram.com/alfxr.ops/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram João Alfar">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"/>
-                                </svg>
-                            </a>
-                            <a href="https://www.linkedin.com/in/joão-alfar" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn João Alfar">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-
+                <h3>Transparência Total</h3>
+                <p>Dashboard em tempo real com todas as métricas. Relatórios mensais detalhados. Acesso a todas as ferramentas. <strong>Zero caixas negras.</strong></p>
             </div>
 
-            <!-- DIVISÓRIA -->
-            <div class="footer-divider"></div>
+            <div class="guarantee-card">
+                <div class="guarantee-icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <circle cx="20" cy="20" r="15" stroke="rgba(255,255,255,0.7)" stroke-width="2"/>
+                        <path d="M20 10v10l7 7" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h3>Resposta Rápida</h3>
+                <p>Clientes da Parceria têm <strong>resposta em 4h</strong> (dias úteis). Slack/WhatsApp direto com o gestor. Reuniões mensais garantidas.</p>
+            </div>
 
-            <!-- BOTTOM BAR -->
-            <div class="footer-bottom">
-                <p>© <span id="currentYear">2025</span> Elite Agency</p>
-                <p>
-                    <a href="#privacidade">Política de Privacidade</a> |
-                    <a href="#termos">Termos de Serviço</a>
-                </p>
+            <div class="guarantee-card">
+                <div class="guarantee-icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <rect x="8" y="8" width="24" height="24" rx="4" stroke="rgba(255,255,255,0.7)" stroke-width="2"/>
+                        <path d="M16 20l3 3 7-7" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h3>Qualidade Garantida</h3>
+                <p>Todo o conteúdo passa por <strong>dupla revisão</strong>. Standards profissionais rigorosos. Se não estiveres satisfeito, refazemos até acertar.</p>
+            </div>
+
+            <div class="guarantee-card">
+                <div class="guarantee-icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <path d="M20 8v24M8 20h24" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="20" cy="20" r="12" stroke="rgba(255,255,255,0.7)" stroke-width="2"/>
+                    </svg>
+                </div>
+                <h3>Sem Surpresas</h3>
+                <p><strong>Preço fixo mensal.</strong> Sem custos escondidos. Todas as ferramentas incluídas. Sabes exatamente o que pagas e o que recebes.</p>
+            </div>
+
+            <div class="guarantee-card">
+                <div class="guarantee-icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <path d="M12 20l6 6L30 14" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="20" cy="20" r="15" stroke="rgba(255,255,255,0.7)" stroke-width="2"/>
+                    </svg>
+                </div>
+                <h3>Ownership Total</h3>
+                <p>Todo o conteúdo criado é <strong>100% teu</strong>. Acessos às contas mantêm-se contigo. Se terminares, levas tudo sem drama.</p>
+            </div>
+
+            <div class="guarantee-card">
+                <div class="guarantee-icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <path d="M20 5L7 12v10c0 8.3 5.5 16 13 18 7.5-2 13-9.7 13-18V12L20 5z" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linejoin="round"/>
+                        <path d="M15 20l3 3 7-7" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h3>Proteção de Dados</h3>
+                <p><strong>NDA obrigatório.</strong> Confidencialidade total. Sistemas seguros. Nunca partilhamos info de clientes ou estratégias.</p>
             </div>
 
         </div>
-    </footer>
 
-    <!-- ==================== WHATSAPP STICKY BUTTON ==================== -->
-    <a href="https://wa.me/351924132341?text=Ol%C3%A1!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20**Parceria%20Comercial%20Elite**" 
-       class="whatsapp-float" 
-       id="whatsappButton"
-       target="_blank" 
-       rel="noopener noreferrer"
-       aria-label="Conversar no WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+        <div class="guarantees-footer">
+            <h4>A Nossa Filosofia</h4>
+            <p>Não somos a opção mais barata. Somos a opção que <strong>entrega resultados</strong> e te trata como parceiro, não como ticket number. Marketing sério exige investimento sério – mas também mereces profissionalismo, transparência e resultados mensuráveis.</p>
+        </div>
+    </div>
+</section>
 
-    <!-- ==================== SCRIPTS ==================== -->
-    <script>
-        // Ano automático no footer
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
+<!-- ==================== PRÓXIMOS PASSOS ==================== -->
+<section class="next-steps">
+    <div class="container">
+        <div class="section-intro">
+            <span class="section-label">Como Começar</span>
+            <h2>Próximos <strong>Passos</strong></h2>
+            <p>Do primeiro contacto ao lançamento: processo simples e transparente.</p>
+        </div>
 
-        // ========== COPIAR EMAIL ==========
-        const emailBtn = document.getElementById('emailCopyBtn');
-        const emailTextSpan = document.getElementById('emailText');
-        const originalText = "geral.eliteagency@gmail.com";
-        const emailToCopy = "geral.eliteagency@gmail.com";
+        <div class="steps-timeline">
+            
+            <div class="step-item">
+                <div class="step-number">01</div>
+                <div class="step-content">
+                    <h3>Chamada de Diagnóstico <span class="step-duration">30 min · Gratuito</span></h3>
+                    <p>Agendas através do calendário abaixo. Conversamos sobre o teu negócio, objetivos, desafios atuais. Verificamos se há fit entre nós.</p>
+                    <ul>
+                        <li>Análise rápida da tua presença digital</li>
+                        <li>Identificação de oportunidades imediatas</li>
+                        <li>Clarificação de objetivos e KPIs</li>
+                    </ul>
+                </div>
+            </div>
 
-        if (emailBtn && emailTextSpan) {
-            emailBtn.addEventListener('click', function(e) {
-                e.preventDefault();
+            <div class="step-item">
+                <div class="step-number">02</div>
+                <div class="step-content">
+                    <h3>Proposta Personalizada <span class="step-duration">48-72h</span></h3>
+                    <p>Se houver match, preparamos proposta detalhada específica para o teu caso. Inclui scope exato, timeline, investimento e KPIs a rastrear.</p>
+                    <ul>
+                        <li>Estratégia de 90 dias personalizada</li>
+                        <li>Breakdown completo de entregas</li>
+                        <li>Preço transparente e fixo</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-number">03</div>
+                <div class="step-content">
+                    <h3>Reunião de Alinhamento <span class="step-duration">60 min</span></h3>
+                    <p>Apresentamos a proposta em detalhe. Respondemos a todas as questões. Ajustamos se necessário. Sem pressão de vendas – apenas clareza total.</p>
+                    <ul>
+                        <li>Walkthrough completo da estratégia</li>
+                        <li>Q&A extensivo</li>
+                        <li>Ajustes finais se necessário</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-number">04</div>
+                <div class="step-content">
+                    <h3>Assinatura & Onboarding <span class="step-duration">Semana 1</span></h3>
+                    <p>Assinatura de contrato + NDA. Setup de acessos e ferramentas. Reunião de onboarding (90 min) com toda a equipa. Começamos oficialmente.</p>
+                    <ul>
+                        <li>Documentação legal clara</li>
+                        <li>Setup técnico completo</li>
+                        <li>Conhecimento da equipa</li>
+                        <li>Kick-off estratégico</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-number">05</div>
+                <div class="step-content">
+                    <h3>Execução & Crescimento <span class="step-duration">Mês 1+</span></h3>
+                    <p>Auditoria completa (semanas 1-2). Implementação da estratégia (semanas 3-4). Execução contínua e otimização baseada em dados.</p>
+                    <ul>
+                        <li>Produção e publicação de conteúdo</li>
+                        <li>Tracking e análise constante</li>
+                        <li>Reuniões mensais de estratégia</li>
+                        <li>Ajustes e melhorias contínuas</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="steps-cta">
+            <p>Tempo total do primeiro contacto ao lançamento: <strong>2-3 semanas</strong></p>
+            <a href="https://wa.me/351924132341?text=Ol%C3%A1!%20Quero%20come%C3%A7ar%20com%20a%20**chamada%20de%20diagn%C3%B3stico%20gratuita**" 
+               class="cta-button" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                <span>Começar com Diagnóstico Gratuito</span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M5 10h10m-5-5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+    <div class="container">
+        
+        <div class="footer-content">
+            
+            <div class="footer-left">
+                <div class="footer-brand">
+                    <p><strong>ELITE AGENCY</strong> — Parceiro de aquisição dos negócios nacionais</p>
+                </div>
+                <div class="footer-email">
+                    <button id="emailCopyBtn" aria-label="Copiar email">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        <span id="emailText">geral.eliteagency@gmail.com</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="footer-right">
                 
-                // Tentar copiar com Clipboard API moderna
-                if (navigator.clipboard && navigator.clipboard.writeText) {
-                    navigator.clipboard.writeText(emailToCopy).then(() => {
-                        emailTextSpan.textContent = "✓ Email Copiado!";
-                        emailBtn.style.color = "#fff";
-                        
-                        setTimeout(() => {
-                            emailTextSpan.textContent = originalText;
-                            emailBtn.style.color = "#999";
-                        }, 2000);
-                    }).catch(err => {
-                        console.error('Erro ao copiar com Clipboard API:', err);
-                        fallbackCopy();
-                    });
-                } else {
-                    fallbackCopy();
-                }
-            });
-        }
+                <div class="social-group">
+                    <span class="social-label">CEO & Founder</span>
+                    <span class="person-name">Gonçalo Ramos</span>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/goncaloramosvs/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram Gonçalo Ramos">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/gon%C3%A7alo-ramos-5923a0382/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn Gonçalo Ramos">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="social-group">
+                    <span class="social-label">COO & Founder</span>
+                    <span class="person-name">Gui Goldrajch</span>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/goldrajch_/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram Gui Goldrajch">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/gui-goldrajch-667aa8277/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn Gui Goldrajch">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="social-group">
+                    <span class="social-label">Funnel Builder & CRO</span>
+                    <span class="person-name">João Alfar</span>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/alfxr.ops/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram João Alfar">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/joão-alfar" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn João Alfar">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+        
+        <div class="footer-divider"></div>
+        
+        <div class="footer-bottom">
+            <p>© <span id="currentYear">2025</span> Elite Agency</p>
+            <p>
+                <a href="#privacidade">Política de Privacidade</a> | 
+                <a href="#termos">Termos de Serviço</a>
+            </p>
+        </div>
+        
+    </div>
+</footer>
 
-        function fallbackCopy() {
-            try {
-                const textArea = document.createElement('textarea');
-                textArea.value = emailToCopy;
-                textArea.style.position = 'fixed';
-                textArea.style.opacity = '0';
-                document.body.appendChild(textArea);
-                textArea.select();
-                
-                const successful = document.execCommand('copy');
-                document.body.removeChild(textArea);
-                
-                if (successful) {
+<!-- ==================== WHATSAPP STICKY BUTTON ==================== -->
+<a href="https://wa.me/351924132341?text=Ol%C3%A1!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20**Parceria%20Comercial%20Elite**" 
+   class="whatsapp-float" 
+   id="whatsappButton"
+   target="_blank" 
+   rel="noopener noreferrer"
+   aria-label="Conversar no WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- ==================== SCRIPTS ==================== -->
+<script>
+    // Ano automático no footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // ========== COPIAR EMAIL ==========
+    const emailBtn = document.getElementById('emailCopyBtn');
+    const emailTextSpan = document.getElementById('emailText');
+    const originalText = "geral.eliteagency@gmail.com";
+    const emailToCopy = "geral.eliteagency@gmail.com";
+
+    if (emailBtn && emailTextSpan) {
+        emailBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(emailToCopy).then(() => {
                     emailTextSpan.textContent = "✓ Email Copiado!";
                     emailBtn.style.color = "#fff";
                     
@@ -3255,41 +3562,71 @@
                         emailTextSpan.textContent = originalText;
                         emailBtn.style.color = "#999";
                     }, 2000);
-                }
-            } catch (err) {
-                console.error('Erro no fallback de copy:', err);
-            }
-        }
-
-        // ========== WHATSAPP STICKY BUTTON (aparece após 2000px) ==========
-        const whatsappButton = document.getElementById('whatsappButton');
-        const SCROLL_THRESHOLD = 2000; // 2000px
-
-        function handleWhatsAppVisibility() {
-            const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-            
-            if (scrollPosition > SCROLL_THRESHOLD) {
-                whatsappButton.classList.add('show');
-            } else {
-                whatsappButton.classList.remove('show');
-            }
-        }
-
-        // Verificar ao carregar a página
-        handleWhatsAppVisibility();
-
-        // Verificar ao fazer scroll (com throttle para performance)
-        let ticking = false;
-        window.addEventListener('scroll', function() {
-            if (!ticking) {
-                window.requestAnimationFrame(function() {
-                    handleWhatsAppVisibility();
-                    ticking = false;
+                }).catch(err => {
+                    console.error('Erro ao copiar:', err);
+                    fallbackCopy();
                 });
-                ticking = true;
+            } else {
+                fallbackCopy();
             }
         });
-    </script>
+    }
+
+    function fallbackCopy() {
+        try {
+            const textArea = document.createElement('textarea');
+            textArea.value = emailToCopy;
+            textArea.style.position = 'fixed';
+            textArea.style.opacity = '0';
+            document.body.appendChild(textArea);
+            textArea.select();
+            
+            const successful = document.execCommand('copy');
+            document.body.removeChild(textArea);
+            
+            if (successful) {
+                emailTextSpan.textContent = "✓ Email Copiado!";
+                emailBtn.style.color = "#fff";
+                
+                setTimeout(() => {
+                    emailTextSpan.textContent = originalText;
+                    emailBtn.style.color = "#999";
+                }, 2000);
+            }
+        } catch (err) {
+            console.error('Erro no fallback:', err);
+        }
+    }
+
+    // ========== WHATSAPP STICKY BUTTON (aparece após 2000px) ==========
+    const whatsappButton = document.getElementById('whatsappButton');
+    const SCROLL_THRESHOLD = 2000; // 2000px
+
+    function handleWhatsAppVisibility() {
+        const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollPosition > SCROLL_THRESHOLD) {
+            whatsappButton.classList.add('show');
+        } else {
+            whatsappButton.classList.remove('show');
+        }
+    }
+
+    // Verificar ao carregar a página
+    handleWhatsAppVisibility();
+
+    // Verificar ao fazer scroll (com throttle para performance)
+    let ticking = false;
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                handleWhatsAppVisibility();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+</script>
 
 </body>
 </html>
