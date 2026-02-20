@@ -1,0 +1,4810 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Elite Agency — Parceiro Exclusivo dos Melhores Negócios Locais</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dooigd0d3/image/upload/v1766771870/GENERATION-removebg-preview_yfwn01.png">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', system-ui, sans-serif; 
+            background: #000000;
+            color: #ffffff; 
+            line-height: 1.6; 
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            padding: 0 40px; 
+        }
+
+        .section { 
+            padding: clamp(100px, 12vw, 160px) 0; 
+            position: relative; 
+        }
+
+        /* ========== STICKY CTA (APARECE APENAS APÓS 1500PX) ========== */
+        .ea-overlay-container {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            z-index: 2147483647 !important;
+            pointer-events: none !important;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .ea-overlay-container.visible {
+            opacity: 1;
+        }
+
+        .ea-strip {
+            position: absolute !important;
+            top: 20px !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            z-index: 2147483647 !important;
+            width: auto;
+            max-width: calc(100% - 40px);
+            padding: 14px 44px 14px 18px;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+            animation: slideDown 0.6s ease;
+            overflow: hidden;
+            pointer-events: auto !important;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
+        .ea-gradient {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.04) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+        }
+
+        .ea-strip:hover .ea-gradient {
+            opacity: 1;
+        }
+
+        .ea-border {
+            position: absolute;
+            inset: -1px;
+            border-radius: 16px;
+            background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+            opacity: 0;
+            animation: borderShine 3s infinite;
+            pointer-events: none;
+        }
+
+        @keyframes borderShine {
+            0%, 100% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            50% {
+                opacity: 1;
+                transform: translateX(100%);
+            }
+        }
+
+        .ea-content {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ea-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 10px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .ea-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #ffffff;
+            animation: pulse 2s infinite;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.6;
+                transform: scale(0.9);
+            }
+        }
+
+        .ea-text {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 13px;
+            line-height: 1.5;
+            font-weight: 300;
+            letter-spacing: -0.2px;
+        }
+
+        .ea-text strong {
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .ea-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 9px 18px;
+            border-radius: 10px;
+            background: #ffffff;
+            color: #000000;
+            font-size: 13px;
+            font-weight: 500;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: all 0.3s;
+            border: 1px solid #ffffff;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .ea-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%);
+            transition: left 0.5s;
+        }
+
+        .ea-btn:hover::before {
+            left: 100%;
+        }
+
+        .ea-btn:hover {
+            background: transparent;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(255, 255, 255, 0.15);
+        }
+
+        .ea-arrow {
+            width: 14px;
+            height: 14px;
+            transition: transform 0.3s;
+        }
+
+        .ea-btn:hover .ea-arrow {
+            transform: translate(2px, -2px);
+        }
+
+        .ea-close {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 26px;
+            height: 26px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.04);
+            color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .ea-close:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            transform: rotate(90deg);
+        }
+
+        /* ========== TYPOGRAPHY ========== */
+        .ante { 
+            font-size: 11px; 
+            text-transform: uppercase; 
+            letter-spacing: 3px; 
+            color: rgba(255, 255, 255, 0.75); 
+            font-weight: 600; 
+            display: inline-block; 
+            padding: 8px 20px; 
+            border: 1px solid rgba(255, 255, 255, 0.15); 
+            border-radius: 50px; 
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+        }
+
+        h1 { 
+            font-size: clamp(36px, 4.2vw, 52px); 
+            font-weight: 400; 
+            line-height: 1.15; 
+            margin-bottom: 24px; 
+            background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 50%, #707070 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            background-clip: text;
+            letter-spacing: -1.2px;
+            text-align: left;
+        }
+
+        h1 strong { 
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff 0%, #d0d0d0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 { 
+            font-size: clamp(32px, 5vw, 56px); 
+            font-weight: 300; 
+            margin-bottom: 25px; 
+            background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 50%, #707070 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        h2 strong { 
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff 0%, #d0d0d0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h3 { 
+            font-size: clamp(24px, 3.2vw, 28px); 
+            font-weight: 600; 
+            margin-bottom: 18px; 
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+
+        p { 
+            font-size: clamp(16px, 2vw, 19px); 
+            color: rgba(255, 255, 255, 0.65); 
+            margin-bottom: 25px; 
+            max-width: 800px; 
+            margin-left: auto; 
+            margin-right: auto;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        p strong {
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 600;
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero { 
+            min-height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            position: relative;
+            padding: 100px 0;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(60px, 8vw, 100px);
+            align-items: center;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .hero-copy { 
+            font-size: clamp(16px, 1.8vw, 19px); 
+            color: rgba(255, 255, 255, 0.65);
+            margin-bottom: 36px; 
+            line-height: 1.7;
+            font-weight: 400;
+            max-width: 560px;
+            letter-spacing: -0.1px;
+            text-align: left;
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .cta-primary { 
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 40px; 
+            background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%); 
+            color: #000000; 
+            font-size: 16px; 
+            font-weight: 600; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); 
+            box-shadow: 0 12px 40px rgba(255, 255, 255, 0.12);
+            letter-spacing: 0.2px;
+            overflow: hidden;
+        }
+
+        .cta-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%);
+            transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+
+        .cta-primary:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 20px 60px rgba(255, 255, 255, 0.18);
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+        }
+
+        .cta-primary:hover::before {
+            left: 100%;
+        }
+
+        .hero-vsl-wrapper {
+            width: 100%;
+            max-width: 520px;
+            margin-left: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .expertise-block {
+            padding: 12px 18px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-left: 3px solid rgba(255, 193, 7, 0.4);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+            transition: all 0.3s ease;
+        }
+
+        .warning-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.08) 0%, rgba(255, 193, 7, 0.04) 100%);
+            border: 1px solid rgba(255, 193, 7, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .warning-icon svg {
+            width: 16px;
+            height: 16px;
+            color: rgba(255, 193, 7, 0.9);
+        }
+
+        .expertise-text {
+            flex: 1;
+            font-size: 11.5px;
+            line-height: 1.4;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 400;
+            letter-spacing: -0.05px;
+            margin: 0;
+        }
+
+        .expertise-text strong {
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 600;
+        }
+
+        /* VIDEO PLAYER */
+        .hero-vsl {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            background: #000000;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            aspect-ratio: 16/9;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .hero-vsl video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .play-button-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 12px 32px rgba(255, 255, 255, 0.15);
+            z-index: 10;
+        }
+
+        .play-button-center.hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: translate(-50%, -50%) scale(0.8);
+        }
+
+        .play-button-center::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 24px solid #000000;
+            border-top: 14px solid transparent;
+            border-bottom: 14px solid transparent;
+            margin-left: 6px;
+        }
+
+        .play-button-center:hover {
+            transform: translate(-50%, -50%) scale(1.08);
+        }
+
+        .video-controls-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, transparent 100%);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 15;
+            pointer-events: none;
+        }
+
+        .hero-vsl:hover .video-controls-overlay,
+        .hero-vsl.playing .video-controls-overlay {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 3px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #ffffff 0%, #e0e0e0 100%);
+            width: 0%;
+            border-radius: 3px;
+            transition: width 0.1s linear;
+            position: relative;
+        }
+
+        .controls-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .control-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .control-btn:hover {
+            background: rgba(255, 255, 255, 0.35);
+            transform: scale(1.1);
+        }
+
+        .control-btn svg {
+            width: 20px;
+            height: 20px;
+            color: #ffffff;
+        }
+
+        /* TESTEMUNHOS */
+        .testimonials-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .testimonials-intro {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 600;
+            padding-left: 2px;
+        }
+
+        .testimonials-compact {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .testimonial-item {
+            padding: 14px 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .testimonial-item:hover {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(255, 255, 255, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .testimonial-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .testimonial-brand {
+            font-size: 13px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.95);
+            letter-spacing: -0.1px;
+        }
+
+        .testimonial-type {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 500;
+            padding: 2px 6px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 999px;
+        }
+
+        .testimonial-investment {
+            font-size: 12px;
+            font-weight: 800;
+            color: #fbbf24;
+            letter-spacing: -0.2px;
+            padding: 4px 10px;
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.12) 0%, rgba(251, 191, 36, 0.06) 100%);
+            border-radius: 8px;
+            border: 1px solid rgba(251, 191, 36, 0.25);
+            box-shadow: 0 2px 8px rgba(251, 191, 36, 0.1);
+        }
+
+        .testimonial-services {
+            font-size: 10px;
+            line-height: 1.4;
+            color: rgba(255, 255, 255, 0.55);
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+
+        .testimonial-quote {
+            font-size: 11px;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.75);
+            margin: 0;
+        }
+
+        .vsl-mobile, .expertise-mobile, .testimonials-mobile { display: none; }
+
+        /* ========== SOCIAL PROOF ========== */
+        .social-proof { 
+            background: #000000;
+            text-align: center;
+        }
+
+        .proof-intro {
+            max-width: 900px;
+            margin: 0 auto 60px;
+        }
+
+        .central-stat {
+            margin: 40px auto;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: clamp(48px, 8vw, 84px);
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 50%, #707070 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .testimonials-horizontal { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px; 
+            margin-top: 60px; 
+        }
+
+        .testimonial-card { 
+            background: rgba(255, 255, 255, 0.02); 
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            border-radius: 16px; 
+            padding: 28px 20px; 
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(8px);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+        }
+
+        .testimonial-card:hover { 
+            transform: translateY(-6px); 
+            border-color: rgba(255, 255, 255, 0.15); 
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .investment-tag {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            font-size: 10px;
+            font-weight: 700;
+            color: #fbbf24;
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.15) 0%, rgba(251, 191, 36, 0.08) 100%);
+            padding: 4px 8px;
+            border-radius: 6px;
+            border: 1px solid rgba(251, 191, 36, 0.25);
+            letter-spacing: 0.5px;
+        }
+
+        .investment-tag.free {
+            color: #10b981;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(16, 185, 129, 0.08) 100%);
+            border-color: rgba(16, 185, 129, 0.25);
+        }
+
+        .logo-container {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            margin: 20px auto 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover .logo-container {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: scale(1.05);
+        }
+
+        .logo-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            filter: brightness(1.1) contrast(1.05);
+        }
+
+        .testimonial-niche {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .testimonial-metric { 
+            font-size: 13px; 
+            color: rgba(255, 255, 255, 0.65);
+            line-height: 1.6;
+            font-weight: 300;
+            margin-bottom: 16px;
+            flex-grow: 1;
+        }
+
+        .testimonial-roi {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #fff;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-top: auto;
+        }
+
+        /* ========== PROBLEMA SECTION ========== */
+        .problema {
+            background: #000000;
+            text-align: center;
+            position: relative;
+        }
+
+        .problema-intro {
+            max-width: 1000px;
+            margin: 0 auto 90px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .callout {
+            font-size: clamp(18px, 2.5vw, 22px);
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 400;
+            line-height: 1.65;
+            margin-top: 50px;
+            padding: 38px 42px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-left: 4px solid rgba(255, 255, 255, 0.35);
+            border-radius: 16px;
+            text-align: left;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .callout strong {
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 600;
+        }
+
+        .sintomas { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); 
+            gap: 32px; 
+            margin-top: 80px; 
+            position: relative;
+            z-index: 1;
+        }
+
+        .sintoma-card { 
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.035) 0%, rgba(255, 255, 255, 0.015) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            border-radius: 24px; 
+            padding: 44px 36px; 
+            text-align: left;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .sintoma-card::before {
+            content: attr(data-number);
+            position: absolute;
+            top: -20px;
+            right: -10px;
+            font-size: 140px;
+            font-weight: 800;
+            background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            pointer-events: none;
+            z-index: 0;
+            transition: transform 0.5s ease;
+        }
+
+        .sintoma-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+        }
+
+        .sintoma-card:hover {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.025) 100%);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .sintoma-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .sintoma-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .sintoma-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .sintoma-number {
+            font-size: 14px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 1px;
+        }
+
+        .cost {
+            margin-top: auto;
+            padding: 22px 24px;
+            background: linear-gradient(135deg, rgba(255, 59, 48, 0.06) 0%, rgba(255, 59, 48, 0.02) 100%);
+            border: 1px solid rgba(255, 59, 48, 0.15);
+            border-radius: 14px;
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cost strong {
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 10px;
+            letter-spacing: -0.3px;
+        }
+
+        .cost span {
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 14px;
+            line-height: 1.5;
+            font-weight: 300;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .hero { padding: 80px 0; min-height: auto; }
+            .hero-grid { grid-template-columns: 1fr; gap: 0; }
+            .hero-vsl-wrapper { display: none; }
+            .expertise-mobile, .vsl-mobile, .testimonials-mobile { display: block; margin-bottom: 16px; }
+            .testimonials-horizontal { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+            .sintomas { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; }
+            .ea-strip { max-width: calc(100% - 32px); }
+            .ea-text { font-size: 12.5px; }
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 0 24px; }
+            .section { padding: 60px 0; }
+            .hero { padding: 60px 0; }
+            .hero-content { display: flex; flex-direction: column; align-items: flex-start; text-align: left; }
+            .ante { order: 1; font-size: 10px; padding: 8px 16px; }
+            h1 { order: 2; margin-bottom: 20px; font-size: 30px; }
+            h2 { font-size: 28px; }
+            .expertise-mobile { order: 3; }
+            .vsl-mobile { order: 4; }
+            .testimonials-mobile { order: 5; }
+            .hero-copy { order: 6; }
+            .cta-primary { order: 7; width: 100%; justify-content: center; padding: 16px 32px; font-size: 15px; }
+            .testimonials-horizontal { grid-template-columns: 1fr; gap: 16px; }
+            .testimonial-card { padding: 24px 18px; }
+            .logo-container { width: 72px; height: 72px; }
+            .investment-tag { font-size: 9px; padding: 3px 6px; }
+            .callout { padding: 28px 24px; font-size: 16px; margin-top: 40px; }
+            .sintomas { grid-template-columns: 1fr; gap: 24px; margin-top: 60px; }
+            .sintoma-card { padding: 36px 28px; }
+            .ea-strip { top: 16px !important; max-width: calc(100% - 24px); padding: 12px 38px 12px 14px; border-radius: 14px; }
+            .ea-content { flex-direction: column; align-items: stretch; gap: 10px; }
+            .ea-badge { align-self: flex-start; font-size: 10px; padding: 4px 8px; }
+            .ea-text { font-size: 12px; line-height: 1.6; text-align: left; }
+            .ea-btn { width: 100%; padding: 11px 20px; font-size: 13px; }
+            .ea-close { top: 6px; right: 6px; width: 24px; height: 24px; }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 26px; letter-spacing: -0.8px; }
+            .ante { font-size: 10px; }
+            .expertise-text { font-size: 10.5px; }
+            .testimonial-brand { font-size: 11px; }
+            .sintoma-card::before { font-size: 120px; top: -15px; right: -5px; }
+            .cost { padding: 18px 20px; }
+            .cost strong { font-size: 18px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ========== STICKY CTA (APARECE APÓS 1500PX) ========== -->
+<div class="ea-overlay-container" id="sticky-cta">
+    <div class="ea-strip">
+        <div class="ea-gradient"></div>
+        <div class="ea-border"></div>
+
+        <button class="ea-close" onclick="document.getElementById('sticky-cta').style.display='none'" aria-label="Fechar">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M1 1L11 11M11 1L1 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+        </button>
+
+        <div class="ea-content">
+            <div class="ea-badge">
+                <span class="ea-dot"></span>
+                Parceria
+            </div>
+
+            <span class="ea-text">
+                Marketing Digital Completo: Social Media + Funnels + Sites. <strong>Tudo numa única agência.</strong>
+            </span>
+
+            <a href="/parceiro-comercial" class="ea-btn">
+                <span>Descobrir Parceria Elite</span>
+                <svg class="ea-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- ========== HERO SECTION ========== -->
+<section class="hero">
+    <div class="container hero-inner">
+        <div class="hero-grid">
+            
+            <div class="hero-content">
+
+                <span class="ante">Apenas Para Empresários Sérios Sobre Crescimento</span>
+
+                <h1>Construímos Impérios Locais.<br>Mas Não Para <strong>Qualquer Um.</strong></h1>
+
+                <div class="expertise-mobile">
+                    <div class="expertise-block">
+                        <div class="warning-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+                                <line x1="12" y1="9" x2="12" y2="13"/>
+                                <line x1="12" y1="17" x2="12.01" y2="17"/>
+                            </svg>
+                        </div>
+                        <p class="expertise-text">
+                            Como somos uma <strong>equipa pequena e altamente qualificada</strong>, para entregarmos o melhor trabalho a cada parceiro, não podemos aceitar todos os clientes. Aceitamos <strong>apenas os mais sérios</strong> e poucos por trimestre.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="vsl-mobile">
+                    <div class="hero-vsl" id="video-container-mobile">
+                        <video 
+                            id="video-player-mobile" 
+                            playsinline 
+                            preload="metadata"
+                            poster="https://res.cloudinary.com/dooigd0d3/image/upload/v1769186054/brave_screenshot_www.youtube.com_tqye3h.png">
+                            <source src="https://res.cloudinary.com/dooigd0d3/video/upload/v1769184106/aeeeee_-_Goldrajch_1080p_h264_lpbr4a.mp4" type="video/mp4">
+                        </video>
+                        
+                        <div class="play-button-center" id="play-center-mobile"></div>
+                        
+                        <div class="video-controls-overlay">
+                            <div class="progress-container" id="progress-mobile">
+                                <div class="progress-bar" id="progress-bar-mobile"></div>
+                            </div>
+                            <div class="controls-row">
+                                <button class="control-btn" id="play-btn-mobile">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </button>
+                                <button class="control-btn" id="mute-btn-mobile">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                                        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonials-mobile">
+                    <div class="testimonials-wrapper">
+                        <p class="testimonials-intro">Parceiros que iniciaram no Q3 2025 e renovaram para Q4 2025</p>
+                        <div class="testimonials-compact">
+                            <div class="testimonial-item">
+                                <div class="testimonial-header">
+                                    <div class="testimonial-left">
+                                        <span class="testimonial-brand">Star Eyes</span>
+                                        <span class="testimonial-type">Parceiro Elite</span>
+                                    </div>
+                                    <span class="testimonial-investment">€1.250</span>
+                                </div>
+                                <p class="testimonial-services">Videografia, Website, Marketing de Redes Sociais</p>
+                                <p class="testimonial-quote">"Trabalho excecional que superou todas as expectativas. Renovação foi decisão imediata."</p>
+                            </div>
+                            <div class="testimonial-item">
+                                <div class="testimonial-header">
+                                    <div class="testimonial-left">
+                                        <span class="testimonial-brand">Orgheal</span>
+                                        <span class="testimonial-type">Parceiro Elite</span>
+                                    </div>
+                                    <span class="testimonial-investment">€12.500</span>
+                                </div>
+                                <p class="testimonial-services">E-commerce, Marketing Wellness, Website, Funis de Vendas, Sales Pages</p>
+                                <p class="testimonial-quote">"Sistema completo que gera ROI consistente. Parceria estratégica de longo prazo."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="hero-copy">
+                    Se o teu negócio já fatura e procuras <strong>dominar o mercado local</strong>, nós temos a infraestrutura. Não vendemos "posts nas redes sociais", construímos <strong>sistemas de aquisição previsível</strong>. Transformamos negócios estabelecidos em <strong>máquinas de crescimento controlado</strong>. Candidata-te apenas se estiveres pronto para escalar.
+                </p>
+
+                <a href="https://wa.me/351924132341?text=Ol%C3%A1%20Elite%20Agency%2C%0A%0AQuero%20marcar%20uma%20chamada%20estrat%C3%A9gica%20para%20avaliar%20o%20alinhamento%20entre%20o%20meu%20neg%C3%B3cio%20e%20a%20vossa%20metodologia%20de%20constru%C3%A7%C3%A3o%20de%20imp%C3%A9rios%20locais.%0A%0ATenho%20um%20neg%C3%B3cio%20a%20faturar%20e%20estou%20preparado%20para%20escalar%20com%20sistemas%20de%20aquisi%C3%A7%C3%A3o%20previs%C3%ADvel.%0A%0A%E2%9C%85%20Nome%3A%20%0A%E2%9C%85%20Neg%C3%B3cio%3A%20%0A%E2%9C%85%20Setor%3A%20%0A%0AAguardo%20retorno%20para%20agendarmos." class="cta-primary" target="_blank" rel="noopener noreferrer">
+                    Candidatar à Elite
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="hero-vsl-wrapper">
+                
+                <div class="expertise-block">
+                    <div class="warning-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+                            <line x1="12" y1="9" x2="12" y2="13"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </svg>
+                    </div>
+                    <p class="expertise-text">
+                        Como somos uma <strong>equipa pequena e altamente qualificada</strong>, para entregarmos o melhor trabalho a cada parceiro, não podemos aceitar todos os clientes. Aceitamos <strong>apenas os mais sérios</strong> e poucos por trimestre.
+                    </p>
+                </div>
+
+                <div class="hero-vsl" id="video-container-desktop">
+                    <video 
+                        id="video-player-desktop" 
+                        playsinline 
+                        preload="metadata"
+                        poster="https://res.cloudinary.com/dooigd0d3/image/upload/v1769186054/brave_screenshot_www.youtube.com_tqye3h.png">
+                        <source src="https://res.cloudinary.com/dooigd0d3/video/upload/v1769184106/aeeeee_-_Goldrajch_1080p_h264_lpbr4a.mp4" type="video/mp4">
+                    </video>
+                    
+                    <div class="play-button-center" id="play-center-desktop"></div>
+                    
+                    <div class="video-controls-overlay">
+                        <div class="progress-container" id="progress-desktop">
+                            <div class="progress-bar" id="progress-bar-desktop"></div>
+                        </div>
+                        <div class="controls-row">
+                            <button class="control-btn" id="play-btn-desktop">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </button>
+                            <button class="control-btn" id="mute-btn-desktop">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonials-wrapper">
+                    <p class="testimonials-intro">Parceiros que iniciaram no Q3 2025 e renovaram para Q4 2025</p>
+                    <div class="testimonials-compact">
+                        <div class="testimonial-item">
+                            <div class="testimonial-header">
+                                <div class="testimonial-left">
+                                    <span class="testimonial-brand">Star Eyes</span>
+                                    <span class="testimonial-type">Parceiro Elite</span>
+                                </div>
+                                <span class="testimonial-investment">€1.250</span>
+                            </div>
+                            <p class="testimonial-services">Videografia, Website, Marketing de Redes Sociais</p>
+                            <p class="testimonial-quote">"Trabalho excecional que superou todas as expectativas. Renovação foi decisão imediata."</p>
+                        </div>
+                        <div class="testimonial-item">
+                            <div class="testimonial-header">
+                                <div class="testimonial-left">
+                                    <span class="testimonial-brand">Orgheal</span>
+                                    <span class="testimonial-type">Parceiro Elite</span>
+                                </div>
+                                <span class="testimonial-investment">€12.500</span>
+                            </div>
+                            <p class="testimonial-services">E-commerce, Marketing Wellness, Website, Funis de Vendas, Sales Pages</p>
+                            <p class="testimonial-quote">"Sistema completo que gera ROI consistente. Parceria estratégica de longo prazo."</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ========== SOCIAL PROOF ========== -->
+<section class="social-proof section">
+    <div class="container">
+        <div class="proof-intro">
+            <span class="ante">Resultados Verificáveis, Não Promessas de Vendedor</span>
+            <h2>Estes Números São Reais.<br>Estes <strong>Investimentos</strong> Também.</h2>
+            <p>Não escondemos quanto os nossos parceiros investiram nem quanto ganharam. <strong>Transparência total</strong> porque trabalhamos apenas com empresários sérios que entendem que crescimento estratégico exige investimento, não milagres.</p>
+            
+            <div class="central-stat">
+                <span class="stat-number">€31.750</span>
+                <p class="stat-label">Investimento total dos nossos 3 parceiros estratégicos pagantes que transformaram os seus negócios nos últimos 18 meses</p>
+            </div>
+        </div>
+        
+        <div class="testimonials-horizontal">
+            
+            <div class="testimonial-card">
+                <div class="investment-tag">Projeto: €25k</div>
+                <div class="logo-container">
+                    <img src="https://res.cloudinary.com/dooigd0d3/image/upload/v1766771945/Reliefly_Lab_Logo_White_sam8fz.png" alt="RelieflyLab Logo">
+                </div>
+                <h4 class="testimonial-brand">RelieflyLab</h4>
+                <p class="testimonial-niche">E-commerce Wellness</p>
+                <p class="testimonial-metric">Investimento total <strong>€18.000</strong> ao longo de 12 meses. Infraestrutura completa de e-commerce que hoje gera <strong>vendas diárias consistentes</strong>.</p>
+                <span class="testimonial-roi">ROI: 12x em 18 meses</span>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="investment-tag">Projeto: €12.5k</div>
+                <div class="logo-container">
+                    <img src="https://res.cloudinary.com/dooigd0d3/image/upload/v1766771926/logo_no_backgr_rlzocd.png" alt="ORGHEAL Logo">
+                </div>
+                <h4 class="testimonial-brand">ORGHEAL</h4>
+                <p class="testimonial-niche">Produtos Naturais</p>
+                <p class="testimonial-metric">Investimento <strong>€12.500</strong> em website, funis e campanhas. Sistema que converte <strong>7% dos visitantes em clientes</strong> pagantes.</p>
+                <span class="testimonial-roi">Conversão: 7% (vs 1-2% média)</span>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="investment-tag">Mensal: €1.25k</div>
+                <div class="logo-container">
+                    <img src="https://res.cloudinary.com/dooigd0d3/image/upload/v1768919919/ChatGPT_Image_12_01_2026_18_22_58_gplexk.png" alt="Mestre Capinhas Logo">
+                </div>
+                <h4 class="testimonial-brand">Mestre Capinhas</h4>
+                <p class="testimonial-niche">Loja Local Porto</p>
+                <p class="testimonial-metric">Investimento <strong>€1.250/mês</strong>. De invisível na cidade a <strong>30+ clientes novos no 1º mês</strong>. Agenda com 3 semanas de antecedência.</p>
+                <span class="testimonial-roi">ROI: 6x mensal</span>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="investment-tag free">TRIAL GRATUITO</div>
+                <div class="logo-container">
+                    <img src="https://res.cloudinary.com/dooigd0d3/image/upload/v1768920238/image-removebg-preview_2_bh9rny.png" alt="EXSAD Logo">
+                </div>
+                <h4 class="testimonial-brand">EXSAD</h4>
+                <p class="testimonial-niche">Serviços B2B</p>
+                <p class="testimonial-metric">Começaram <strong>gratuitamente</strong> para testar a nossa metodologia. Resultado: <strong>+1M pessoas alcançadas</strong> organicamente e leads qualificados diários sem investimento.</p>
+                <span class="testimonial-roi">Prova de Conceito: 100%</span>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<!-- ========== PROBLEMA SECTION ========== -->
+<section class="problema section">
+    <div class="container">
+        <div class="problema-intro">
+            <span class="ante">Por Que a Maioria Falha Online</span>
+            <h2>O Teu Negócio Tem Potencial.<br>Mas Está <strong>Invisível Online.</strong></h2>
+            <p>A maioria dos empresários portugueses tem um negócio sólido offline — produtos validados, clientes satisfeitos, operação funcional. Mas quando tentam crescer online, <strong>ficam perdidos</strong>. Não é falta de qualidade. É falta de <strong>presença estratégica</strong>. E isso custa entre <strong>€2.000 e €8.000 por mês</strong> em oportunidades perdidas.</p>
+            
+            <div class="callout">
+                <strong>→</strong> Ter clientes fiéis é excelente. Depender só deles para crescer é arriscado.<br>
+                <strong>→</strong> Um negócio bom offline merece presença forte online.<br>
+                <strong>→</strong> Sem sistema digital, o teu teto de crescimento está definido pelas tuas horas físicas.
+            </div>
+        </div>
+        
+        <div class="sintomas">
+            
+            <div class="sintoma-card" data-number="01">
+                <div class="sintoma-header">
+                    <div class="sintoma-icon">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
+                        </svg>
+                    </div>
+                    <span class="sintoma-number">01</span>
+                </div>
+                <h3>Invisibilidade Digital Completa</h3>
+                <p>O teu negócio é <strong>excelente offline</strong>, mas online? Não existes. Quando potenciais clientes procuram o teu serviço no Google ou Instagram, <strong>aparecem os teus concorrentes</strong>. Não tu.</p>
+                <p><strong>Não tens presença consistente.</strong> O teu Instagram tem 3 posts de há 6 meses. O teu site (se tens) parece de 2010. Enquanto isso, negócios piores que o teu estão a captar todos os clientes novos porque <strong>parecem mais credíveis online</strong>.</p>
+                <div class="cost">
+                    <strong>Custo Real: €2.000–€5.000/mês</strong>
+                    <span>em clientes novos que vão para concorrentes porque não te encontram ou não confiam na tua presença online inexistente</span>
+                </div>
+            </div>
+            
+            <div class="sintoma-card" data-number="02">
+                <div class="sintoma-header">
+                    <div class="sintoma-icon">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <span class="sintoma-number">02</span>
+                </div>
+                <h3>Conteúdo Inconsistente e Amador</h3>
+                <p>Quando tentas fazer tu mesmo: <strong>posts irregulares, fotos de telemóvel, zero estratégia</strong>. Gastas 2 horas a criar um post que tem 12 likes (10 são da família). Desistes porque "redes sociais não funcionam".</p>
+                <p><strong>O problema não é a plataforma. És tu sem sistema.</strong> Negócios profissionais postam 6-12x por semana com videografia de qualidade, copy estratégico e branding consistente. Tu postas "quando dá" com o que sobra do dia.</p>
+                <div class="cost">
+                    <strong>Custo Real: €1.500–€3.500/mês</strong>
+                    <span>desperdiçados em tentativas fracassadas de criar conteúdo sozinho ou com freelancers baratos que não entregam resultados</span>
+                </div>
+            </div>
+            
+            <div class="sintoma-card" data-number="03">
+                <div class="sintoma-header">
+                    <div class="sintoma-icon">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+                        </svg>
+                    </div>
+                    <span class="sintoma-number">03</span>
+                </div>
+                <h3>Crescimento Limitado ao Boca-a-Boca</h3>
+                <p>O teu negócio cresce apenas quando alguém te recomenda. <strong>Não tens sistema escalável de aquisição.</strong> Queres 10 clientes novos este mês? Tens que esperar que "alguém fale de ti" 10 vezes.</p>
+                <p><strong>Isso não é estratégia. É sorte.</strong> Enquanto esperas por recomendações, concorrentes com presença digital forte estão a captar 20-30 leads novos por mês de forma previsível através de Instagram, Google e conteúdo estratégico.</p>
+                <div class="cost">
+                    <strong>Custo Real: €3.000–€8.000/mês</strong>
+                    <span>em receita potencial bloqueada porque o teu crescimento depende de variáveis que não controlas em vez de sistema replicável</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== ESPAÇO PARA PRÓXIMAS SECÇÕES ========== -->
+
+<script>
+// ========== STICKY CTA APARECE APÓS 1500PX ==========
+window.addEventListener('scroll', function() {
+    const stickyCTA = document.getElementById('sticky-cta');
+    if (window.scrollY > 1500) {
+        stickyCTA.classList.add('visible');
+    } else {
+        stickyCTA.classList.remove('visible');
+    }
+});
+
+// ========== VIDEO PLAYER ==========
+const playIcon = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+const pauseIcon = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>';
+const muteIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>';
+const unmuteIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>';
+
+function initCustomPlayer(device) {
+    const video = document.getElementById(`video-player-${device}`);
+    const container = document.getElementById(`video-container-${device}`);
+    const playCenter = document.getElementById(`play-center-${device}`);
+    const playBtn = document.getElementById(`play-btn-${device}`);
+    const muteBtn = document.getElementById(`mute-btn-${device}`);
+    const progressContainer = document.getElementById(`progress-${device}`);
+    const progressBar = document.getElementById(`progress-bar-${device}`);
+    
+    video.muted = false;
+    video.volume = 1.0;
+    
+    function togglePlayPause() {
+        if (video.paused || video.ended) {
+            video.muted = false;
+            video.volume = 1.0;
+            
+            video.play().then(() => {
+                playCenter.classList.add('hidden');
+                container.classList.add('playing');
+                updatePlayButton();
+                updateMuteButton();
+            }).catch(e => {
+                video.muted = true;
+                video.play().then(() => {
+                    playCenter.classList.add('hidden');
+                    container.classList.add('playing');
+                    updatePlayButton();
+                    updateMuteButton();
+                });
+            });
+        } else {
+            video.pause();
+            updatePlayButton();
+        }
+    }
+    
+    function toggleMute() {
+        video.muted = !video.muted;
+        if (!video.muted) {
+            video.volume = 1.0;
+        }
+        updateMuteButton();
+    }
+    
+    function updatePlayButton() {
+        if (video.paused || video.ended) {
+            playBtn.innerHTML = playIcon;
+        } else {
+            playBtn.innerHTML = pauseIcon;
+        }
+    }
+    
+    function updateMuteButton() {
+        if (video.muted) {
+            muteBtn.innerHTML = muteIcon;
+        } else {
+            muteBtn.innerHTML = unmuteIcon;
+        }
+    }
+    
+    playCenter.addEventListener('click', function(e) {
+        e.stopPropagation();
+        togglePlayPause();
+    });
+    
+    video.addEventListener('click', function(e) {
+        e.stopPropagation();
+        togglePlayPause();
+    });
+    
+    container.addEventListener('click', function(e) {
+        if (!e.target.closest('.video-controls-overlay')) {
+            togglePlayPause();
+        }
+    });
+    
+    playBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        togglePlayPause();
+    });
+    
+    muteBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        toggleMute();
+    });
+    
+    progressContainer.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const rect = progressContainer.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const percent = clickX / rect.width;
+        
+        if (video.duration > 0) {
+            video.currentTime = video.duration * percent;
+        }
+    });
+    
+    video.addEventListener('loadedmetadata', function() {
+        updatePlayButton();
+        updateMuteButton();
+    });
+    
+    video.addEventListener('play', function() {
+        playCenter.classList.add('hidden');
+        container.classList.add('playing');
+        updatePlayButton();
+    });
+    
+    video.addEventListener('pause', function() {
+        updatePlayButton();
+    });
+    
+    video.addEventListener('ended', function() {
+        playCenter.classList.remove('hidden');
+        container.classList.remove('playing');
+        progressBar.style.width = '0%';
+        updatePlayButton();
+    });
+    
+    video.addEventListener('timeupdate', function() {
+        if (video.duration > 0) {
+            const percent = (video.currentTime / video.duration) * 100;
+            progressBar.style.width = Math.min(percent, 100) + '%';
+        }
+    });
+    
+    updatePlayButton();
+    updateMuteButton();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    initCustomPlayer('desktop');
+    initCustomPlayer('mobile');
+});
+
+// ========== FADE IN ANIMATIONS ==========
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.testimonial-card, .sintoma-card').forEach((el, index) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = `all 0.8s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.15}s`;
+    observer.observe(el);
+});
+</script>
+
+</body>
+</html>
+
+<!-- ========== COMPARAÇÃO BEFORE VS AFTER ========== -->
+<section class="agitacao section">
+    <div class="container">
+        <div class="agitacao-content">
+            <span class="ante">A Evolução Digital dos Negócios Locais</span>
+            <h2>O Teu Negócio Não Precisa de Mais Esforço.<br>Precisa de <strong>Presença Estratégica.</strong></h2>
+            <p>Trabalhar 60 horas por semana sem sistema digital não é sustentável. O modelo de "clientes fiéis e boca-a-boca" funcionou durante décadas, mas hoje existe uma <strong>diferença abismal</strong> entre negócios invisíveis online e negócios com <strong>presença digital profissional</strong>. A matemática é brutal: estás a deixar <strong>€30.000–€100.000 por ano</strong> na mesa.</p>
+            
+            <div class="comparison-grid">
+                
+                <div class="comparison-card traditional">
+                    <span class="comparison-label">Abordagem Tradicional</span>
+                    <h3>Invisibilidade Digital (Arriscado)</h3>
+                    <ul class="comparison-list">
+                        <li><strong>Zero presença online consistente</strong> — não existes digitalmente</li>
+                        <li><strong>Dependência total do boca-a-boca</strong> (imprevisível e não escalável)</li>
+                        <li><strong>Conteúdo amador ou inexistente</strong> — posts irregulares quando "dá tempo"</li>
+                        <li><strong>Sem estratégia de conteúdo:</strong> não sabes o que publicar nem quando</li>
+                        <li><strong>Branding inconsistente:</strong> cada post parece de uma empresa diferente</li>
+                        <li><strong>Videografia DIY com telemóvel</strong> — qualidade que afasta clientes</li>
+                        <li><strong>Clientes novos por sorte:</strong> não controlas o fluxo de aquisição</li>
+                        <li><strong>Concorrentes captam teus clientes</strong> porque parecem mais credíveis online</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-card elite">
+                    <span class="comparison-label">Elite Agency</span>
+                    <h3>Presença Digital Dominante (Escalável)</h3>
+                    <ul class="comparison-list">
+                        <li><strong>Presença consistente 6-10 posts/semana</strong> — sempre visível</li>
+                        <li><strong>Sistema automático de conteúdo</strong> que funciona enquanto trabalhas</li>
+                        <li><strong>Conteúdo profissional e estratégico</strong> — planeado com 30 dias de antecedência</li>
+                        <li><strong>Estratégia baseada em dados:</strong> sabes exatamente o que funciona</li>
+                        <li><strong>Branding coeso e premium:</strong> identidade visual forte em todos os canais</li>
+                        <li><strong>Videografia profissional:</strong> filmagem e edição de qualidade cinematográfica</li>
+                        <li><strong>Leads novos previsíveis:</strong> 15-30 contactos qualificados/mês</li>
+                        <li><strong>És a referência no teu mercado</strong> — clientes procuram-te ativamente</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="reality-check">
+                <h3>A Matemática da Invisibilidade Digital:</h3>
+                <p>Se o teu negócio tem potencial para faturar <strong>€120k/ano</strong> mas só fatura <strong>€75k</strong> porque não tens presença digital estratégica, estás a <strong>perder €45k todos os anos</strong>. Em 3 anos, são <strong>€135.000</strong> em receita perdida para concorrentes que simplesmente <strong>aparecem online de forma profissional</strong>. Não é questão de "se" vais investir em presença digital — é questão de <strong>quanto dinheiro vais continuar a perder</strong> enquanto permaneces invisível.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== COMO FUNCIONA O SISTEMA ========== -->
+<section class="mecanismo section">
+    <div class="container">
+        <span class="ante">O Sistema Elite Agency</span>
+        <h2><strong>Presença Profissional</strong> + <strong>Conteúdo Estratégico</strong> + <strong>Branding Consistente</strong><br>= Crescimento Digital Previsível</h2>
+        <p class="section-intro">Não vendemos "posts nas redes sociais". Construímos <strong>presença digital estratégica</strong> que transforma negócios locais invisíveis em <strong>referências do mercado</strong>. Três pilares coordenados que eliminam a <strong>invisibilidade online</strong> e tornam o crescimento <strong>previsível</strong>.</p>
+        
+        <div class="pilares">
+            
+            <div class="pilar-card">
+                <div class="pilar-header">
+                    <div class="pilar-top">
+                        <div class="pilar-icon">
+                            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                            </svg>
+                        </div>
+                        <span class="pilar-badge">Pilar 01</span>
+                    </div>
+                    <div class="pilar-title">
+                        <h3>1. Presença Digital Consistente</h3>
+                    </div>
+                </div>
+                
+                <p class="core-question">Quando procuram o teu serviço online, encontram-te facilmente ou os teus concorrentes aparecem primeiro?</p>
+                
+                <ul class="pilar-features">
+                    <li><strong>6-10 posts estratégicos por semana</strong> em Instagram/Facebook — sempre presente</li>
+                    <li><strong>Calendário de conteúdo profissional:</strong> planeado 30 dias à frente</li>
+                    <li><strong>Stories diários com CTAs</strong> que mantêm engagement alto</li>
+                    <li><strong>Google My Business otimizado:</strong> apareces em pesquisas locais</li>
+                    <li><strong>Presença omnipresente:</strong> estás onde os teus clientes procuram</li>
+                </ul>
+                
+                <div class="pilar-result">
+                    <div class="result-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <div class="result-content">
+                        <strong>→ Resultado</strong>
+                        <span>Deixas de ser invisível. Clientes encontram-te antes dos concorrentes. Presença gera confiança.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pilar-card">
+                <div class="pilar-header">
+                    <div class="pilar-top">
+                        <div class="pilar-icon">
+                            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
+                            </svg>
+                        </div>
+                        <span class="pilar-badge">Pilar 02</span>
+                    </div>
+                    <div class="pilar-title">
+                        <h3>2. Videografia & Conteúdo Premium</h3>
+                    </div>
+                </div>
+                
+                <p class="core-question">O teu conteúdo parece profissional e credível ou afasta clientes com qualidade amadora?</p>
+                
+                <ul class="pilar-features">
+                    <li><strong>Videografia profissional mensal:</strong> filmagem in-house de qualidade cinematográfica</li>
+                    <li><strong>2-4 Reels/Shorts por semana</strong> editados para captar atenção em 3 segundos</li>
+                    <li><strong>Fotografia de produto/serviço:</strong> imagens que vendem, não apenas decoram</li>
+                    <li><strong>Edição estratégica:</strong> cada vídeo tem objetivo claro (engagement, leads, vendas)</li>
+                    <li><strong>Copywriting profissional:</strong> textos que comunicam valor, não apenas descrevem</li>
+                </ul>
+                
+                <div class="pilar-result">
+                    <div class="result-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <div class="result-content">
+                        <strong>→ Resultado</strong>
+                        <span>Pareçes premium. Conteúdo gera engagement real. Clientes confiam antes do primeiro contacto.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pilar-card">
+                <div class="pilar-header">
+                    <div class="pilar-top">
+                        <div class="pilar-icon">
+                            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+                            </svg>
+                        </div>
+                        <span class="pilar-badge">Pilar 03</span>
+                    </div>
+                    <div class="pilar-title">
+                        <h3>3. Branding & Estratégia</h3>
+                    </div>
+                </div>
+                
+                <p class="core-question">Os teus posts transmitem identidade coesa ou parece que cada um é de uma empresa diferente?</p>
+                
+                <ul class="pilar-features">
+                    <li><strong>Identidade visual consistente:</strong> cores, fontes e estilo alinhados em tudo</li>
+                    <li><strong>Posicionamento estratégico claro:</strong> comunicas diferenciação, não apenas serviços</li>
+                    <li><strong>Narrativa de marca:</strong> história que conecta emocionalmente com clientes</li>
+                    <li><strong>Community management profissional:</strong> respostas rápidas e estratégicas</li>
+                    <li><strong>Estratégia baseada em dados:</strong> ajustamos com base no que funciona</li>
+                </ul>
+                
+                <div class="pilar-result">
+                    <div class="result-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <div class="result-content">
+                        <strong>→ Resultado</strong>
+                        <span>Marca forte e memorável. Clientes lembram-se de ti. Diferenciação clara dos concorrentes.</span>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<!-- ========== REUNIÃO GRATUITA ========== -->
+<section class="offer-section">
+    <div class="container">
+        <div class="offer-page">
+            
+            <div class="ante">Reunião de Diagnóstico Gratuita</div>
+            <h1>Será Que o Teu Negócio Precisa<br>de <strong>Presença Digital Estratégica?</strong></h1>
+            <p class="intro-text">
+                Trabalhamos com negócios estabelecidos que querem deixar de ser invisíveis online e projetos novos que querem começar com presença profissional desde o dia 1. O critério não é tamanho atual — é <strong>seriedade sobre crescimento digital</strong>.
+            </p>
+
+            <div class="qualification-box">
+                <div class="qualification-title">Para Quem É Esta Reunião</div>
+                <p class="qualification-text">
+                    Negócios locais com <strong>produto/serviço validado</strong> mas sem presença online consistente, ou projetos novos com <strong>orçamento e visão</strong> para investir em marketing digital profissional desde o início.
+                </p>
+            </div>
+            
+            <div class="offer-stack-card">
+                
+                <div class="card-header">
+                    <div class="guarantee-text">
+                        <strong>Reunião de Diagnóstico Digital (45 min):</strong> Avaliamos a tua presença atual (ou ausência dela), identificamos oportunidades desperdiçadas e validamos se faz sentido investir em presença digital estratégica. <strong>Se não virmos potencial claro de ROI, dizemos-te honestamente.</strong>
+                    </div>
+                </div>
+                
+                <div class="card-body">
+                    
+                    <div class="feature-item">
+                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <div class="feature-content">
+                            <h4>1. Auditoria de Visibilidade</h4>
+                            <p>Onde estás (ou não estás) online e o que isso te custa em clientes perdidos.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <div class="feature-content">
+                            <h4>2. Análise de Concorrência</h4>
+                            <p>O que os teus concorrentes estão a fazer online que tu não estás.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <div class="feature-content">
+                            <h4>3. Oportunidades Digitais</h4>
+                            <p>Plataformas e estratégias que fariam sentido para o teu negócio.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <div class="feature-content">
+                            <h4>4. Estimativa de Investimento</h4>
+                            <p>Quanto custaria criar presença profissional que gera resultados.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <div class="feature-content">
+                            <h4>5. Próximos Passos</h4>
+                            <p>Proposta clara se houver fit, orientação honesta se não fizer sentido.</p>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <div class="card-footer">
+                    <div class="stat-item">
+                        <div class="stat-number">45</div>
+                        <div class="stat-label">Minutos</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Gratuito</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-number">0</div>
+                        <div class="stat-label">Compromisso</div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="cta-section">
+                <p class="cta-subtitle">
+                    <strong>Como agendar:</strong> Envia contexto do negócio via WhatsApp. Respondemos em 24h para agendar.<br>
+                    <span style="font-size: 13px; color: rgba(255, 255, 255, 0.5);">Sem pressão de vendas. Apenas diagnóstico honesto.</span>
+                </p>
+                
+                <a href="https://wa.me/351913129811?text=Ol%C3%A1!%20Quero%20marcar%20a%20Reuni%C3%A3o%20de%20Diagn%C3%B3stico%20Digital%20gratuita%20(45%20min).%0A%0AContexto%20do%20neg%C3%B3cio%3A%0A%E2%80%A2%20Tipo%3A%20%5Bdescreve%20o%20teu%20neg%C3%B3cio%5D%0A%E2%80%A2%20Situa%C3%A7%C3%A3o%20atual%20online%3A%20%5Btenho%20Instagram%2Fnada%2Fetc%5D%0A%E2%80%A2%20Objetivo%3A%20%5Bo%20que%20queres%20alcan%C3%A7ar%5D%0A%0AQuando%20tens%20disponibilidade%20esta%20semana%3F" class="cta-primary" target="_blank" rel="noopener noreferrer">
+                    Agendar Diagnóstico
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<style>
+/* ========== AGITAÇÃO ========== */
+.agitacao {
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 60%);
+    text-align: center;
+}
+.agitacao-content {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 60px;
+}
+.comparison-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 50px 40px;
+    text-align: left;
+    transition: all 0.5s;
+    backdrop-filter: blur(10px);
+}
+.comparison-card.traditional {
+    border-left: 4px solid rgba(255, 193, 7, 0.4);
+}
+.comparison-card.elite {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-left: 4px solid #ffffff;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+.comparison-card:hover {
+    transform: translateY(-5px);
+}
+.comparison-label {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 25px;
+}
+.comparison-card.traditional .comparison-label {
+    background: rgba(255, 193, 7, 0.15);
+    color: rgba(255, 193, 7, 0.9);
+    border: 1px solid rgba(255, 193, 7, 0.3);
+}
+.comparison-card.elite .comparison-label {
+    background: #ffffff;
+    color: #000000;
+    border: 1px solid #ffffff;
+}
+.comparison-list {
+    list-style: none;
+    padding: 0;
+}
+.comparison-list li {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 18px;
+    padding-left: 30px;
+    position: relative;
+    line-height: 1.6;
+}
+.comparison-card.traditional .comparison-list li::before {
+    content: '⚠';
+    position: absolute;
+    left: 0;
+    color: rgba(255, 193, 7, 0.8);
+    font-weight: 700;
+}
+.comparison-card.elite .comparison-list li {
+    color: rgba(255, 255, 255, 0.9);
+}
+.comparison-card.elite .comparison-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #ffffff;
+    font-weight: 700;
+}
+.reality-check {
+    margin-top: 60px;
+    padding: 40px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 4px solid rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    text-align: center;
+}
+
+/* ========== SISTEMA (3 PILARES) ========== */
+.mecanismo {
+    background: #000000;
+    text-align: center;
+    position: relative;
+}
+.section-intro {
+    font-size: clamp(17px, 2vw, 19px);
+    color: rgba(255, 255, 255, 0.65);
+    max-width: 820px;
+    margin: 0 auto 70px;
+    line-height: 1.7;
+    font-weight: 300;
+    text-align: center;
+}
+.pilares {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    position: relative;
+    z-index: 1;
+    align-items: stretch;
+}
+.pilar-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.035) 0%, rgba(255, 255, 255, 0.015) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 32px 28px;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    height: 100%;
+}
+.pilar-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+}
+.pilar-card:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.025) 100%);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-6px);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+}
+.pilar-header {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.pilar-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.pilar-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.8);
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+.pilar-icon svg {
+    width: 24px;
+    height: 24px;
+}
+.pilar-badge {
+    font-size: 9px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    white-space: nowrap;
+}
+.pilar-title h3 {
+    color: #ffffff;
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+.core-question {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.5;
+    padding: 14px 18px;
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    margin: 0;
+}
+.pilar-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 1;
+}
+.pilar-features li {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.6;
+    padding-left: 24px;
+    position: relative;
+    font-weight: 300;
+}
+.pilar-features li::before {
+    content: '●';
+    position: absolute;
+    left: 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 700;
+    font-size: 14px;
+}
+.pilar-result {
+    margin-top: auto;
+    padding: 16px 18px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+.result-icon {
+    color: rgba(255, 255, 255, 0.8);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+.result-content strong {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    display: block;
+    margin-bottom: 5px;
+}
+.result-content span {
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 500;
+    display: block;
+}
+
+/* ========== OFFER SECTION ========== */
+.offer-section {
+    padding: clamp(60px, 8vw, 90px) 0;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+.offer-page {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+.qualification-box {
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.08) 0%, rgba(251, 191, 36, 0.02) 100%);
+    border: 1px solid rgba(251, 191, 36, 0.2);
+    border-left: 4px solid rgba(251, 191, 36, 0.6);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 32px;
+    text-align: left;
+    backdrop-filter: blur(10px);
+}
+.qualification-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: rgba(251, 191, 36, 0.95);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+}
+.qualification-text {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.65;
+    margin: 0;
+}
+.offer-stack-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    margin: 32px auto 40px;
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.4);
+    text-align: left;
+}
+.card-header {
+    padding: 24px 28px;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.guarantee-text {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.65;
+}
+.card-body {
+    padding: 8px 0;
+}
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px 28px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    transition: all 0.3s ease;
+}
+.feature-item:last-child {
+    border-bottom: none;
+}
+.feature-item:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+.feature-icon {
+    width: 20px;
+    height: 20px;
+    color: #fbbf24;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+.feature-content h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 4px;
+    letter-spacing: -0.1px;
+}
+.feature-content p {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.5;
+    margin: 0;
+}
+.card-footer {
+    background: rgba(255, 255, 255, 0.03);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 24px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.stat-item {
+    text-align: center;
+    flex: 1;
+}
+.stat-number {
+    font-size: 28px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffffff 0%, #d0d0d0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 6px;
+}
+.stat-label {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+.stat-divider {
+    width: 1px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 20px;
+}
+.cta-section {
+    text-align: center;
+}
+.cta-subtitle {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 28px;
+    line-height: 1.6;
+}
+.intro-text {
+    font-size: clamp(16px, 2vw, 18px);
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 32px;
+    line-height: 1.7;
+    font-weight: 300;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .comparison-grid { grid-template-columns: 1fr; }
+    .pilares { grid-template-columns: 1fr; gap: 28px; }
+    .pilar-card { padding: 36px 32px; gap: 24px; }
+}
+
+@media (max-width: 768px) {
+    .comparison-card { padding: 36px 32px; }
+    .reality-check { padding: 30px; }
+    .card-footer { flex-direction: column; gap: 20px; }
+    .stat-divider { width: 100%; height: 1px; margin: 0; }
+}
+</style>
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>The Elite Agency — Ecossistema Completo de Crescimento</title>
+    <style>
+        /* ========== GLOBAL RESET & BASE ========== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+        }
+        
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', system-ui, sans-serif; 
+            background: #000; 
+            color: #fff; 
+            line-height: 1.6; 
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .container { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            padding: 0 20px;
+            width: 100%;
+        }
+        
+        .section { 
+            padding: clamp(60px, 10vw, 140px) 0; 
+            position: relative;
+            width: 100%;
+        }
+        
+        /* ========== SHARED TYPOGRAPHY ========== */
+        .ante { 
+            font-size: 11px; 
+            text-transform: uppercase; 
+            letter-spacing: 3px; 
+            color: rgba(255, 255, 255, 0.75); 
+            font-weight: 600; 
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 20px; 
+            border: 1px solid rgba(255, 255, 255, 0.15); 
+            border-radius: 50px; 
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+        }
+        
+        .ante::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: #fbbf24;
+            border-radius: 50%;
+            box-shadow: 0 0 8px rgba(251, 191, 36, 0.4);
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.15); }
+        }
+        
+        h2 { 
+            font-size: clamp(28px, 5vw, 56px); 
+            font-weight: 300; 
+            margin-bottom: 20px; 
+            background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 50%, #707070 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+        
+        h2 strong { 
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff 0%, #d0d0d0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .intro-text {
+            font-size: clamp(16px, 2vw, 19px);
+            color: rgba(255, 255, 255, 0.65);
+            max-width: 750px;
+            margin: 0 auto 50px;
+            line-height: 1.75;
+            font-weight: 300;
+        }
+
+        .intro-text strong {
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 600;
+        }
+        
+        /* ========== SECTION 1: PARTNERS CAROUSEL ========== */
+        .partners { 
+            background: transparent;
+            text-align: center;
+            position: relative;
+        }
+        
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+            width: 100%;
+            padding: 40px 0;
+        }
+        
+        @media (min-width: 1025px) {
+            .carousel-container {
+                mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+                -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+            }
+        }
+        
+        .carousel-track {
+            display: flex;
+            gap: 20px;
+            width: max-content;
+            animation: scrollInfinite 40s linear infinite;
+            will-change: transform;
+        }
+        
+        @keyframes scrollInfinite {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-50% - 10px)); }
+        }
+        
+        .carousel-container:hover .carousel-track {
+            animation-play-state: paused;
+        }
+        
+        .partner-card {
+            width: 260px;
+            min-width: 260px;
+            height: 170px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 24px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+            text-align: center;
+        }
+        
+        .partner-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .partner-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-6px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+            z-index: 10;
+        }
+        
+        .partner-card:hover::before {
+            opacity: 1;
+        }
+        
+        .partner-logo {
+            width: 70px;
+            height: 70px;
+            background: transparent;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.4s ease;
+        }
+        
+        .partner-card:hover .partner-logo {
+            transform: scale(1.08);
+        }
+        
+        .partner-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: brightness(1.3) contrast(1.1);
+            transition: all 0.4s ease;
+        }
+        
+        .partner-card:hover .partner-logo img {
+            filter: brightness(1.4) contrast(1);
+            transform: scale(1.02);
+        }
+        
+        .partner-logo img.profile-pic {
+            border-radius: 50%;
+            filter: brightness(1.1) contrast(1.1);
+        }
+        
+        .partner-card:hover .partner-logo img.profile-pic {
+            filter: brightness(1.2) contrast(1);
+        }
+        
+        .partner-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.3px;
+            line-height: 1.2;
+            margin-bottom: 4px;
+        }
+        
+        .partner-category {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: rgba(255, 255, 255, 0.45);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .partner-brief {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.4;
+            max-width: 220px;
+            margin: 0 auto;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .partner-card.specialist {
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.04) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border-color: rgba(251, 191, 36, 0.12);
+        }
+        
+        .specialist .partner-name {
+            background: linear-gradient(135deg, #ffffff 0%, #fbbf24 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            margin-top: 30px;
+        }
+        
+        .control-btn {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0.6;
+        }
+        
+        .control-btn:hover,
+        .control-btn:active {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            opacity: 1;
+            transform: scale(1.05);
+        }
+        
+        .control-btn svg {
+            width: 16px;
+            height: 16px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .auto-status {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .auto-status::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: #fbbf24;
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        /* ========== SECTION 2: PARCERIA COMERCIAL ========== */
+        .commercial-partnership {
+            background: #000000;
+            position: relative;
+        }
+
+        .section-title-block {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 80px;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .section-main-title {
+            font-size: clamp(38px, 6vw, 64px);
+            font-weight: 300;
+            color: #ffffff;
+            margin: 0 auto 12px;
+            letter-spacing: -1.5px;
+            line-height: 1.15;
+            text-align: center;
+            max-width: 100%;
+        }
+
+        .section-main-title strong {
+            font-weight: 700;
+            letter-spacing: -2px;
+            display: inline;
+        }
+
+        .section-description {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.55);
+            line-height: 1.5;
+            max-width: 550px;
+            margin: 0 auto;
+            font-weight: 400;
+            text-align: center;
+        }
+
+        .compact-comparison {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto 100px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 40px 32px;
+            position: relative;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+
+        .service-card.premium {
+            border-color: rgba(255, 204, 0, 0.25);
+            background: linear-gradient(135deg, rgba(255, 204, 0, 0.02) 0%, rgba(255, 255, 255, 0.02) 100%);
+            box-shadow: 0 0 30px rgba(255, 204, 0, 0.06);
+        }
+
+        .service-card.premium:hover {
+            border-color: rgba(255, 204, 0, 0.35);
+            box-shadow: 0 0 45px rgba(255, 204, 0, 0.1);
+        }
+
+        .premium-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.1);
+            padding: 6px 18px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .premium-badge.recommended {
+            background: transparent;
+            color: #ffcc00;
+            font-weight: 700;
+            border: 1.5px solid #ffcc00;
+            box-shadow: 0 0 0 rgba(255, 204, 0, 0);
+            animation: pulse-subtle 2.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse-subtle {
+            0%, 100% { box-shadow: 0 0 0 rgba(255, 204, 0, 0); }
+            50% { box-shadow: 0 0 12px rgba(255, 204, 0, 0.3); }
+        }
+
+        .card-header {
+            margin-bottom: 32px;
+        }
+
+        .card-tag {
+            display: inline-block;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 12px;
+        }
+
+        .card-tag.gold {
+            color: #ffcc00;
+            font-weight: 600;
+        }
+
+        .card-header h3 {
+            font-size: 26px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .card-subtitle {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .card-features {
+            flex-grow: 1;
+            margin-bottom: 28px;
+        }
+
+        .feature-group h5 {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 16px;
+        }
+
+        .feature-group ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .feature-group li {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .feature-group li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 16px;
+        }
+
+        .feature-group li strong {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+        }
+
+        .card-result {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .result-icon {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.3);
+            flex-shrink: 0;
+        }
+
+        .card-result.gold {
+            border-top: 1px solid rgba(255, 204, 0, 0.15);
+        }
+
+        .card-result.gold .result-icon {
+            color: #ffcc00;
+        }
+
+        .card-result p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.65);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .card-result.gold p {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+        }
+
+        .key-difference {
+            max-width: 1100px;
+            margin: 0 auto 100px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 40px 36px;
+        }
+
+        .difference-content h4 {
+            font-size: 20px;
+            font-weight: 500;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 32px;
+            letter-spacing: -0.3px;
+        }
+
+        .difference-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .difference-point {
+            text-align: center;
+        }
+
+        .point-label {
+            display: block;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 12px;
+        }
+
+        .point-label.gold {
+            color: #ffcc00;
+            font-weight: 600;
+        }
+
+        .difference-point p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.65);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .difference-point.premium p {
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+        }
+
+        .difference-divider {
+            font-size: 18px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .partnership-cta {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .cta-lead {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-outline,
+        .btn-solid {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .btn-solid {
+            background: #fff;
+            color: #000;
+        }
+
+        .btn-solid:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-solid svg {
+            transition: transform 0.3s ease;
+        }
+
+        .btn-solid:hover svg {
+            transform: translateX(4px);
+        }
+        
+        /* ========== SECTION 3: TEAM/CREDIBILITY ========== */
+        .credibility {
+            background: #000;
+            text-align: center;
+            position: relative;
+        }
+        
+        .credibility::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        .profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 24px;
+            transition: all 0.3s ease;
+            background: #1a1a1a;
+        }
+        
+        .founder-card:hover .profile-image,
+        .specialist-card:hover .profile-image {
+            border-color: rgba(251, 191, 36, 0.4);
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.2);
+        }
+        
+        .founders-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 50px;
+        }
+        
+        .founder-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 36px 32px;
+            text-align: left;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .founder-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .founder-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-4px);
+        }
+        
+        .founder-card:hover::before {
+            opacity: 1;
+        }
+        
+        .founder-badge {
+            display: inline-block;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #fbbf24;
+            background: rgba(251, 191, 36, 0.1);
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 18px;
+            font-weight: 600;
+        }
+        
+        .founder-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
+        }
+        
+        .founder-title {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.55);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+        }
+        
+        .founder-description {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+
+        .founder-description strong {
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 600;
+        }
+        
+        .founder-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .highlight-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.65);
+        }
+        
+        .highlight-item svg {
+            width: 16px;
+            height: 16px;
+            color: #fbbf24;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        .specialist-section {
+            margin-top: 40px;
+        }
+        
+        .specialist-card {
+            background: rgba(255, 255, 255, 0.015);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 36px 40px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: left;
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+        
+        .specialist-card:hover {
+            background: rgba(255, 255, 255, 0.025);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .specialist-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 18px;
+        }
+        
+        .specialist-header .profile-image {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 0;
+        }
+        
+        .specialist-info h3 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 6px;
+            letter-spacing: -0.3px;
+        }
+        
+        .specialist-info .role {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.55);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+        
+        .specialist-description {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.65);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .specialist-description strong {
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 600;
+        }
+        
+        .specialist-expertise {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .expertise-tag {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .expertise-tag:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .expertise-tag.results {
+            color: #fbbf24;
+            background: rgba(251, 191, 36, 0.06);
+            border-color: rgba(251, 191, 36, 0.15);
+        }
+
+        .expertise-tag.results:hover {
+            background: rgba(251, 191, 36, 0.1);
+            border-color: rgba(251, 191, 36, 0.25);
+        }
+        
+        .closing-statement {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.7;
+        }
+        
+        .closing-statement strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+        
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .section-title-block { margin-bottom: 68px; }
+            .compact-comparison { grid-template-columns: 1fr; gap: 40px; max-width: 600px; }
+            .difference-grid { grid-template-columns: 1fr; gap: 24px; }
+            .difference-divider { display: none; }
+            .founders-grid { grid-template-columns: 1fr; gap: 24px; }
+        }
+        
+        @media (max-width: 768px) { 
+            .container { padding: 0 16px; }
+            .section { padding: 50px 0; }
+            
+            .carousel-container { padding: 30px 0; }
+            .partner-card { width: 240px; min-width: 240px; height: 160px; padding: 20px 18px; gap: 12px; }
+            .partner-logo { width: 60px; height: 60px; }
+            .partner-name { font-size: 14px; }
+            .partner-category { font-size: 9px; margin-bottom: 6px; }
+            .partner-brief { font-size: 11px; max-width: 200px; }
+            .carousel-track { gap: 18px; animation: scrollInfinite 35s linear infinite; }
+            
+            .commercial-partnership { padding: 60px 0; }
+            .section-title-block { margin-bottom: 56px; }
+            .section-label { font-size: 9px; padding: 5px 12px; margin-bottom: 16px; }
+            .section-main-title { font-size: 32px; letter-spacing: -1px; margin-bottom: 10px; }
+            .section-description { font-size: 15px; }
+            .compact-comparison { margin-bottom: 60px; }
+            .service-card { padding: 32px 24px; }
+            .key-difference { margin-bottom: 60px; padding: 32px 24px; }
+            .cta-buttons { flex-direction: column; width: 100%; }
+            .btn-outline, .btn-solid { width: 100%; justify-content: center; }
+            
+            h2 { font-size: 28px; }
+            .intro-text { font-size: 16px; margin-bottom: 40px; }
+            .founder-card { padding: 30px 26px; }
+            .founder-name { font-size: 22px; }
+            .specialist-card { padding: 28px 24px; }
+            .specialist-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .profile-image { width: 80px; height: 80px; }
+            .specialist-header .profile-image { width: 70px; height: 70px; }
+        }
+        
+        @media (max-width: 480px) {
+            .section { padding: 40px 0; }
+            .ante { font-size: 10px; padding: 7px 16px; }
+            
+            .partner-card { width: 220px; min-width: 220px; height: 150px; padding: 18px 16px; }
+            .partner-logo { width: 55px; height: 55px; }
+            .partner-name { font-size: 13px; }
+            .partner-brief { font-size: 10px; }
+            .carousel-track { gap: 16px; animation: scrollInfinite 32s linear infinite; }
+            
+            h2 { font-size: 26px; }
+            .section-main-title { font-size: 28px; }
+            .founder-card { padding: 26px 22px; }
+            .specialist-card { padding: 24px 20px; }
+            .expertise-tag { font-size: 11px; padding: 6px 12px; }
+            .profile-image { width: 70px; height: 70px; }
+            .specialist-header .profile-image { width: 60px; height: 60px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ==================== SECTION 1: PARTNERS CAROUSEL ==================== -->
+<section class="partners section">
+    <div class="container">
+        <span class="ante">Ecossistema de Parceiros Estratégicos</span>
+        <h2><strong>Empresários Sérios</strong><br>Que Escolheram Escalar Estrategicamente</h2>
+        <p class="intro-text">
+            Do e-commerce à hotelaria, de comunidades digitais a serviços premium — <strong>negócios que faturam e querem escalar</strong> encontram na Elite Agency o parceiro estratégico que faltava. Não trabalhamos com todos. <strong>Trabalhamos apenas com quem está preparado para crescer.</strong>
+        </p>
+    </div>
+    
+    <div class="carousel-container" id="partnersCarousel">
+        <div class="carousel-track" id="carouselTrack">
+            
+            <!-- CONJUNTO 1 -->
+            <div class="partner-card">
+                <div class="partner-logo">
+                    <img src="https://res.cloudinary.com/dooigd0d3/image/upload/v1768920238/image-removebg-preview_2_bh9rny.png" alt="EXSAD Gaming">
+                </div>
+                <div class="partner-name">EXSAD Gaming</div>
+                <div class="partner-category">Comunidade & Conteúdo</div>
+                <p class="partner-brief">+1M alcance orgânico estratégico</p>
+            </div>
+            
+            <div class="partner-card specialist">
+                <div class="partner-logo">
+                    <img src="https://res.cloudinary.com/dooigd0d3/image/upload/v1769610434/profile_pic_2.1_2026_square_nlhy5h.png" alt="João Alfar" class="profile-pic">
+                </div>
+                <div class="partner-name">João Alfar</div>
+                <div class="partner-category">Especialista em Conversão</div>
+                <p class="partner-brief">Engenharia de vendas que converte</p>
+            </div>
+            
+            <div class="partner-card">
+                <div class="partner-logo">
+                    <img src="https://res.cloudinary.com/dooigd0d3/image/upload/v1766771926/logo_no_backgr_rlzocd.png" alt="OrgHeal">
+                </div>
+                <div class="partner-name">OrgHeal</div>
+                <div class="partner-category">E-commerce Wellness</div>
+                <p class="partner-brief">Taxa de conversão: 7% (vs 1-2% média)</p>
+            </div>
+            
+            <div class="partner-card">
+                <div class="partner-logo">
+                    <img src="https://res.cloudinary.com/dooigd0d3/image/upload/v1769033191/138_Liberdade_logo_vh7eiu.webp" alt="138 Liberdade Hotel">
+                </div>
+                <div class="partner-name">138 Liberdade Hotel</div>
+                <div class="partner-category">Hotelaria Boutique</div>
+                <p class="partner-brief">Sistema próprio sem comissões</p>
+            </div>
+            
+            <div class="partner-card">
+                <div class="partner-logo">
+                    <img src="https://res.cloudinary.com/dooigd0d3/image/upload/v1769032870/912993d2-83b5-4637-a32a-8b9a06828f45.png" alt="Flow Community">
+                </div>
+                <div class="partner-name">Flow Community</div>
+                <div class="partner-category">Educação Financeira</div>
+                <p class="partner-brief">Comunidade escalável e monetizada</p>
+            </div>
+            
+            <div class="partner-card">
+                <div class="partner-logo">
+                    <img src="https://res.cloudinary.com/dooigd0d3/image/upload/v1769032968/jpg_ap4znx.png" alt="Star Eyes">
+                </div>
+                <div class="partner-name">Star Eyes</div>
+                <div class="partner-category">Videografia Premium</div>
+                <p class="partner-brief">Agenda cheia com clientes premium</p>
+            </div>
+            
+            <!-- CONJUNTO 2 (CLONE) -->
+            <div class="partner-card">
+                <div class="partner-logo">
+                    <img src="https://res.cloudinary.com/dooigd0d3/image/upload/v1768920238/image-removebg-preview_2_bh9rny.png" alt="EXSAD Gaming">
+                </div>
+                <div class="partner-name">EXSAD Gaming</div>
+                <div class="partner-category">Comunidade & Conteúdo</div>
+                <p class="partner-brief">+1M alcance orgânico estratégico</p>
+            </div>
+            
+            <div class="partner-card specialist">
+                <div class="partner-logo">
+                    <img src="https://res.cloudinary.com/dooigd0d3/image/upload/v1769610434/profile_pic_2.1_2026_square_nlhy5h.png" alt="João Alfar" class="profile-pic">
+                </div>
+                <div class="partner-name">João Alfar</div>
+                <div class="partner-category">Especialista em Conversão</div>
+                <p class="partner-brief">Engenharia de vendas que converte</p>
+            </div>
+            
+            <div class="partner-card">
+                <div class="partner-logo">
+                    <img src="https://res.cloudinary.com/dooigd0d3/image/upload/v1766771926/logo_no_backgr_rlzocd.png" alt="OrgHeal">
+                </div>
+                <div class="partner-name">OrgHeal</div>
+                <div class="partner-category">E-commerce Wellness</div>
+                <p class="partner-brief">Taxa de conversão: 7% (vs 1-2% média)</p>
+            </div>
+            
+            <div class="partner-card">
+                <div class="partner-logo">
+                    <img src="https://res.cloudinary.com/dooigd0d3/image/upload/v1769033191/138_Liberdade_logo_vh7eiu.webp" alt="138 Liberdade Hotel">
+                </div>
+                <div class="partner-name">138 Liberdade Hotel</div>
+                <div class="partner-category">Hotelaria Boutique</div>
+                <p class="partner-brief">Sistema próprio sem comissões</p>
+            </div>
+            
+            <div class="partner-card">
+                <div class="partner-logo">
+                    <img src="https://res.cloudinary.com/dooigd0d3/image/upload/v1769032870/912993d2-83b5-4637-a32a-8b9a06828f45.png" alt="Flow Community">
+                </div>
+                <div class="partner-name">Flow Community</div>
+                <div class="partner-category">Educação Financeira</div>
+                <p class="partner-brief">Comunidade escalável e monetizada</p>
+            </div>
+            
+            <div class="partner-card">
+                <div class="partner-logo">
+                    <img src="https://res.cloudinary.com/dooigd0d3/image/upload/v1769032968/jpg_ap4znx.png" alt="Star Eyes">
+                </div>
+                <div class="partner-name">Star Eyes</div>
+                <div class="partner-category">Videografia Premium</div>
+                <p class="partner-brief">Agenda cheia com clientes premium</p>
+            </div>
+            
+        </div>
+    </div>
+    
+    <div class="carousel-controls">
+        <button class="control-btn" id="pauseBtn" aria-label="Pausar/Retomar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="6" y="4" width="4" height="16"/>
+                <rect x="14" y="4" width="4" height="16"/>
+            </svg>
+        </button>
+        
+        <div class="auto-status" id="autoStatus">Rotação automática ativa</div>
+    </div>
+</section>
+
+<!-- ==================== SECTION 2: PARCERIA COMERCIAL ==================== -->
+<section class="commercial-partnership section">
+    <div class="container">
+        
+        <div class="section-title-block">
+            <span class="section-label">Escolhe o Teu Caminho</span>
+            <h1 class="section-main-title">
+                Um Parceiro. <strong>Dois Níveis</strong> de Serviço.
+            </h1>
+            <p class="section-description">
+                Escolhe o ecossistema que se alinha com os teus objetivos de crescimento
+            </p>
+        </div>
+
+        <div class="compact-comparison">
+            
+            <div class="service-card">
+                <div class="card-header">
+                    <span class="card-tag">Serviço Base</span>
+                    <h3>Elite Agency Core</h3>
+                    <p class="card-subtitle">Para negócios que precisam de presença digital consistente</p>
+                </div>
+                
+                <div class="card-features">
+                    <div class="feature-group">
+                        <h5>O Que Inclui</h5>
+                        <ul>
+                            <li>Social Media Management (6-8 posts/semana)</li>
+                            <li>Videografia & Edição Standard</li>
+                            <li>Branding & Estratégia de Conteúdo</li>
+                            <li>Community Management</li>
+                            <li>Relatórios mensais</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card-result">
+                    <span class="result-icon">→</span>
+                    <p>Presença digital profissional e consistente</p>
+                </div>
+            </div>
+
+            <div class="service-card premium">
+                <div class="premium-badge recommended">RECOMENDADO</div>
+                <div class="card-header">
+                    <span class="card-tag gold">Parceria Comercial</span>
+                    <h3>Elite Agency + 2 Especialistas</h3>
+                    <p class="card-subtitle">Para negócios que querem dominar o mercado digitalmente</p>
+                </div>
+                
+                <div class="card-features">
+                    <div class="feature-group">
+                        <h5>Tudo do Core +</h5>
+                        <ul>
+                            <li><strong>João Alfar:</strong> Funis completos, CRO, Landing Pages, Email Automation</li>
+                            <li><strong>Ahlec Laia:</strong> Edição High-Performance, Vídeos Virais, Thumbnails Premium</li>
+                            <li><strong>Coordenação Total:</strong> 1 Gestor Dedicado, 3 Pilares Alinhados</li>
+                            <li>Dashboard em tempo real com insights acionáveis</li>
+                            <li>Suporte prioritário (resposta 4h)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card-result gold">
+                    <span class="result-icon">→</span>
+                    <p>Dominância total: Presença + Conversão + Performance</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="key-difference">
+            <div class="difference-content">
+                <h4>A Diferença Crítica</h4>
+                <div class="difference-grid">
+                    <div class="difference-point">
+                        <span class="point-label">Elite Agency Core</span>
+                        <p>Geres a tua presença digital. Precisas de coordenar funis/conversão separadamente.</p>
+                    </div>
+                    <div class="difference-divider">VS</div>
+                    <div class="difference-point premium">
+                        <span class="point-label gold">Parceria Comercial</span>
+                        <p>Ecossistema integrado. Tudo coordenado sob uma única estrutura estratégica.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="partnership-cta">
+            <p class="cta-lead">Não tens certeza qual escolher? Começa com uma reunião de diagnóstico gratuita.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn-outline">Falar Sobre Core</a>
+                <a href="/parceiro-comercial" class="btn-solid">
+                    <span>Descobrir Parceria Comercial</span>
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                        <path d="M4 9h10m-5-5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ==================== SECTION 3: TEAM/CREDIBILITY ==================== -->
+<section class="credibility section">
+    <div class="container">
+        <span class="ante">Equipa Estratégica de Crescimento</span>
+        <h2><strong>Parceiros Estratégicos</strong><br>Focados em ROI Mensurável</h2>
+        <p class="intro-text">
+            Somos especialistas em <strong>engenharia de crescimento previsível</strong>. Cada membro da equipa trabalha diretamente nos sistemas que escalam o teu negócio — sem intermediários ou trabalho genérico.
+        </p>
+        
+        <div class="founders-grid">
+            
+            <div class="founder-card">
+                <img src="https://res.cloudinary.com/dooigd0d3/image/upload/v1769023916/33aa5304-ae9f-42f7-8581-786d2b7fb405.png" alt="Gonçalo Ramos" class="profile-image">
+                
+                <div class="founder-badge">CEO & Founder</div>
+                <h3 class="founder-name">Gonçalo Ramos</h3>
+                <div class="founder-title">Arquitetura de Sistemas de Vendas</div>
+                <p class="founder-description">
+                    Especialista em <strong>infraestruturas de aquisição previsível</strong>. Transformo negócios dependentes do acaso em máquinas de geração de leads qualificados através de engenharia estratégica baseada em dados reais.
+                </p>
+                <div class="founder-highlights">
+                    <div class="highlight-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Sistemas automatizados de aquisição 24/7</span>
+                    </div>
+                    <div class="highlight-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Funis otimizados com conversão acima da média</span>
+                    </div>
+                    <div class="highlight-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Escalabilidade sem aumento proporcional de esforço</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="founder-card">
+                <img src="https://res.cloudinary.com/dooigd0d3/image/upload/v1769021554/67d0aa2a-ec54-42ca-b990-fda2e3476f0b.png" alt="Gui GoldRajch" class="profile-image">
+                
+                <div class="founder-badge">COO & Founder</div>
+                <h3 class="founder-name">Gui GoldRajch</h3>
+                <div class="founder-title">Autoridade de Marca & Posicionamento</div>
+                <p class="founder-description">
+                    Especialista em transformar negócios "mais um" em <strong>referências dominantes do mercado local</strong>. Construo autoridade percebida que elimina concorrência e permite precificação premium através de posicionamento estratégico.
+                </p>
+                <div class="founder-highlights">
+                    <div class="highlight-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Posicionamento que elimina comparação direta</span>
+                    </div>
+                    <div class="highlight-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Identidade visual que comunica expertise</span>
+                    </div>
+                    <div class="highlight-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Atração de clientes que valorizam qualidade</span>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="specialist-section">
+            <div class="specialist-card">
+                <div class="specialist-header">
+                    <img src="https://res.cloudinary.com/dooigd0d3/image/upload/v1769610434/profile_pic_2.1_2026_square_nlhy5h.png" alt="João Alfar" class="profile-image">
+                    
+                    <div class="specialist-info">
+                        <h3>João Alfar</h3>
+                        <div class="role">Funnel Builder · CRO Specialist · Web Designer</div>
+                    </div>
+                </div>
+                <p class="specialist-description">
+                    Arquiteto de <strong>funis de vendas e web design de alta performance</strong>. Com track record comprovado de <strong>múltiplos 6-7 dígitos gerados para clientes</strong>, combina engenharia de conversão (CRO) com design estratégico para transformar visitantes em clientes pagantes.
+                </p>
+                <div class="specialist-expertise">
+                    <span class="expertise-tag">Funnel Building & Arquitetura</span>
+                    <span class="expertise-tag results">6-7 Dígitos Comprovados</span>
+                    <span class="expertise-tag">Web Design de Conversão</span>
+                    <span class="expertise-tag">CRO & Otimização</span>
+                    <span class="expertise-tag">Psicologia de Vendas</span>
+                </div>
+            </div>
+        </div>
+        
+        <p class="closing-statement">
+            Trabalhamos exclusivamente com negócios onde identificamos <strong>potencial real de escala 2-3x</strong>. Se não existe fit estratégico, <strong>somos os primeiros a recomendar aguardar</strong>. A nossa prioridade é proteger resultados, não encher a agenda.
+        </p>
+        
+    </div>
+</section>
+
+<script>
+// ==================== CAROUSEL SCRIPT ====================
+(function() {
+    const track = document.getElementById('carouselTrack');
+    const pauseBtn = document.getElementById('pauseBtn');
+    const autoStatus = document.getElementById('autoStatus');
+    const carousel = document.getElementById('partnersCarousel');
+    
+    if (!track || !pauseBtn || !autoStatus || !carousel) return;
+    
+    let isPaused = false;
+    
+    function togglePause() {
+        isPaused = !isPaused;
+        
+        if (isPaused) {
+            track.style.animationPlayState = 'paused';
+            autoStatus.textContent = 'Rotação pausada';
+            pauseBtn.innerHTML = `
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="5 3 19 12 5 21 5 3"/>
+                </svg>
+            `;
+        } else {
+            track.style.animationPlayState = 'running';
+            autoStatus.textContent = 'Rotação automática ativa';
+            pauseBtn.innerHTML = `
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="6" y="4" width="4" height="16"/>
+                    <rect x="14" y="4" width="4" height="16"/>
+                </svg>
+            `;
+        }
+    }
+    
+    pauseBtn.addEventListener('click', togglePause);
+    
+    carousel.addEventListener('mouseenter', () => {
+        if (!isPaused) track.style.animationPlayState = 'paused';
+    });
+    
+    carousel.addEventListener('mouseleave', () => {
+        if (!isPaused) track.style.animationPlayState = 'running';
+    });
+
+    carousel.addEventListener('touchstart', () => {
+        if (!isPaused) track.style.animationPlayState = 'paused';
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', () => {
+        if (!isPaused) {
+            setTimeout(() => {
+                track.style.animationPlayState = 'running';
+            }, 300);
+        }
+    }, { passive: true });
+})();
+
+// ==================== TEAM ANIMATIONS ====================
+(function() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.founder-card, .specialist-card').forEach((el, index) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = `all 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.1}s`;
+        observer.observe(el);
+    });
+})();
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>The Elite Agency — FAQ, CTA Final & Contacto</title>
+    
+    <!-- Font Awesome 6.4 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ========== GLOBAL RESET & BASE ========== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+            position: relative;
+        }
+        
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', system-ui, sans-serif; 
+            background: #000; 
+            color: #fff; 
+            line-height: 1.6; 
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .container { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            padding: 0 40px;
+            width: 100%;
+        }
+        
+        .section { 
+            padding: clamp(60px, 10vw, 140px) 0; 
+            position: relative;
+            width: 100%;
+        }
+        
+        /* ========== SHARED TYPOGRAPHY ========== */
+        .ante { 
+            font-size: 11px; 
+            text-transform: uppercase; 
+            letter-spacing: 3px; 
+            color: rgba(255, 255, 255, 0.75); 
+            font-weight: 600; 
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 20px; 
+            border: 1px solid rgba(255, 255, 255, 0.15); 
+            border-radius: 50px; 
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+        }
+        
+        .ante::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: #fbbf24;
+            border-radius: 50%;
+            box-shadow: 0 0 8px rgba(251, 191, 36, 0.4);
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.15); }
+        }
+        
+        h2 { 
+            font-size: clamp(28px, 5vw, 56px); 
+            font-weight: 300; 
+            margin-bottom: 25px; 
+            background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 50%, #707070 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+        
+        h2 strong { 
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff 0%, #d0d0d0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .intro-text {
+            font-size: clamp(16px, 2vw, 19px);
+            color: rgba(255, 255, 255, 0.65);
+            max-width: 750px;
+            margin: 0 auto 50px;
+            line-height: 1.75;
+            font-weight: 300;
+        }
+
+        .intro-text strong {
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 600;
+        }
+        
+        /* ========== SECTION 1: FAQ ========== */
+        .faq { 
+            background: transparent;
+            text-align: center;
+            position: relative;
+        }
+        
+        .faq::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        .avatar-qualification {
+            max-width: 900px;
+            margin: 0 auto 50px;
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.04) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border: 1px solid rgba(251, 191, 36, 0.15);
+            border-left: 4px solid rgba(251, 191, 36, 0.6);
+            border-radius: 16px;
+            padding: 32px 36px;
+            text-align: left;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .qualification-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .qualification-icon {
+            width: 24px;
+            height: 24px;
+            color: #fbbf24;
+        }
+        
+        .qualification-header h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffffff;
+            letter-spacing: -0.2px;
+        }
+        
+        .qualification-content p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.75;
+            margin-bottom: 16px;
+        }
+        
+        .qualification-content p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .qualification-content strong {
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 600;
+        }
+        
+        .exclusion-list {
+            list-style: none;
+            margin: 16px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 24px;
+        }
+        
+        .exclusion-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.65);
+            line-height: 1.5;
+        }
+        
+        .exclusion-list li::before {
+            content: '✗';
+            color: rgba(251, 191, 36, 0.6);
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+        
+        .faq-list { 
+            max-width: 900px; 
+            margin: 0 auto; 
+        }
+        
+        .faq-item { 
+            background: rgba(255, 255, 255, 0.02); 
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            border-radius: 16px; 
+            margin-bottom: 16px; 
+            overflow: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+        }
+        
+        .faq-item:hover {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        .faq-item.active {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .faq-question { 
+            padding: 26px 32px; 
+            cursor: pointer; 
+            font-weight: 500; 
+            font-size: 17px; 
+            color: #fff; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+        
+        .faq-question:hover { 
+            background: rgba(255, 255, 255, 0.02); 
+        }
+        
+        .faq-answer { 
+            padding: 0 32px 26px; 
+            color: rgba(255, 255, 255, 0.65); 
+            font-size: 15px; 
+            display: none;
+            line-height: 1.7;
+            font-weight: 300;
+            text-align: left;
+        }
+        
+        .faq-answer strong {
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 600;
+        }
+        
+        .faq-item.active .faq-answer { 
+            display: block; 
+            animation: fadeIn 0.4s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .faq-icon { 
+            transition: transform 0.3s ease;
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.6);
+            flex-shrink: 0;
+        }
+        
+        .faq-item.active .faq-icon { 
+            transform: rotate(45deg);
+            color: #fbbf24;
+        }
+        
+        /* ========== SECTION 2: FINAL CTA ========== */
+        .cta-final { 
+            background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+            text-align: center;
+        }
+        
+        .scarcity-note {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+        }
+        
+        .scarcity-note p {
+            font-size: 17px;
+            color: #ccc;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        .scarcity-note p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .cta-primary { 
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px 50px; 
+            background: linear-gradient(135deg, #ffffff 0%, #d0d0d0 100%); 
+            color: #000; 
+            font-size: 17px; 
+            font-weight: 600; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+            box-shadow: 0 10px 40px rgba(255, 255, 255, 0.15);
+            letter-spacing: 0.5px;
+        }
+        
+        .cta-primary:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 20px 60px rgba(255, 255, 255, 0.25);
+        }
+        
+        /* ========== SECTION 3: FOOTER ========== */
+        footer { 
+            background: #000; 
+            border-top: 1px solid rgba(255, 255, 255, 0.05); 
+            padding: 60px 20px 40px; 
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-left {
+            flex: 1;
+            max-width: 400px;
+        }
+        
+        .footer-brand {
+            margin-bottom: 20px;
+        }
+        
+        .footer-brand p {
+            font-size: 14px; 
+            color: #666;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+        
+        .footer-brand strong {
+            color: #999;
+            font-weight: 600;
+        }
+        
+        .footer-email button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #999;
+            background: none;
+            border: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            letter-spacing: 0.3px;
+            cursor: pointer;
+            padding: 0;
+            font-family: inherit;
+        }
+        
+        .footer-email button:hover {
+            color: #fff;
+        }
+        
+        .footer-email svg {
+            width: 16px;
+            height: 16px;
+        }
+        
+        .footer-right {
+            display: flex;
+            gap: 45px;
+            flex-wrap: wrap;
+        }
+        
+        .social-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .social-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.4);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        
+        .person-name {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            margin-bottom: 8px;
+            white-space: nowrap;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .social-link {
+            width: 34px;
+            height: 34px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        .social-link svg {
+            width: 15px;
+            height: 15px;
+            color: rgba(255, 255, 255, 0.6);
+            transition: color 0.3s ease;
+        }
+        
+        .social-link:hover svg {
+            color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .footer-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.05);
+            margin-bottom: 25px;
+        }
+        
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: #666;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .footer-bottom a { 
+            color: #666; 
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-bottom a:hover { 
+            color: #fff;
+        }
+        
+        /* ========== STICKY WHATSAPP BUTTON ========== */
+        .whatsapp-float {
+            position: fixed !important;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #25d366 0%, #128C7E 100%);
+            color: #FFF;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 32px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 999999 !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            text-decoration: none;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .whatsapp-float.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.15) rotate(5deg);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-float i {
+            animation: shake 2s infinite;
+            line-height: 60px;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: rotate(0deg); }
+            10%, 30%, 50%, 70%, 90% { transform: rotate(-10deg); }
+            20%, 40%, 60%, 80% { transform: rotate(10deg); }
+        }
+
+        .whatsapp-float::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: rgba(37, 211, 102, 0.5);
+            animation: pulse-ring 2s infinite;
+            z-index: -1;
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1.5);
+                opacity: 0;
+            }
+        }
+        
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .footer-content {
+                gap: 40px;
+            }
+            
+            .footer-right {
+                gap: 35px;
+            }
+        }
+        
+        @media (max-width: 768px) { 
+            .container { padding: 0 25px; }
+            .section { padding: 60px 0; }
+            
+            h2 { font-size: 28px; }
+            
+            .intro-text {
+                font-size: 16px;
+                margin-bottom: 30px;
+            }
+            
+            .avatar-qualification {
+                padding: 26px 28px;
+                margin-bottom: 40px;
+            }
+            
+            .qualification-header h3 {
+                font-size: 17px;
+            }
+            
+            .qualification-content p {
+                font-size: 15px;
+            }
+            
+            .exclusion-list {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .faq-question {
+                padding: 22px 26px;
+                font-size: 16px;
+            }
+            
+            .faq-answer {
+                padding: 0 26px 22px;
+                font-size: 14px;
+            }
+            
+            .scarcity-note { padding: 25px; }
+            
+            .cta-primary { 
+                padding: 18px 40px; 
+                font-size: 16px;
+                width: 100%;
+                max-width: 400px;
+            }
+            
+            footer {
+                padding: 50px 20px 35px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 35px;
+            }
+            
+            .footer-left {
+                max-width: 100%;
+            }
+            
+            .footer-right {
+                flex-wrap: wrap;
+                gap: 25px;
+                width: 100%;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+            
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 28px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .section { padding: 50px 0; }
+            
+            h2 { font-size: 26px; }
+            
+            .ante {
+                font-size: 10px;
+                padding: 7px 16px;
+            }
+            
+            .avatar-qualification {
+                padding: 22px 24px;
+            }
+            
+            .faq-question {
+                padding: 20px 24px;
+                font-size: 15px;
+            }
+            
+            .faq-answer {
+                padding: 0 24px 20px;
+            }
+            
+            footer {
+                padding: 40px 15px 30px;
+            }
+            
+            .footer-right {
+                justify-content: space-between;
+            }
+            
+            .social-group {
+                gap: 10px;
+            }
+            
+            .social-label {
+                font-size: 9px;
+            }
+            
+            .person-name {
+                font-size: 12px;
+            }
+            
+            .social-link {
+                width: 32px;
+                height: 32px;
+            }
+            
+            .social-link svg {
+                width: 14px;
+                height: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ==================== SECTION 1: FAQ ==================== -->
+<section class="faq section">
+    <div class="container">
+        <span class="ante">Perguntas de Empresários Estratégicos</span>
+        <h2>Não É Para Todos.<br><strong>Apenas Para Quem Está Pronto Para Escalar.</strong></h2>
+        <p class="intro-text">
+            Esta página qualifica quem chega à nossa chamada. Trabalhamos com negócios que querem escalar e projetos com visão para crescer. <strong>Sem alinhamento de mentalidade, não avançamos.</strong>
+        </p>
+        
+        <div class="avatar-qualification">
+            <div class="qualification-header">
+                <svg class="qualification-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <h3>Filtro de Parceria Estratégica</h3>
+            </div>
+            <div class="qualification-content">
+                <p>Procuramos empresários que entendem que crescimento exige <strong>sistema e estratégia, não sorte</strong>. O critério decisivo é compromisso com uma visão de longo prazo.</p>
+                
+                <p><strong>Esta parceria NÃO é adequada se:</strong></p>
+                <ul class="exclusion-list">
+                    <li>Decides exclusivamente pelo "mais barato"</li>
+                    <li>Queres "testar um mês" sem compromisso</li>
+                    <li>Vês marketing como "fazer posts" soltos</li>
+                    <li>Não tens tempo para alinhar estratégia</li>
+                    <li>Vês crescimento como custo, não investimento</li>
+                    <li>Procuras soluções "rápidas" sem fundação</li>
+                </ul>
+                
+                <p><strong>Se te identificas com vários pontos, não somos a escolha certa.</strong> Procuramos quem entende que construir algo sólido exige estratégia consistente.</p>
+            </div>
+        </div>
+        
+        <div class="faq-list">
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>O que acontece depois de eu contactar no WhatsApp?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <strong>Passo 1:</strong> Envias contexto do negócio (situação atual, objetivos).<br>
+                    <strong>Passo 2:</strong> Fazemos triagem rápida de alinhamento inicial.<br>
+                    <strong>Passo 3:</strong> Se fizer sentido, agendamos <strong>Auditoria Estratégica</strong> — análise profunda do teu caso.<br>
+                    <strong>Passo 4:</strong> Apresentamos proposta customizada se virmos potencial real.<br><br>
+                    O objetivo não é vender a qualquer custo, mas validar se conseguimos gerar resultados mensuráveis para o teu negócio.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Trabalham com negócios que estão ainda a começar?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Sim, desde que haja <strong>visão clara e capacidade de investimento estruturado</strong>. Se queres fazer bem desde o dia zero (posicionamento forte, infraestrutura profissional), és o parceiro ideal. Não trabalhamos com "tentativas" sem estrutura, mas adoramos construir casos de sucesso do zero.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Como funciona a questão do investimento?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Cada projeto é único — um restaurante local não precisa da mesma infraestrutura que um e-commerce nacional. <strong>O investimento é desenhado à medida dos teus objetivos e velocidade de crescimento desejada.</strong> Na Auditoria, apresentamos proposta transparente com valores claros e justificação estratégica. Não temos "pacotes standard".
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Já tentei com outras agências sem resultados. O que muda?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    A maioria vende "visibilidade" e métricas de vaidade. <strong>Nós construímos sistemas focados em resultados de negócio:</strong> leads qualificados, conversões, receita incremental. Se na auditoria não virmos potencial claro de gerar ROI superior, recomendamos que não avances. A nossa reputação constrói-se sobre casos de sucesso reais.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Quantos novos parceiros aceitam por período?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <strong>Capacidade muito limitada por design.</strong> O nosso acompanhamento é estratégico e próximo, o que impede volume massivo. Priorizamos poucos parceiros com resultados excepcionais sobre muitos clientes com performance mediana. Se a capacidade estiver esgotada, terás de aguardar.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Quanto tempo até começar a ver resultados concretos?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <strong>Primeiros indicadores:</strong> 30-45 dias (organização e primeiros contactos qualificados).<br>
+                    <strong>Sistema estabilizado:</strong> 60-90 dias (fluxo consistente de leads).<br>
+                    <strong>Crescimento escalável:</strong> 90-120 dias (sistema otimizado).<br><br>
+                    O timing depende do ponto de partida e colaboração. <strong>Não prometemos milagres — prometemos engenharia de crescimento sustentável.</strong>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Qual o meu nível de envolvimento necessário?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Operamos "chave na mão" — tratamos de estratégia, execução e otimização. O teu foco fica em:<br><br>
+                    • Aprovar decisões estratégicas importantes<br>
+                    • Fornecer materiais quando necessário<br>
+                    • Converter os leads qualificados que geramos<br>
+                    • Dar feedback sobre qualidade para ajustes<br><br>
+                    <strong>O objetivo é libertar-te para gerires o negócio</strong> enquanto tratamos da aquisição.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Porque não contratar freelancers ou uma agência mais acessível?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Freelancers tratam peças isoladas (só copy, só tráfego). <strong>Crescimento real exige sistema integrado:</strong> posicionamento, website, campanhas, conversão funcionando em conjunto. <strong>Nós tratamos do ecossistema completo</strong> com linha única de responsabilidade. Se algo não funciona, sabes quem resolve.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Como sei se faz sentido avançar para a Auditoria Estratégica?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Faz sentido se te revês nisto:<br><br>
+                    • Tens negócio (ou projeto) com potencial, mas sentes que podes crescer muito mais<br>
+                    • Percebeste que precisas de sistema e estratégia, não apenas mais esforço<br>
+                    • Estás preparado para ver crescimento como investimento de longo prazo<br>
+                    • Queres equipa que se preocupa com os teus resultados<br><br>
+                    <strong>A Auditoria é onde determinamos o fit real.</strong> Em 45 minutos, dizemos-te honestamente se somos o parceiro certo.
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<!-- ==================== SECTION 2: FINAL CTA ==================== -->
+<section class="cta-final section">
+    <div class="container">
+        <span class="ante">Decisão final</span>
+        <h2><strong>Ou Te Tornas a Referência da Zona</strong><br>Ou Vês Outro a Consegui-lo.</h2>
+        
+        <div class="scarcity-note">
+            <p>Vamos ser diretos: não trabalhamos com todos os negócios. E não é conversa de vendas — é realidade prática. Para criarmos sistemas que realmente funcionam, gerirmos a tua presença online de forma profissional e trazermos clientes novos de forma consistente, <strong style="color: #fff;">precisamos de dedicação total a cada parceiro</strong>.</p>
+            
+            <p>Por isso, aceitamos apenas <strong style="color: #fff;">um número limitado de negócios por mês e apenas um por zona</strong>. Se quiseres ser considerado, o primeiro passo é simples: <strong style="color: #fff;">envia-nos mensagem no WhatsApp para marcarmos uma conversa honesta de 20 minutos</strong>. Vamos analisar o teu caso sem rodeios. Se conseguirmos fazer a diferença, avançamos. Se não, dizemos-te com total transparência.</p>
+            
+            <p style="margin-top: 25px;"><strong style="color: #fff;">Enquanto pensas, há alguém na tua zona a dar o passo em frente. Não deixes que seja sempre o outro a ficar com a melhor posição.</strong></p>
+        </div>
+        
+        <a href="https://wa.me/351924132341?text=Ol%C3%A1!%20Quero%20marcar%20a%20conversa%20de%2020%20minutos%20para%20vermos%20se%20o%20meu%20neg%C3%B3cio%20se%20qualifica%20para%20parceria%20Elite.%0A%0AContexto%20do%20neg%C3%B3cio%3A%0A%E2%80%A2%20Tipo%3A%20%5Bdescreve%20o%20teu%20neg%C3%B3cio%5D%0A%E2%80%A2%20Zona%3A%20%5Btua%20localiza%C3%A7%C3%A3o%5D%0A%E2%80%A2%20Objetivo%3A%20%5Btornar-me%20a%20refer%C3%AAncia%20local%5D%0A%0AQual%20%C3%A9%20a%20vossa%20disponibilidade%3F" class="cta-primary" target="_blank" rel="noopener noreferrer">
+            Candidatar-me à Parceria Elite
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+    </div>
+</section>
+
+<!-- ==================== SECTION 3: FOOTER ==================== -->
+<footer>
+    <div class="container">
+        
+        <div class="footer-content">
+            
+            <div class="footer-left">
+                <div class="footer-brand">
+                    <p><strong>ELITE AGENCY</strong> — Parceiro de aquisição dos negócios nacionais</p>
+                </div>
+                <div class="footer-email">
+                    <button id="emailCopyBtn" aria-label="Copiar email">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        <span id="emailText">geral.eliteagency@gmail.com</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="footer-right">
+                
+                <div class="social-group">
+                    <span class="social-label">CEO & Founder</span>
+                    <span class="person-name">Gonçalo Ramos</span>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/goncaloramosvs/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram Gonçalo Ramos">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/gon%C3%A7alo-ramos-5923a0382/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn Gonçalo Ramos">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="social-group">
+                    <span class="social-label">COO & Founder</span>
+                    <span class="person-name">Gui Goldrajch</span>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/goldrajch_/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram Gui Goldrajch">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/gui-goldrajch-667aa8277/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn Gui Goldrajch">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="social-group">
+                    <span class="social-label">Funnel Builder & CRO</span>
+                    <span class="person-name">João Alfar</span>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/alfxr.ops/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram João Alfar">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/joão-alfar" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn João Alfar">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+        
+        <div class="footer-divider"></div>
+        
+        <div class="footer-bottom">
+            <p>© <span id="currentYear">2025</span> Elite Agency</p>
+            <p>
+                <a href="#privacidade">Política de Privacidade</a> | 
+                <a href="#termos">Termos de Serviço</a>
+            </p>
+        </div>
+        
+    </div>
+</footer>
+
+<!-- ==================== STICKY WHATSAPP BUTTON ==================== -->
+<a href="https://wa.me/351913129811?text=Olá!%20Gostaria%20de%20mais%20informações" 
+   class="whatsapp-float" 
+   id="whatsappBtn"
+   target="_blank" 
+   rel="noopener noreferrer"
+   aria-label="Conversar no WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+// ==================== FAQ ACCORDION ====================
+document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+        const item = q.parentElement;
+        const isActive = item.classList.contains('active');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+        if (!isActive) item.classList.add('active');
+    });
+});
+
+// ==================== FAQ SCROLL ANIMATIONS ====================
+(function() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.faq-item, .avatar-qualification').forEach((el, index) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = `all 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.06}s`;
+        observer.observe(el);
+    });
+})();
+
+// ==================== FOOTER EMAIL COPY ====================
+(function() {
+    const emailBtn = document.getElementById('emailCopyBtn');
+    const emailTextSpan = document.getElementById('emailText');
+    const originalText = "geral.eliteagency@gmail.com";
+    const emailToCopy = "geral.eliteagency@gmail.com";
+
+    if (emailBtn && emailTextSpan) {
+        emailBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(emailToCopy).then(() => {
+                    emailTextSpan.textContent = "✓ Email Copiado!";
+                    emailBtn.style.color = "#fff";
+                    
+                    setTimeout(() => {
+                        emailTextSpan.textContent = originalText;
+                        emailBtn.style.color = "#999";
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Erro ao copiar:', err);
+                    fallbackCopy();
+                });
+            } else {
+                fallbackCopy();
+            }
+        });
+    }
+
+    function fallbackCopy() {
+        try {
+            const textArea = document.createElement('textarea');
+            textArea.value = emailToCopy;
+            textArea.style.position = 'fixed';
+            textArea.style.opacity = '0';
+            document.body.appendChild(textArea);
+            textArea.select();
+            
+            const successful = document.execCommand('copy');
+            document.body.removeChild(textArea);
+            
+            if (successful) {
+                emailTextSpan.textContent = "✓ Email Copiado!";
+                emailBtn.style.color = "#fff";
+                
+                setTimeout(() => {
+                    emailTextSpan.textContent = originalText;
+                    emailBtn.style.color = "#999";
+                }, 2000);
+            }
+        } catch (err) {
+            console.error('Erro no fallback:', err);
+        }
+    }
+})();
+
+// ==================== STICKY WHATSAPP (APPEARS AFTER 2000PX) ====================
+(function() {
+    const whatsappBtn = document.getElementById('whatsappBtn');
+    const SCROLL_THRESHOLD = 2000;
+
+    if (!whatsappBtn) return;
+
+    function handleScroll() {
+        const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollPosition > SCROLL_THRESHOLD) {
+            whatsappBtn.classList.add('visible');
+        } else {
+            whatsappBtn.classList.remove('visible');
+        }
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Check initial state
+})();
+
+// ==================== FOOTER YEAR ====================
+document.getElementById('currentYear').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
