@@ -699,6 +699,279 @@
 
         .vsl-mobile, .expertise-mobile, .testimonials-mobile { display: none; }
 
+        /* ========== RESPONSIVE STICKY CTA ========== */
+        @media (max-width: 768px) {
+            .ea-strip {
+                padding: 12px 36px 12px 14px;
+                max-width: calc(100% - 30px);
+            }
+
+            .ea-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .ea-badge {
+                font-size: 10px;
+                padding: 4px 8px;
+            }
+
+            .ea-text {
+                font-size: 12px;
+                text-align: center;
+            }
+
+            .ea-btn {
+                width: 100%;
+                justify-content: center;
+                padding: 10px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== STICKY CTA (PARCERIA COMERCIAL) ==================== -->
+    <div class="ea-overlay-container" id="stickyCtaOverlay">
+        <div class="ea-strip">
+            <div class="ea-gradient"></div>
+            <div class="ea-border"></div>
+            <div class="ea-content">
+                <div class="ea-badge">
+                    <span class="ea-dot"></span>
+                    <span>NOVO</span>
+                </div>
+                <div class="ea-text">
+                    <strong>Parceria Comercial Elite</strong> — O único serviço que combina Social Media, Funis de Alta Conversão e Vídeo Performance num sistema coordenado.
+                </div>
+                <a href="/parceiro-comercial.html" class="ea-btn">
+                    <span>Saber Mais</span>
+                    <svg class="ea-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                </a>
+            </div>
+            <button class="ea-close" id="closeStickyBtn" aria-label="Fechar">
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-inner">
+                <div class="hero-grid">
+                    
+                    <!-- LEFT: Content -->
+                    <div class="hero-content">
+                        <span class="ante">Elite Agency</span>
+                        <h1>Parceiro Exclusivo dos <strong>Melhores Negócios Locais</strong></h1>
+                        <p class="hero-copy">
+                            Transformamos negócios locais em autoridades digitais através de estratégias de marketing integradas e personalizadas.
+                        </p>
+                        <a href="#contact" class="cta-primary">
+                            <span>Agendar Chamada Estratégica</span>
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- RIGHT: VSL + Expertise + Testimonials -->
+                    <div class="hero-vsl-wrapper">
+                        
+                        <!-- VIDEO PLAYER -->
+                        <div class="hero-vsl" id="heroVsl">
+                            <video id="heroVideo" preload="metadata" poster="https://via.placeholder.com/800x450/000000/ffffff?text=Elite+Agency+VSL">
+                                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                            </video>
+                            
+                            <div class="play-button-center" id="playButton"></div>
+                            
+                            <div class="video-controls-overlay">
+                                <div class="progress-container" id="progressContainer">
+                                    <div class="progress-bar" id="progressBar"></div>
+                                </div>
+                                <div class="controls-row">
+                                    <button class="control-btn" id="playPauseBtn" aria-label="Play/Pause">
+                                        <svg id="playIcon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                        </svg>
+                                        <svg id="pauseIcon" style="display: none;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- EXPERTISE BLOCKS -->
+                        <div class="expertise-block">
+                            <div class="warning-icon">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                                </svg>
+                            </div>
+                            <p class="expertise-text">
+                                <strong>Não somos para todos.</strong> Trabalhamos apenas com negócios locais que faturam €10k+/mês e querem crescer de forma sustentável.
+                            </p>
+                        </div>
+
+                        <!-- TESTIMONIALS COMPACT -->
+                        <div class="testimonials-wrapper">
+                            <span class="testimonials-intro">Projetos Ativos</span>
+                            <div class="testimonials-compact">
+                                
+                                <div class="testimonial-item">
+                                    <div class="testimonial-header">
+                                        <div class="testimonial-left">
+                                            <span class="testimonial-brand">RelieflyLab</span>
+                                            <span class="testimonial-type">E-commerce</span>
+                                        </div>
+                                        <span class="testimonial-investment">€18k</span>
+                                    </div>
+                                    <p class="testimonial-services">Website + Funis + Email Automation</p>
+                                    <p class="testimonial-quote">"ROI 12x em 18 meses. Sistema completo do zero."</p>
+                                </div>
+
+                                <div class="testimonial-item">
+                                    <div class="testimonial-header">
+                                        <div class="testimonial-left">
+                                            <span class="testimonial-brand">ORGHEAL</span>
+                                            <span class="testimonial-type">Produtos Naturais</span>
+                                        </div>
+                                        <span class="testimonial-investment">€12.5k</span>
+                                    </div>
+                                    <p class="testimonial-services">Website + Funis + Campanhas</p>
+                                    <p class="testimonial-quote">"Conversão 7% (3.5x vs média do setor)."</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESTO DO CONTEÚDO DA PÁGINA -->
+    <div style="height: 2000px; padding: 100px 40px; text-align: center;">
+        <h2 style="color: #fff; margin-bottom: 20px;">Conteúdo da Homepage</h2>
+        <p style="color: #999;">Role a página para ver o <strong>sticky CTA aparecer após 1500px</strong> ⬇️</p>
+    </div>
+
+    <!-- ==================== SCRIPTS ==================== -->
+    <script>
+        // ========== STICKY CTA (APARECE APÓS 1500PX) ==========
+        const stickyCtaOverlay = document.getElementById('stickyCtaOverlay');
+        const closeStickyBtn = document.getElementById('closeStickyBtn');
+        const SCROLL_THRESHOLD_CTA = 1500;
+        let ctaDismissed = false;
+
+        function handleStickyCta() {
+            if (ctaDismissed) return;
+            
+            const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollPosition > SCROLL_THRESHOLD_CTA) {
+                stickyCtaOverlay.classList.add('visible');
+            } else {
+                stickyCtaOverlay.classList.remove('visible');
+            }
+        }
+
+        // Fechar CTA ao clicar no X
+        if (closeStickyBtn) {
+            closeStickyBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                ctaDismissed = true;
+                stickyCtaOverlay.classList.remove('visible');
+            });
+        }
+
+        // Verificar ao carregar
+        handleStickyCta();
+
+        // Verificar ao fazer scroll (com throttle)
+        let ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    handleStickyCta();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        // ========== VIDEO PLAYER ==========
+        const video = document.getElementById('heroVideo');
+        const vslContainer = document.getElementById('heroVsl');
+        const playButtonCenter = document.getElementById('playButton');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const playIcon = document.getElementById('playIcon');
+        const pauseIcon = document.getElementById('pauseIcon');
+        const progressBar = document.getElementById('progressBar');
+        const progressContainer = document.getElementById('progressContainer');
+
+        // Play/Pause ao clicar no botão central
+        if (playButtonCenter) {
+            playButtonCenter.addEventListener('click', function() {
+                if (video.paused) {
+                    video.play();
+                    playButtonCenter.classList.add('hidden');
+                    vslContainer.classList.add('playing');
+                    playIcon.style.display = 'none';
+                    pauseIcon.style.display = 'block';
+                }
+            });
+        }
+
+        // Play/Pause ao clicar no botão de controle
+        if (playPauseBtn) {
+            playPauseBtn.addEventListener('click', function() {
+                if (video.paused) {
+                    video.play();
+                    playIcon.style.display = 'none';
+                    pauseIcon.style.display = 'block';
+                } else {
+                    video.pause();
+                    playIcon.style.display = 'block';
+                    pauseIcon.style.display = 'none';
+                }
+            });
+        }
+
+        // Atualizar progress bar
+        if (video) {
+            video.addEventListener('timeupdate', function() {
+                const progress = (video.currentTime / video.duration) * 100;
+                progressBar.style.width = progress + '%';
+            });
+        }
+
+        // Seek ao clicar na barra de progresso
+        if (progressContainer) {
+            progressContainer.addEventListener('click', function(e) {
+                const rect = progressContainer.getBoundingClientRect();
+                const clickX = e.clientX - rect.left;
+                const width = rect.width;
+                const percentage = clickX / width;
+                video.currentTime = percentage * video.duration;
+            });
+        }
+    </script>
+
+</body>
+</html>
+
+
         /* ========== SOCIAL PROOF ========== */
         .social-proof { 
             background: #000000;
