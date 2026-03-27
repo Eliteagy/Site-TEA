@@ -88,6 +88,7 @@ def update_file(filename):
             </div>"""
 
     # Try replacement with stripping whitespace to be safe
+    # We'll use a more robust way to find the block
     if old_block in content:
         new_content = content.replace(old_block, new_block)
         with open(filename, 'w', encoding='utf-8') as f:
@@ -95,22 +96,23 @@ def update_file(filename):
         print(f"Successfully updated {filename}")
     else:
         # Fallback: find by label
-        print(f"Exact block match failed for {filename}. Searching by label...")
+        print(f"Exact block match failed for {filename}. Searching by markers...")
         start_marker = '<div class="eco-sys-wrap">'
-        end_marker = '</div>\n            </div>'
+        end_marker = 'One system where everything amplifies everything.'
         
         start_pos = content.find(start_marker)
         if start_pos != -1:
             end_pos = content.find(end_marker, start_pos) + len(end_marker)
-            if end_pos != -1:
-                new_content = content[:start_pos] + new_block + content[end_pos:]
-                with open(filename, 'w', encoding='utf-8') as f:
-                    f.write(new_content)
-                print(f"Successfully updated {filename} via marker search.")
-            else:
-                print(f"End marker not found in {filename}")
+            # Find the next 2 closing divs after end_marker
+            end_pos = content.find('</div>', end_pos) + 6
+            end_pos = content.find('</div>', end_pos) + 6
+            
+            new_content = content[:start_pos] + new_block + content[end_pos:]
+            with open(filename, 'w', encoding='utf-8') as f:
+                f.write(new_content)
+            print(f"Successfully updated {filename} via marker search.")
         else:
-            print(f"Start marker not found in {filename}")
+            print(f"Start marker NOT found in {filename}")
 
 update_file('index_test.html')
 update_file('index.html')
