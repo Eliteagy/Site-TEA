@@ -1,0 +1,89 @@
+/* Ensure stars are visible through all content layers */
+html {
+    background: #000; /* Deepest layer fallback */
+}
+
+body {
+    background: transparent !important;
+}
+
+section, 
+.section,
+.commercial-partnership,
+.credibility,
+.faq,
+.cta-final,
+.social-proof,
+.modules-system,
+.partners,
+.acquisition-funnel,
+.agitacao,
+.mecanismo,
+.reuniao-section,
+.offer-section,
+.hero-partnership,
+.ecosystem,
+.how-it-works,
+.whats-included,
+.target-audience,
+.final-cta,
+footer,
+.footer-bottom,
+.hero-vsl,
+.qualification-box,
+.pillar-card,
+.timeline-item,
+.invite-card,
+.service-card,
+.feature-card,
+.audience-card,
+.founder-card,
+.specialist-card,
+.box-bg,
+.partnership-box,
+.partnership-content,
+.box-bg,
+.stats-container,
+.founder-bio {
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+.starry-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background: #000000;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    background: #ffffff;
+    border-radius: 50%;
+    opacity: 0;
+    /* Combined animations: twinkling and drifting */
+    animation: 
+        twinkle var(--duration, 3s) infinite ease-in-out,
+        drift var(--drift-duration, 20s) infinite linear;
+    animation-delay: var(--delay, 0s);
+    will-change: transform, opacity;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.2); }
+}
+
+@keyframes drift {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(var(--drift-x, 20px), var(--drift-y, 20px));
+    }
+}

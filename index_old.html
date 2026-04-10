@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>The Elite Lake — FAQ, CTA Final & Contacto</title>
+
+    <!-- Font Awesome 6.4 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ========== GLOBAL RESET & BASE ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+            position: relative;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', system-ui, sans-serif;
+            background: transparent;
+            color: #fff;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            width: 100%;
+        }
+
+        .section {
+            padding: clamp(60px, 10vw, 140px) 0;
+            position: relative;
+            width: 100%;
+        }
+
+        /* ========== SHARED TYPOGRAPHY ========== */
+        .ante {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: rgba(255, 255, 255, 0.75);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 50px;
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+        }
+
+        .ante::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: #fbbf24;
+            border-radius: 50%;
+            box-shadow: 0 0 8px rgba(251, 191, 36, 0.4);
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.7;
+                transform: scale(1.15);
+            }
+        }
+
+        h2 {
+            font-size: clamp(28px, 5vw, 56px);
+            font-weight: 300;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 50%, #707070 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        h2 strong {
+            font-weight: 700 !important;
+            background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+        }
+
+        .intro-text {
+            font-size: clamp(16px, 2vw, 19px);
+            color: rgba(255, 255, 255, 0.65);
+            max-width: 750px;
+            margin: 0 auto 50px;
+            line-height: 1.75;
+            font-weight: 300;
+        }
+
+        .intro-text strong {
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 600;
+        }
+
+        /* ========== SECTION 1: FAQ ========== */
+        .faq {
+            background: transparent;
+            text-align: center;
+            position: relative;
+        }
+
+        .faq::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .avatar-qualification {
+            max-width: 900px;
+            margin: 0 auto 50px;
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.04) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border: 1px solid rgba(251, 191, 36, 0.15);
+            border-left: 4px solid rgba(251, 191, 36, 0.6);
+            border-radius: 16px;
+            padding: 32px 36px;
+            text-align: left;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .qualification-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .qualification-icon {
+            width: 24px;
+            height: 24px;
+            color: #fbbf24;
+        }
+
+        .qualification-header h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffffff;
+            letter-spacing: -0.2px;
+        }
+
+        .qualification-content p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.75;
+            margin-bottom: 16px;
+        }
+
+        .qualification-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .qualification-content strong {
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 600;
+        }
+
+        .exclusion-list {
+            list-style: none;
+            margin: 16px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 24px;
+        }
+
+        .exclusion-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.65);
+            line-height: 1.5;
+        }
+
+        .exclusion-list li::before {
+            content: '✗';
+            color: rgba(251, 191, 36, 0.6);
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .faq-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+        }
+
+        .faq-item:hover {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .faq-item.active {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .faq-question {
+            padding: 26px 32px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 17px;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .faq-answer {
+            padding: 0 32px 26px;
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 15px;
+            display: none;
+            line-height: 1.7;
+            font-weight: 300;
+            text-align: left;
+        }
+
+        .faq-answer strong {
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 600;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.6);
+            flex-shrink: 0;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+            color: #fbbf24;
+        }
+
+        /* ========== SECTION 2: FINAL CTA ========== */
+        .cta-final {
+            background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+            text-align: center;
+        }
+
+        .scarcity-note {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+        }
+
+        .scarcity-note p {
+            font-size: 17px;
+            color: #ccc;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .scarcity-note p:last-child {
+            margin-bottom: 0;
+        }
+
+        .cta-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px 50px;
+            background: linear-gradient(135deg, #ffffff 0%, #d0d0d0 100%);
+            color: #000;
+            font-size: 17px;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 40px rgba(255, 255, 255, 0.15);
+            letter-spacing: 0.5px;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 60px rgba(255, 255, 255, 0.25);
+        }
+
+        /* ========== SECTION 3: FOOTER ========== */
+        footer {
+            background: #000;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 60px 20px 40px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-left {
+            flex: 1;
+            max-width: 400px;
+        }
+
+        .footer-brand {
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            color: #666;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-brand strong {
+            color: #999;
+            font-weight: 600;
+        }
+
+        .footer-email button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #999;
+            background: none;
+            border: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            letter-spacing: 0.3px;
+            cursor: pointer;
+            padding: 0;
+            font-family: inherit;
+        }
+
+        .footer-email button:hover {
+            color: #fff;
+        }
+
+        .footer-email svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .footer-right {
+            display: flex;
+            gap: 45px;
+            flex-wrap: wrap;
+        }
+
+        .social-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .social-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.4);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .person-name {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            margin-bottom: 8px;
+            white-space: nowrap;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 8px;
+        }
+
+        .social-link {
+            width: 34px;
+            height: 34px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .social-link svg {
+            width: 15px;
+            height: 15px;
+            color: rgba(255, 255, 255, 0.6);
+            transition: color 0.3s ease;
+        }
+
+        .social-link:hover svg {
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .footer-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.05);
+            margin-bottom: 25px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: #666;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .footer-bottom a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-bottom a:hover {
+            color: #fff;
+        }
+
+        /* ========== STICKY WHATSAPP BUTTON ========== */
+        .whatsapp-float {
+            position: fixed !important;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #25d366 0%, #128C7E 100%);
+            color: #FFF;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 32px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 999999 !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            text-decoration: none;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .whatsapp-float.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.15) rotate(5deg);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-float i {
+            animation: shake 2s infinite;
+            line-height: 60px;
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: rotate(0deg);
+            }
+
+            10%,
+            30%,
+            50%,
+            70%,
+            90% {
+                transform: rotate(-10deg);
+            }
+
+            20%,
+            40%,
+            60%,
+            80% {
+                transform: rotate(10deg);
+            }
+        }
+
+        .whatsapp-float::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: rgba(37, 211, 102, 0.5);
+            animation: pulse-ring 2s infinite;
+            z-index: -1;
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .footer-content {
+                gap: 40px;
+            }
+
+            .footer-right {
+                gap: 35px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 25px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            .intro-text {
+                font-size: 16px;
+                margin-bottom: 30px;
+            }
+
+            .avatar-qualification {
+                padding: 26px 28px;
+                margin-bottom: 40px;
+            }
+
+            .qualification-header h3 {
+                font-size: 17px;
+            }
+
+            .qualification-content p {
+                font-size: 15px;
+            }
+
+            .exclusion-list {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .faq-question {
+                padding: 22px 26px;
+                font-size: 16px;
+            }
+
+            .faq-answer {
+                padding: 0 26px 22px;
+                font-size: 14px;
+            }
+
+            .scarcity-note {
+                padding: 25px;
+            }
+
+            .cta-primary {
+                padding: 18px 40px;
+                font-size: 16px;
+                width: 100%;
+                max-width: 400px;
+            }
+
+            footer {
+                padding: 50px 20px 35px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 35px;
+            }
+
+            .footer-left {
+                max-width: 100%;
+            }
+
+            .footer-right {
+                flex-wrap: wrap;
+                gap: 25px;
+                width: 100%;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section {
+                padding: 50px 0;
+            }
+
+            h2 {
+                font-size: 26px;
+            }
+
+            .ante {
+                font-size: 10px;
+                padding: 7px 16px;
+            }
+
+            .avatar-qualification {
+                padding: 22px 24px;
+            }
+
+            .faq-question {
+                padding: 20px 24px;
+                font-size: 15px;
+            }
+
+            .faq-answer {
+                padding: 0 24px 20px;
+            }
+
+            footer {
+                padding: 40px 15px 30px;
+            }
+
+            .footer-right {
+                justify-content: space-between;
+            }
+
+            .social-group {
+                gap: 10px;
+            }
+
+            .social-label {
+                font-size: 9px;
+            }
+
+            .person-name {
+                font-size: 12px;
+            }
+
+            .social-link {
+                width: 32px;
+                height: 32px;
+            }
+
+            .social-link svg {
+                width: 14px;
+                height: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="starry-background" id="starryBg"></div>
+
+    <!-- ==================== SECTION 1: FAQ ==================== -->
+    <section class="faq section">
+        <div class="container">
+            <span class="ante">Perguntas de Empresários Estratégicos</span>
+            <h2>Não É Para Todos.<br><strong>Apenas Para Quem Está Pronto Para Escalar.</strong></h2>
+            <p class="intro-text">
+                Esta página qualifica quem chega à nossa chamada. Trabalhamos com negócios que querem escalar e projetos
+                com visão para crescer. <strong>Sem alinhamento de mentalidade, não avançamos.</strong>
+            </p>
+
+            <div class="avatar-qualification">
+                <div class="qualification-header">
+                    <svg class="qualification-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <h3>Filtro de Parceria Estratégica</h3>
+                </div>
+                <div class="qualification-content">
+                    <p>Procuramos empresários que entendem que crescimento exige <strong>sistema e estratégia, não
+                            sorte</strong>. O critério decisivo é compromisso com uma visão de longo prazo.</p>
+
+                    <p><strong>Esta parceria NÃO é adequada se:</strong></p>
+                    <ul class="exclusion-list">
+                        <li>Decides exclusivamente pelo "mais barato"</li>
+                        <li>Queres "testar um mês" sem compromisso</li>
+                        <li>Vês marketing como "fazer posts" soltos</li>
+                        <li>Não tens tempo para alinhar estratégia</li>
+                        <li>Vês crescimento como custo, não investimento</li>
+                        <li>Procuras soluções "rápidas" sem fundação</li>
+                    </ul>
+
+                    <p><strong>Se te identificas com vários pontos, não somos a escolha certa.</strong> Procuramos quem
+                        entende que construir algo sólido exige estratégia consistente.</p>
+                </div>
+            </div>
+
+            <div class="faq-list">
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>O que acontece depois de eu contactar no WhatsApp?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <strong>Passo 1:</strong> Envias contexto do negócio (situação atual, objetivos).<br>
+                        <strong>Passo 2:</strong> Fazemos triagem rápida de alinhamento inicial.<br>
+                        <strong>Passo 3:</strong> Se fizer sentido, agendamos <strong>Auditoria Estratégica</strong> —
+                        análise profunda do teu caso.<br>
+                        <strong>Passo 4:</strong> Apresentamos proposta customizada se virmos potencial real.<br><br>
+                        O objetivo não é vender a qualquer custo, mas validar se conseguimos gerar resultados
+                        mensuráveis para o teu negócio.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Trabalham com negócios que estão ainda a começar?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Sim, desde que haja <strong>visão clara e capacidade de investimento estruturado</strong>. Se
+                        queres fazer bem desde o dia zero (posicionamento forte, infraestrutura profissional), és o
+                        parceiro ideal. Não trabalhamos com "tentativas" sem estrutura, mas adoramos construir casos de
+                        sucesso do zero.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Como funciona a questão do investimento?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Cada projeto é único — um restaurante local não precisa da mesma infraestrutura que um
+                        e-commerce nacional. <strong>O investimento é desenhado à medida dos teus objetivos e velocidade
+                            de crescimento desejada.</strong> Na Auditoria, apresentamos proposta transparente com
+                        valores claros e justificação estratégica. Não temos "pacotes standard".
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Já tentei com outras agências sem resultados. O que muda?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        A maioria vende "visibilidade" e métricas de vaidade. <strong>Nós construímos sistemas focados
+                            em resultados de negócio:</strong> leads qualificados, conversões, receita incremental. Se
+                        na auditoria não virmos potencial claro de gerar ROI superior, recomendamos que não avances. A
+                        nossa reputação constrói-se sobre casos de sucesso reais.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Quantos novos parceiros aceitam por período?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <strong>Capacidade muito limitada por design.</strong> O nosso acompanhamento é estratégico e
+                        próximo, o que impede volume massivo. Priorizamos poucos parceiros com resultados excepcionais
+                        sobre muitos clientes com performance mediana. Se a capacidade estiver esgotada, terás de
+                        aguardar.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Quanto tempo até começar a ver resultados concretos?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <strong>Primeiros indicadores:</strong> 30-45 dias (organização e primeiros contactos
+                        qualificados).<br>
+                        <strong>Sistema estabilizado:</strong> 60-90 dias (fluxo consistente de leads).<br>
+                        <strong>Crescimento escalável:</strong> 90-120 dias (sistema otimizado).<br><br>
+                        O timing depende do ponto de partida e colaboração. <strong>Não prometemos milagres — prometemos
+                            engenharia de crescimento sustentável.</strong>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Qual o meu nível de envolvimento necessário?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Operamos "chave na mão" — tratamos de estratégia, execução e otimização. O teu foco fica
+                        em:<br><br>
+                        • Aprovar decisões estratégicas importantes<br>
+                        • Fornecer materiais quando necessário<br>
+                        • Converter os leads qualificados que geramos<br>
+                        • Dar feedback sobre qualidade para ajustes<br><br>
+                        <strong>O objetivo é libertar-te para gerires o negócio</strong> enquanto tratamos da aquisição.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Porque não contratar freelancers ou uma agência mais acessível?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Freelancers tratam peças isoladas (só copy, só tráfego). <strong>Crescimento real exige sistema
+                            integrado:</strong> posicionamento, website, campanhas, conversão funcionando em conjunto.
+                        <strong>Nós tratamos do ecossistema completo</strong> com linha única de responsabilidade. Se
+                        algo não funciona, sabes quem resolve.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Como sei se faz sentido avançar para a Auditoria Estratégica?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Faz sentido se te revês nisto:<br><br>
+                        • Tens negócio (ou projeto) com potencial, mas sentes que podes crescer muito mais<br>
+                        • Percebeste que precisas de sistema e estratégia, não apenas mais esforço<br>
+                        • Estás preparado para ver crescimento como investimento de longo prazo<br>
+                        • Queres equipa que se preocupa com os teus resultados<br><br>
+                        <strong>A Auditoria é onde determinamos o fit real.</strong> Em 45 minutos, dizemos-te
+                        honestamente se somos o parceiro certo.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 2: FINAL CTA ==================== -->
+    <section class="cta-final section">
+        <div class="container">
+            <span class="ante">Decisão final</span>
+            <h2><strong>Ou Te Tornas a Referência da Zona</strong><br>Ou Vês Outro a Consegui-lo.</h2>
+
+            <div class="scarcity-note">
+                <p>Vamos ser diretos: não trabalhamos com todos os negócios. E não é conversa de vendas — é realidade
+                    prática. Para criarmos sistemas que realmente funcionam, gerirmos a tua presença online de forma
+                    profissional e trazermos clientes novos de forma consistente, <strong
+                        style="color: #fff;">precisamos de dedicação total a cada parceiro</strong>.</p>
+
+                <p>Por isso, aceitamos apenas <strong style="color: #fff;">um número limitado de negócios por mês e
+                        apenas um por zona</strong>. Se quiseres ser considerado, o primeiro passo é simples: <strong
+                        style="color: #fff;">envia-nos mensagem no WhatsApp para marcarmos uma conversa honesta de 20
+                        minutos</strong>. Vamos analisar o teu caso sem rodeios. Se conseguirmos fazer a diferença,
+                    avançamos. Se não, dizemos-te com total transparência.</p>
+
+                <p style="margin-top: 25px;"><strong style="color: #fff;">Enquanto pensas, há alguém na tua zona a dar o
+                        passo em frente. Não deixes que seja sempre o outro a ficar com a melhor posição.</strong></p>
+            </div>
+
+            <a href="https://calendly.com/geral-eliteagency/30min?month=2026-04"
+                class="cta-primary" target="_blank" rel="noopener noreferrer">
+                Agendar Agora no Calendly
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 3: FOOTER ==================== -->
+    <footer>
+        <div class="container">
+
+            <div class="footer-content">
+
+                <div class="footer-left">
+                    <div class="footer-brand">
+                        <p><strong>The Elite Agency</strong> — Parceiro de aquisição dos negócios nacionais</p>
+                    </div>
+                    <div class="footer-email">
+                        <button id="emailCopyBtn" aria-label="Copiar email">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg>
+                            <span id="emailText">geral.eliteagency@gmail.com</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="footer-right">
+
+                    <div class="social-group">
+                        <span class="social-label">CEO & Founder</span>
+                        <span class="person-name">Gonçalo Ramos</span>
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/goncaloramosvs/" target="_blank"
+                                rel="noopener noreferrer" class="social-link" aria-label="Instagram Gonçalo Ramos">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z" />
+                                </svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/gon%C3%A7alo-ramos-5923a0382/" target="_blank"
+                                rel="noopener noreferrer" class="social-link" aria-label="LinkedIn Gonçalo Ramos">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="social-group">
+                        <span class="social-label">COO & Founder</span>
+                        <span class="person-name">Gui Goldrajch</span>
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/goldrajch_/" target="_blank" rel="noopener noreferrer"
+                                class="social-link" aria-label="Instagram Gui Goldrajch">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z" />
+                                </svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/gui-goldrajch-667aa8277/" target="_blank"
+                                rel="noopener noreferrer" class="social-link" aria-label="LinkedIn Gui Goldrajch">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <div class="footer-bottom">
+                <p>© <span id="currentYear">2026</span> The Elite Agency</p>
+                <div style="margin-top: 10px; font-size: 13px; opacity: 0.6;">
+                    <a href="index.html" style="color: inherit; text-decoration: none;">Home</a> | 
+                    <a href="privacidade.html" style="color: inherit; text-decoration: none;">Privacidade</a> | 
+                    <a href="termos.html" style="color: inherit; text-decoration: none;">Termos</a> | 
+                    <a href="ai-ecosystem.html" style="color: inherit; text-decoration: none;">AI Ecosystem</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- ==================== STICKY WHATSAPP BUTTON ==================== -->
+    <a href="https://wa.me/351913129811?text=Olá!%20Gostaria%20de%20mais%20informações" class="whatsapp-float"
+        id="whatsappBtn" target="_blank" rel="noopener noreferrer" aria-label="Conversar no WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // ==================== FAQ ACCORDION ====================
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                const item = q.parentElement;
+                const isActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
+
+        // ==================== FAQ SCROLL ANIMATIONS ====================
+        (function () {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.faq-item, .avatar-qualification').forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = `all 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.06}s`;
+                observer.observe(el);
+            });
+        })();
+
+        // ==================== FOOTER EMAIL COPY ====================
+        (function () {
+            const emailBtn = document.getElementById('emailCopyBtn');
+            const emailTextSpan = document.getElementById('emailText');
+            const originalText = "geral.eliteagency@gmail.com";
+            const emailToCopy = "geral.eliteagency@gmail.com";
+
+            if (emailBtn && emailTextSpan) {
+                emailBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(emailToCopy).then(() => {
+                            emailTextSpan.textContent = "✓ Email Copiado!";
+                            emailBtn.style.color = "#fff";
+
+                            setTimeout(() => {
+                                emailTextSpan.textContent = originalText;
+                                emailBtn.style.color = "#999";
+                            }, 2000);
+                        }).catch(err => {
+                            console.error('Erro ao copiar:', err);
+                            fallbackCopy();
+                        });
+                    } else {
+                        fallbackCopy();
+                    }
+                });
+            }
+
+            function fallbackCopy() {
+                try {
+                    const textArea = document.createElement('textarea');
+                    textArea.value = emailToCopy;
+                    textArea.style.position = 'fixed';
+                    textArea.style.opacity = '0';
+                    document.body.appendChild(textArea);
+                    textArea.select();
+
+                    const successful = document.execCommand('copy');
+                    document.body.removeChild(textArea);
+
+                    if (successful) {
+                        emailTextSpan.textContent = "✓ Email Copiado!";
+                        emailBtn.style.color = "#fff";
+
+                        setTimeout(() => {
+                            emailTextSpan.textContent = originalText;
+                            emailBtn.style.color = "#999";
+                        }, 2000);
+                    }
+                } catch (err) {
+                    console.error('Erro no fallback:', err);
+                }
+            }
+        })();
+
+        // ==================== STICKY WHATSAPP (APPEARS AFTER 2000PX) ====================
+        (function () {
+            const whatsappBtn = document.getElementById('whatsappBtn');
+            const SCROLL_THRESHOLD = 2000;
+
+            if (!whatsappBtn) return;
+
+            function handleScroll() {
+                const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+                if (scrollPosition > SCROLL_THRESHOLD) {
+                    whatsappBtn.classList.add('visible');
+                } else {
+                    whatsappBtn.classList.remove('visible');
+                }
+            }
+
+            window.addEventListener('scroll', handleScroll, { passive: true });
+            handleScroll(); // Check initial state
+        })();
+
+        // ==================== STICKY CTA (APPEARS AFTER 1500PX) ====================
+        (function () {
+            const stickyCta = document.getElementById('sticky-cta');
+            const SCROLL_THRESHOLD = 1500;
+
+            if (!stickyCta) return;
+
+            function handleStickyScroll() {
+                const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+                if (scrollPosition > SCROLL_THRESHOLD) {
+                    stickyCta.classList.add('visible');
+                } else {
+                    stickyCta.classList.remove('visible');
+                }
+            }
+
+            window.addEventListener('scroll', handleStickyScroll, { passive: true });
+            handleStickyScroll();
+        })();
+
+        // ==================== FOOTER YEAR ====================
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+    <script src="assets/js/stars.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>The Elite Agency — O Fim do Modelo de Agência</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dooigd0d3/image/upload/v1766771870/GENERATION-removebg-preview_yfwn01.png">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* ========== CORE DESIGN SYSTEM ========== */
+        :root {
+            --bg-black: #000000;
+            --glass-white: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --accent-gold: rgba(255, 255, 255, 0.9);
+            --text-main: rgba(255, 255, 255, 0.95);
+            --text-dim: rgba(255, 255, 255, 0.6);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Inter', -apple-system, system-ui, sans-serif; 
+            background: var(--bg-black); 
+            color: #fff; 
+            line-height: 1.6; 
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        .starry-background {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -1;
+            background: radial-gradient(circle at center, #050505 0%, #000000 100%);
+        }
+
+        .container { 
+            max-width: 1200px; margin: 0 auto; padding: 0 24px; width: 100%;
+        }
+
+        section { padding: 100px 0; }
+
+        /* ========== NAVIGATION ========== */
+        nav {
+            position: fixed; top: 0; left: 0; width: 100%; padding: 30px 0; z-index: 1000;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+
+        .back-link {
+            display: inline-flex; align-items: center; gap: 10px;
+            color: var(--text-dim); text-decoration: none;
+            font-size: 13px; font-weight: 500; letter-spacing: 1px;
+            text-transform: uppercase; transition: all 0.3s ease;
+        }
+
+        .back-link:hover { color: #fff; transform: translateX(-5px); }
+
+        /* ========== HERO ========== */
+        .hero { padding: 180px 0 100px; text-align: center; }
+
+        .section-label {
+            display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: 3px;
+            text-transform: uppercase; color: var(--text-dim);
+            background: rgba(255, 255, 255, 0.05); padding: 8px 20px; border-radius: 50px;
+            border: 1px solid var(--glass-border); margin-bottom: 32px;
+        }
+
+        h1 {
+            font-size: clamp(40px, 6vw, 72px); font-weight: 200; line-height: 1.1; margin-bottom: 32px;
+            letter-spacing: -3px;
+        }
+
+        h1 strong { font-weight: 500; }
+
+        .hero-desc {
+            font-size: 20px; font-weight: 200; color: var(--text-dim);
+            max-width: 850px; margin: 0 auto 60px; line-height: 1.7;
+        }
+
+        /* ========== PHILOSOPHY ========== */
+        .phil-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+
+        .phil-card {
+            background: var(--glass-white); border: 1px solid var(--glass-border);
+            border-radius: 32px; padding: 48px;
+            transition: all 0.4s ease;
+        }
+
+        .phil-card:hover { border-color: rgba(251, 191, 36, 0.3); transform: translateY(-8px); }
+
+        .phil-icon { font-size: 32px; color: #fff; margin-bottom: 32px; opacity: 0.8; }
+
+        .phil-card h3 { font-size: 24px; font-weight: 400; margin-bottom: 20px; }
+
+        .phil-card p { font-size: 16px; color: var(--text-dim); font-weight: 200; }
+
+        /* ========== THE MANIFESTO ========== */
+        .manifesto {
+            background: rgba(255,255,255,0.01); border-top: 1px solid var(--glass-border);
+        }
+
+        .manifesto-box {
+            background: var(--glass-white); border: 1px solid var(--glass-border);
+            border-radius: 24px; padding: 80px 60px; text-align: center;
+        }
+
+        .manifesto-box h2 { font-size: 40px; font-weight: 200; margin-bottom: 40px; }
+
+        .manifesto-box p {
+            font-size: 18px; color: var(--text-dim); font-weight: 200; max-width: 800px;
+            margin: 0 auto 40px; line-height: 1.8;
+        }
+
+        .btn-manifesto {
+            display: inline-flex; align-items: center; gap: 12px;
+            background: #fff; color: #000; padding: 20px 48px; border-radius: 50px;
+            font-weight: 600; text-decoration: none; transition: all 0.3s ease;
+        }
+
+        .btn-manifesto:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(255,255,255,0.2); }
+
+        /* ========== FOOTER ========== */
+        footer { padding: 60px 0; text-align: center; opacity: 0.3; font-size: 12px; border-top: 1px solid var(--glass-border); }
+
+        @media (max-width: 900px) {
+            .phil-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 40px; }
+            .hero { padding: 140px 0 60px; }
+            .manifesto-box { padding: 40px 24px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="starry-background" id="starryBg"></div>
+
+    <nav>
+        <div class="container nav-inner">
+            <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Voltar à Agência</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <span class="section-label">A Nossa Filosofia</span>
+                <h1>Crafting Elite Empires.<br><strong>The Death of the Agency.</strong></h1>
+                <p class="hero-desc">
+                    O modelo de marketing tradicional está morto. Onde outros vendem "serviços" e "horas", nós instalamos **infraestrutura soberana**. Somos arquitetos de sistemas de escala projetados para quem não aceita nada menos que a dominância absoluta.
+                </p>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="phil-grid">
+                <div class="phil-card">
+                    <div class="phil-icon"><i class="fas fa-gem"></i></div>
+                    <h3>Seleção Natural</h3>
+                    <p>O sucesso é impossível sem a parceria certa. Recusamos a maioria das candidaturas para garantir foco absoluto na engenharia de cada império que construímos.</p>
+                </div>
+                <div class="phil-card">
+                    <div class="phil-icon"><i class="fas fa-microchip"></i></div>
+                    <h3>Sistemas de Escala</h3>
+                    <p>Marketing é sorte; engenharia é previsível. Usamos IA proprietária e infraestrutura técnica de ponta para remover a incerteza do seu faturamento.</p>
+                </div>
+                <div class="phil-card">
+                    <div class="phil-icon"><i class="fas fa-crown"></i></div>
+                    <h3>Autoridade Indiscutível</h3>
+                    <p>Não competimos por preço. Construímos autoridade. Transformamos o seu negócio na única escolha lógica para clientes de alto ticket.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="manifesto">
+            <div class="container">
+                <div class="manifesto-box">
+                    <h2>O Manifesto da Inevitabilidade</h2>
+                    <p>
+                        Acreditamos que todo o grande negócio local merece uma infraestrutura de escala global. Unimos o Claude Code, a Psicologia de Alta Retenção e o Design de Elite para construir o Sucesso Inevitável.
+                    </p>
+                    <a href="https://wa.me/351924132341?text=Quero%20fazer%20parte%20da%20Elite" class="btn-manifesto">
+                        Falar com um Arquiteto de Escala
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 The Elite Agency. Masters of Scaling Locally.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/stars.js"></script>
+    <script>
+        if (!window.createStars) {
+            const bg = document.getElementById('starryBg');
+            for(let i=0; i<80; i++) {
+                const star = document.createElement('div');
+                star.style.position = 'absolute';
+                star.style.width = '1px'; star.style.height = '1px';
+                star.style.background = '#fff'; star.style.opacity = Math.random() * 0.3;
+                star.style.left = Math.random() * 100 + '%'; star.style.top = Math.random() * 100 + '%';
+                bg.appendChild(star);
+            }
+        }
+    </script>
+</body>
+</html>

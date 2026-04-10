@@ -1,0 +1,37 @@
+﻿1813: .master-funnel {
+1821: .master-funnel-title {
+1826: .funnel-flow {
+1835: .funnel-node {
+1847: .funnel-node:hover {
+1852: .funnel-node-rect {
+1855: .funnel-node-trap {
+1863: .funnel-node-trap::before {
+1872: .funnel-node-gold {
+1876: .funnel-node-gold .funnel-node-title {
+1880: .funnel-node-title {
+1887: .funnel-node-sub {
+1903: .data-loop {
+1912: .data-loop-svg {
+1921: .data-loop-label {
+1948: .data-loop { display: none; }
+1965: .funnel-node { min-width: 220px; padding: 20px 40px; }
+1966: .master-funnel { padding: 40px 20px; }
+1971: .funnel-node { min-width: 180px; padding: 18px 30px; }
+2607: <div class="master-funnel">
+2608: <div class="master-funnel-title">
+2609: <span class="ante">Strategic Acquisition Engine</span>
+2611: <div class="funnel-flow">
+2612: <div class="funnel-node funnel-node-rect">
+2613: <span class="funnel-node-title">TRAFFIC</span>
+2614: <span class="funnel-node-sub">Meta + Google Ads</span>
+2619: <div class="funnel-node funnel-node-rect">
+2620: <span class="funnel-node-title">WEBSITE</span>
+2621: <span class="funnel-node-sub">Convert at 3%+</span>
+2626: <div class="funnel-node funnel-node-trap">
+2627: <span class="funnel-node-title">FUNNEL</span>
+2628: <span class="funnel-node-sub">Qualify + Nurture</span>
+2633: <div class="funnel-node funnel-node-rect funnel-node-gold">
+2634: <span class="funnel-node-title">REVENUE</span>
+2638: <div class="data-loop">
+2639: <svg viewBox="0 0 200 200" class="data-loop-svg">
+2643: <span class="data-loop-label">DAT.<br>LOO</span>
